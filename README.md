@@ -27,6 +27,7 @@ Randomize classes for characters in Fire Emblem Echoes: Shadows of Valentia. Out
 * RainThunder for the original FE14 Nightmare modules.
 * Einstein95 for DSDecmp.
 * Hextator for Nightmare 2 which was a major inspiration for Paragon.
+* Lil loader & albinopelican for updating
 
 * [FontAwesome](https://fontawesome.com/) for icons. NOTE: Most icons were colorized to work better with light and dark modes.
 
