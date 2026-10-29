@@ -1,0 +1,184 @@
+---
+Job:
+  size: 160
+  key: jid
+  display_function: fe15_job
+  fields:
+    - id: label
+      type: label
+      generate_from: jid
+    - id: jid
+      type: string
+    - id: name
+      type: message
+      paths: [m/Job.bin.lz]
+    - id: aid
+      type: string
+    - id: description
+      type: message
+      paths: [m/Job.bin.lz]
+    - id: panel
+      type: string
+    - id: rank
+      type: int
+      format: i8
+    - id: movement_type
+      type: int
+      format: i8
+    - id: footstep_interval
+      type: int
+      format: u8
+    - id: magic_tier
+      type: int
+      format: i8
+    - id: max_level
+      type: int
+      format: u8
+    - id: initial_level
+      type: int
+      format: u8
+    - id: exp
+      type: int
+      format: u8
+    - id: power
+      type: int
+      format: u8
+    - id: exp_coefficient
+      type: int
+      format: u16
+    - id: sort
+      type: int
+      format: u16
+    - id: unused
+      type: int
+      format: u8
+    - id: class_type_flags
+      type: int
+      format: u8
+    - id: item_type_flags
+      type: int
+      format: u8
+    - id: player_item
+      type: int
+      format: u8
+    - id: bases
+      type: bytes
+      length: 8
+    - id: unknown_stats
+      type: bytes
+      length: 8
+    - id: growths
+      type: bytes
+      length: 8
+    - id: p_growths
+      type: bytes
+      length: 8
+    - id: default_item_1
+      type: reference
+      format: string
+      table: items
+    - id: default_item_2
+      type: reference
+      format: string
+      table: items
+    - id: magic_1
+      type: string
+    - id: magic_2
+      type: string
+    - id: magic_3
+      type: string
+    - id: promotes_from
+      type: reference
+      format: string
+      table: jobs
+    - id: footstep_name
+      type: string
+    - id: skill_1
+      type: reference
+      format: string
+      table: skills
+    - id: skill_2
+      type: reference
+      format: string
+      table: skills
+    - id: skill_3
+      type: reference
+      format: string
+      table: skills
+    - id: skill_4
+      type: reference
+      format: string
+      table: skills
+    - id: skill_5
+      type: reference
+      format: string
+      table: skills
+    - id: skill_6
+      type: reference
+      format: string
+      table: skills
+    - id: skill_7
+      type: reference
+      format: string
+      table: skills
+    - id: skill_8
+      type: reference
+      format: string
+      table: skills
+    - id: reserved
+      type: bytes
+      length: 32
+
+JobCC:
+  size: 12
+  key: cc
+  display_function: fe15_job_cc
+  fields:
+    - id: label
+      type: label
+      generate_from: cc
+    - id: cc
+      type: string
+    - id: count
+      type: int
+      skip_write: true
+      format: i32
+    - id: job_cc_data
+      type: record
+      typename: JobCCData
+      format: pointer
+
+JobCCData:
+  size: 0
+  fields:
+    - id: items
+      type: list
+      typename: JobCCDataItem
+      format:
+        type: indirect
+        index: -2
+        offset: 4
+        format: u32
+
+JobCCDataItem:
+  size: 20
+  key: job
+  display_function: fe15_job_cc_data_item
+  fields:
+    - id: job
+      type: reference
+      table: jobs
+      format: string
+    - id: visual_level
+      type: int
+      format: u16
+    - id: internal_level
+      type: int
+      format: u16
+    - id: g
+      type: string
+    - id: item
+      type: string
+    - id: unknown_2
+      type: bytes
+      length: 4

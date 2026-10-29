@@ -1,0 +1,5 @@
+---
+typename: CastleInitBuildingsEntryPointer
+top_level:
+  type: widget
+  id: pointer

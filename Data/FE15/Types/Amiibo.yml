@@ -1,0 +1,23 @@
+---
+Amiibo:
+  size: 12
+  key: odd
+  display_function: fe15_amiibo
+  fields:
+    - id: odd
+      type: reference
+      table: characters
+      format: string
+    - id: even
+      type: reference
+      table: characters
+      format: string
+    - id: count
+      type: int
+      format: u8
+    - id: level
+      type: int
+      format: i8
+    - id: unused
+      type: bytes
+      length: 2

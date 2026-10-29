@@ -1,0 +1,48 @@
+---
+PersonalityTable:
+  node:
+    id: personality
+    name: Personality
+  size: 0
+  fields:
+    - id: label
+      type: label
+      forced_value: PersonalityData
+      index: 0
+    - id: personalities
+      type: list
+      typename: Personality
+      table: personalities
+      format:
+        type: postfix_count
+        label: PersonalityDataNum
+
+Personality:
+  size: 56
+  key: name
+  display: name
+  fields:
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: boon_base
+      type: bytes
+      length: 8
+    - id: boon_growth
+      type: bytes
+      length: 8
+    - id: boon_cap
+      type: bytes
+      length: 8
+    - id: bane_base
+      type: bytes
+      length: 8
+    - id: bane_growth
+      type: bytes
+      length: 8
+    - id: bane_cap
+      type: bytes
+      length: 8

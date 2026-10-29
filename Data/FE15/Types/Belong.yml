@@ -1,0 +1,27 @@
+---
+Belong:
+  size: 20
+  key: bid
+  display: name
+  icon: belong
+  fields:
+    - id: label
+      type: label
+      generate_from: bid
+    - id: bid
+      type: string
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: name_2
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: icon
+      type: int
+      format: u8
+    - id: unknown
+      type: bytes
+      length: 3

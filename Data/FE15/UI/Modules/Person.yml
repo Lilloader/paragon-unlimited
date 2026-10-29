@@ -1,0 +1,263 @@
+---
+overrides:
+  army:
+    type: reference_widget
+    width: 200
+  job:
+    type: sprite_form
+  gender:
+    type: data_combo_box
+    target_type: int
+    items:
+      Male: 0
+      Female: 1
+  route:
+    type: data_combo_box
+    target_type: int
+    items:
+      None: 0
+      Alm: 1
+      Celica: 2
+typename: Person
+top_level:
+  type: vbox
+  inner:
+    - type: group_box
+      height: 200
+      title: Overview
+      inner:
+        type: hbox
+        inner:
+          - type: mini_portrait_box
+            retrieve_mode: character
+            mode: HR
+            image_dim: 160
+            box_dim: 170
+          - type: form
+            no_margins: true
+            ids:
+              - pid
+              - name
+              - description
+          - type: form
+            no_margins: true
+            ids:
+              - gender
+              - route
+              - age
+              - army
+              - voice
+    - type: tabs
+      tabs:
+        - title: Core Data
+          inner:
+            type: scroll
+            inner:
+              type: grid
+              no_margins: true
+              cells:
+                - inner:
+                    type: group_box
+                    title: Stats
+                    no_margins: true
+                    inner:
+                      type: spin_box_matrix
+                      height: 130
+                      ids:
+                        - bases
+                        - maxes
+                        - growths
+                      columns:
+                        - HP
+                        - ATK
+                        - SKL
+                        - SPD
+                        - LCK
+                        - DEF
+                        - RES
+                        - MOV
+                      signed:
+                        0: false
+                - column: 1
+                  column_span: 2
+                  inner:
+                    type: group_box
+                    title: IDs
+                    no_margins: true
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - job
+                        - fid
+                        - aid
+                        - boss_bgm
+                - row: 1
+                  inner:
+                    type: group_box
+                    title: Magic
+                    no_margins: true
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - summon_level
+                        - summon_hard_mode_level_bonus
+                        - black_magic
+                        - white_magic
+                - row: 1
+                  column: 1
+                  inner:
+                    type: group_box
+                    title: Items
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - equipped_item
+                        - dropped_item
+                        - drop_rate_%
+                - row: 1
+                  column: 2
+                  inner:
+                    type: group_box
+                    title: Misc.
+                    no_margins: true
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - flags
+                        - turn
+                        - recruit_renown
+                        - defeat_renown
+                - row: 2
+                  inner:
+                    type: group_box
+                    title: Skills
+                    no_margins: true
+                    inner:
+                      type: hbox
+                      inner:
+                        - type: vbox
+                          inner:
+                            - type: widget
+                              id: skill_1
+                            - type: widget
+                              id: skill_2
+                            - type: widget
+                              id: skill_3
+                            - type: widget
+                              id: skill_4
+                        - type: vbox
+                          inner:
+                            - type: widget
+                              id: skill_5
+                            - type: widget
+                              id: skill_6
+                            - type: widget
+                              id: skill_7
+                            - type: widget
+                              id: skill_8
+                - row: 2
+                  column: 1
+                  inner:
+                    type: group_box
+                    title: Experience
+                    no_margins: true
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - level
+                        - gain_exp
+                        - experience
+                        - coefficient
+                - row: 2
+                  column: 2
+                  inner:
+                    type: group_box
+                    title: Fatigue
+                    inner:
+                      type: form
+                      no_margins: true
+                      ids:
+                        - tolerance
+                        - recovery_%_a
+                        - recovery_%_b
+        - title: Supports
+          inner:
+            type: fe15_support_widget
+        - title: Dialogue
+          inner:
+            type: vbox
+            inner:
+              - type: group_box
+                title: Base Conversations
+                inner:
+                  type: fe15_base_conversation_button
+              - type: group_box
+                title: Generic Lines
+                inner:
+                  type: dependent_messages
+                  key_prefix: PID_
+                  lines:
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_レベルアップ_%s_身体"
+                      label: "Level Up (Physical)"
+                      param_count: 1
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_レベルアップ_%s_感覚"
+                      label: "Level Up (Sense)"
+                      param_count: 1
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_レベルアップ_%s_気分"
+                      label: "Level Up (Feel)"
+                      param_count: 1
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_レベルアップ_%s_無し"
+                      label: "Level Up (None)"
+                      param_count: 1
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_レベルアップ_%s_限界"
+                      label: "Level Up (Limit)"
+                      param_count: 1
+                    - path: m/LVUP.bin.lz
+                      localized: true
+                      key: "MID_クラスチェンジ_%s"
+                      label: "Class Change"
+                      param_count: 1
+                    - path: m/Result.bin.lz
+                      localized: true
+                      key: "MID_リザルト_%s_完勝"
+                      label: "Result (Complete Victory)"
+                      param_count: 1
+                    - path: m/Result.bin.lz
+                      localized: true
+                      key: "MID_リザルト_%s_辛勝"
+                      label: "Result (Close Call)"
+                      param_count: 1
+                    - path: m/Result.bin.lz
+                      localized: true
+                      key: "MID_リザルト_%s_死亡"
+                      label: "Result (Deaths)"
+                      param_count: 1
+                    - path: m/死亡.bin.lz
+                      localized: true
+                      key: "MID_DIE_%s"
+                      label: "Death"
+                      param_count: 1
+                    - path: m/撤退.bin.lz
+                      localized: true
+                      key: "MID_DIE_CASUAL_%s"
+                      label: "Death (Casual)"
+                      param_count: 1
+        - title: Portraits
+          inner:
+            type: portrait_viewer
+            retrieve_mode: character

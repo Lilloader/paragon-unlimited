@@ -1,0 +1,71 @@
+---
+typename: Skill
+overrides:
+  description:
+    type: message_multi_line_widget
+  icon:
+    type: icon_combo_box
+    icons: skill
+  extras:
+    type: data_combo_box
+    items:
+      None: 0
+      Uninheritable: 1
+      "Dragon Form Only": 2
+      "Beast Form Only": 3
+      "Enemy Only": 4
+      "DLC": 5
+top_level:
+  type: grid
+  cells:
+    - column_span: 2
+      inner:
+        type: group_box
+        title: Overview
+        inner:
+          type: form
+          ids:
+            - rsid
+            - id
+            - name
+            - description
+    - row: 1
+      inner:
+        type: group_box
+        title: Stats
+        inner:
+          type: form
+          ids:
+            - stat
+            - trigger_factor
+            - trigger_divisor
+    - row: 1
+      column: 1
+      inner:
+        type: group_box
+        title: Misc. && Unknown
+        inner:
+          type: vbox
+          inner:
+            - type: form
+              ids:
+                - icon
+                - extras
+                - unknown
+                - unknown_2
+            - type: fe13_skill_icon_import
+    - row: 2
+      column_span: 2
+      inner:
+        type: group_box
+        title: Effects (Unlimited)
+        inner:
+          type: fe13_skill_fx_widget
+    - row: 3
+      column_span: 2
+      inner:
+        type: group_box
+        title: Notes
+        inner:
+          type: label
+          text: "The game's own skills keep their built-in effects (with the exp04 code.ips, Hit Rate +10, Sure Strike, Avoid +10 and Gamble run from their Effects lines instead). New skills (ids 103-127; the game keeps 128 skills per unit) get what they do from the Effects list above, which needs the Paragon Unlimited code.ips (exp04 or later). Trigger chances (Stats) and icons work for every skill."

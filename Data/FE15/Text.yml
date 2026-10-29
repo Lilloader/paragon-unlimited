@@ -1,0 +1,14 @@
+---
+- path: m/Name.bin.lz
+- path: m/Item.bin.lz
+- path: m/Skill.bin.lz
+- path: m/Tutorial.bin.lz
+- path: m/GameData.bin.lz
+- path: m/Job.bin.lz
+- path: m/GMap.bin.lz
+- path: m/Dungeon.bin.lz
+- path: m/後日談.bin.lz
+- path: m/LVUP.bin.lz
+- path: m/Result.bin.lz
+- path: m/死亡.bin.lz
+- path: m/撤退.bin.lz

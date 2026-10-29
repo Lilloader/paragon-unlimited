@@ -1,0 +1,111 @@
+---
+typename: Spawn
+overrides:
+  pid:
+    type: string_line_edit
+    widget_id: pid
+  coord_1:
+    type: spin_boxes
+    widget_id: coord_1
+  coord_2:
+    type: spin_boxes
+    widget_id: coord_2
+  team:
+    type: data_combo_box
+    widget_id: team
+    target_type: int
+    items:
+      Player: 0
+      Enemy: 1
+      Ally: 2
+  spawn_flags_1:
+    type: bitflags_widget
+    flags:
+      - Unknown 01
+      - Forced Unit
+      - Unknown 04
+      - Unknown 08
+      - Deployment Slot
+      - Recruit at End of Chapter
+      - Normal
+      - Hard
+  spawn_flags_2:
+    type: bitflags_widget
+    flags:
+      - Lunatic
+      - Unknown 02
+      - New Player Unit (?)
+      - Boss (?)
+      - Can't move
+      - Unknown 20
+      - Unknown 40
+      - Unknown 80
+top_level:
+  type: scroll
+  inner:
+    type: vbox
+    inner:
+      - type: group_box
+        title: Core Data
+        flat: true
+        inner:
+          type: form
+          ids:
+            - pid
+            - team
+            - coord_1
+            - coord_2
+      - type: group_box
+        title: Spawn Flags
+        inner:
+          type: form
+          ids:
+            - spawn_condition
+            - spawn_flags_1
+            - spawn_flags_2
+            - spawn_flags_3
+            - spawn_flags_4
+      - type: group_box
+        title: Items
+        flat: true
+        inner:
+          type: form
+          ids:
+            - item_1
+            - item_bitflags_1
+            - item_2
+            - item_bitflags_2
+            - item_3
+            - item_bitflags_3
+            - item_4
+            - item_bitflags_4
+            - item_5
+            - item_bitflags_5
+      - type: group_box
+        title: AI
+        flat: true
+        inner:
+          type: form
+          ids:
+            - action
+            - action_param
+            - mission
+            - mission_param
+            - attack
+            - attack_param
+            - move
+            - move_param
+            - end_section_1
+            - end_section_2
+            - end_section_3
+            - end_section_4
+      - type: group_box
+        title: Misc. && Unknown
+        flat: true
+        inner:
+          type: form
+          ids:
+            - unknown_1
+            - unknown_2
+            - unknown_3
+            - padding_?

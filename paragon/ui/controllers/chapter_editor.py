@@ -1,0 +1,137 @@
+import logging
+import traceback
+
+from PySide6 import QtCore
+from PySide6.QtCore import QSortFilterProxyModel
+
+from paragon.model.exalt_script_model import ExaltScriptModel
+from paragon.ui.controllers.error_dialog import ErrorDialog
+
+from paragon.ui import utils
+
+from paragon.model.game import Game
+from paragon.ui.controllers.fe13_chapter_editor_tabs import FE13ChapterEditorTabs
+
+from paragon.ui.controllers.new_chapter_dialog import NewChapterDialog
+from paragon.ui.controllers.fe14_chapter_editor_tabs import FE14ChapterEditorTabs
+from paragon.ui.controllers.fe14_new_chapter_dialog import FE14NewChapterDialog
+from paragon.ui.controllers.fe15_chapter_editor_tabs import FE15ChapterEditorTabs
+from paragon.ui.views.ui_chapter_editor import Ui_ChapterEditor
+
+
+class ChapterEditor(Ui_ChapterEditor):
+    def __init__(self, ms, gs, scripts_model: ExaltScriptModel):
+        super().__init__()
+        self.project = gs.project
+        self.models = gs.models
+        self.gd = gs.data
+        self.chapters = gs.chapters
+        self.new_chapter_dialog = None
+        self.scripts_model = scripts_model
+
+        # Set up the chapter list.
+        rid, field_id = self.gd.table("chapters")
+        models = gs.models
+        self.model = models.get(rid, field_id)
+        self.proxy_model = QSortFilterProxyModel()
+        self.proxy_model.setFilterCaseSensitivity(
+            QtCore.Qt.CaseSensitivity.CaseInsensitive
+        )
+        source = self.model
+        # Paragon Unlimited: FE13 DLC maps are listed after the normal chapters.
+        self.dlc_model = None
+        if gs.project.game == Game.FE13 and hasattr(gs.chapters, "dlc_episodes"):
+            try:
+                episodes = gs.chapters.dlc_episodes()
+                if episodes:
+                    from PySide6.QtCore import QConcatenateTablesProxyModel
+                    from PySide6.QtGui import QStandardItemModel, QStandardItem
+
+                    self.dlc_model = QStandardItemModel()
+                    for e in episodes:
+                        item = QStandardItem(f"DLC {e['id']}: {e.get('name') or e['id']}")
+                        item.setData("DLC:CID_" + e["id"], QtCore.Qt.ItemDataRole.UserRole)
+                        item.setEditable(False)
+                        self.dlc_model.appendRow(item)
+                    self.concat_model = QConcatenateTablesProxyModel()
+                    self.concat_model.addSourceModel(self.model)
+                    self.concat_model.addSourceModel(self.dlc_model)
+                    source = self.concat_model
+            except Exception:
+                logging.exception("Could not list DLC maps.")
+        self.proxy_model.setSourceModel(source)
+        self.list.setModel(self.proxy_model)
+
+        # Set up tabs.
+        if gs.project.game == Game.FE13:
+            self.tabs = FE13ChapterEditorTabs(ms, gs)
+            self.splitter.addWidget(self.tabs)
+        elif gs.project.game == Game.FE14:
+            self.tabs = FE14ChapterEditorTabs(ms, gs)
+            self.splitter.addWidget(self.tabs)
+        elif gs.project.game == Game.FE15:
+            self.tabs = FE15ChapterEditorTabs(ms, gs)
+            self.splitter.addWidget(self.tabs)
+        else:
+            raise NotImplementedError()
+        self.splitter.setStretchFactor(1, 1)
+
+        # Set up actions.
+        self.list.selectionModel().currentChanged.connect(
+            self._on_select, QtCore.Qt.ConnectionType.UniqueConnection
+        )
+        self.new_action.triggered.connect(
+            self._on_new, QtCore.Qt.ConnectionType.UniqueConnection
+        )
+        self.toggle_chapter_list_action.triggered.connect(
+            self._on_toggle_chapter_list, QtCore.Qt.ConnectionType.UniqueConnection
+        )
+        self.search.textChanged.connect(
+            self._on_search, QtCore.Qt.ConnectionType.UniqueConnection
+        )
+
+    def _on_search(self):
+        self.proxy_model.setFilterRegularExpression(self.search.text())
+
+    def _on_new(self):
+        rid, field_id = self.gd.table("chapters")
+        chapter_model = self.models.get(rid, field_id)
+        if self.project.game == Game.FE13 or self.project.game == Game.FE15:
+            self.new_chapter_dialog = NewChapterDialog(
+                self.gd, self.chapters, chapter_model, self.scripts_model
+            )
+        elif self.project.game == Game.FE14:
+            self.new_chapter_dialog = FE14NewChapterDialog(
+                self.gd, self.chapters, chapter_model, self.scripts_model
+            )
+        self.new_chapter_dialog.show()
+
+    def _on_toggle_chapter_list(self):
+        self.left_widget.setVisible(not self.left_widget.isVisible())
+
+    def _on_select(self):
+        index = self.list.currentIndex()
+        if not index:
+            self.tabs.set_target(None)
+            return
+        decl = self.list.model().data(index, QtCore.Qt.ItemDataRole.UserRole)
+        if not decl:
+            self.tabs.set_target(None)
+            return
+        if isinstance(decl, str) and decl.startswith("DLC:"):
+            key = decl[4:]
+        else:
+            key = self.gd.key(decl)
+        if not key:
+            utils.warning(
+                "The chapter has a bad CID. Corrupted chapter data?", "Invalid CID"
+            )
+            self.list.clearSelection()
+            return
+        try:
+            data = self.chapters.load(key)
+            self.tabs.set_target(data)
+        except:
+            logging.exception(f"Failed to load chapter {key}")
+            self.error_dialog = ErrorDialog(traceback.format_exc())
+            self.error_dialog.show()

@@ -1,0 +1,150 @@
+---
+typename: PUSupportEx
+overrides:
+  support_type_052:
+    type: data_combo_box
+    enum: SupportType
+  support_type_053:
+    type: data_combo_box
+    enum: SupportType
+  support_type_054:
+    type: data_combo_box
+    enum: SupportType
+  support_type_055:
+    type: data_combo_box
+    enum: SupportType
+  support_type_056:
+    type: data_combo_box
+    enum: SupportType
+  support_type_057:
+    type: data_combo_box
+    enum: SupportType
+  support_type_058:
+    type: data_combo_box
+    enum: SupportType
+  support_type_059:
+    type: data_combo_box
+    enum: SupportType
+top_level:
+  type: vbox
+  inner:
+    - type: group_box
+      title: "Support #052 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_052
+              - support_type_052
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_052
+              - type: fe13_support_slot_tools
+                field_id: support_character_052
+    - type: group_box
+      title: "Support #053 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_053
+              - support_type_053
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_053
+              - type: fe13_support_slot_tools
+                field_id: support_character_053
+    - type: group_box
+      title: "Support #054 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_054
+              - support_type_054
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_054
+              - type: fe13_support_slot_tools
+                field_id: support_character_054
+    - type: group_box
+      title: "Support #055 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_055
+              - support_type_055
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_055
+              - type: fe13_support_slot_tools
+                field_id: support_character_055
+    - type: group_box
+      title: "Support #056 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_056
+              - support_type_056
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_056
+              - type: fe13_support_slot_tools
+                field_id: support_character_056
+    - type: group_box
+      title: "Support #057 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_057
+              - support_type_057
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_057
+              - type: fe13_support_slot_tools
+                field_id: support_character_057
+    - type: group_box
+      title: "Support #058 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_058
+              - support_type_058
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_058
+              - type: fe13_support_slot_tools
+                field_id: support_character_058
+    - type: group_box
+      title: "Support #059 (Unlimited)"
+      inner:
+        type: vbox
+        inner:
+          - type: form
+            ids:
+              - support_character_059
+              - support_type_059
+          - type: hbox
+            inner:
+              - type: fe13_support_ex_dialogue_button
+                field_id: support_character_059
+              - type: fe13_support_slot_tools
+                field_id: support_character_059

@@ -1,0 +1,31 @@
+---
+- id: person
+  name: Person
+  type: multi
+  typename: PersonFile
+  directory: data/person/
+  glob: "**/*.bin.lz"
+- id: dispos
+  name: Spawns / Dispos
+  type: multi
+  typename: DispoFile
+  directory: data/dispos/
+  glob: "**/*.bin.lz"
+- id: grids
+  name: Terrain Grids
+  type: multi
+  typename: Grid
+  directory: data/terrain/
+  glob: "**/*.bin.lz"
+- id: map_configs
+  name: Map Configs
+  type: multi
+  typename: MapConfigFile
+  directory: map/data/
+  glob: "*.bin"
+- id: landscape
+  name: Landscape
+  type: multi
+  typename: Landscape
+  directory: data/landscape
+  glob: "**/*.bin.lz"

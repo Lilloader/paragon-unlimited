@@ -1,0 +1,1343 @@
+---
+typename: Person
+overrides:
+  description:
+    type: message_multi_line_widget
+  army:
+    type: reference_widget
+    width: 200
+  bitflags_1:
+    type: bitflags_widget
+    flags:
+      - Female
+      - Hero
+      - Player
+      - Advanced Classes
+      - Leader
+      - Defeat Condition
+      - Movement Ban
+      - Force Battle Animations
+  bitflags_2:
+    type: bitflags_widget
+    flags:
+      - Battle Animation Ban
+      - Experience Gain When Defeated +20
+      - Experience Gain When Defeated -10
+      - Unknown (Experience Gain +?)
+      - Marth / Lucina
+      - Walhart
+      - Avera
+      - Owain
+  bitflags_3:
+    type: bitflags_widget
+    flags:
+      - Manakete
+      - Taguel
+      - Destroy Villages
+      - Crit Ban
+      - Avoid Ban
+      - Enemy Only
+      - Special Performance
+      - Guest
+  bitflags_4:
+    type: bitflags_widget
+    flags:
+      - Original Marth
+      - Entombed Experience (?)
+      - Delivery Face (?)
+      - White Dragon
+  birthday:
+    type: spin_boxes
+  support_type_000:
+    type: data_combo_box
+    enum: SupportType
+  support_type_001:
+    type: data_combo_box
+    enum: SupportType
+  support_type_002:
+    type: data_combo_box
+    enum: SupportType
+  support_type_003:
+    type: data_combo_box
+    enum: SupportType
+  support_type_004:
+    type: data_combo_box
+    enum: SupportType
+  support_type_005:
+    type: data_combo_box
+    enum: SupportType
+  support_type_006:
+    type: data_combo_box
+    enum: SupportType
+  support_type_007:
+    type: data_combo_box
+    enum: SupportType
+  support_type_008:
+    type: data_combo_box
+    enum: SupportType
+  support_type_009:
+    type: data_combo_box
+    enum: SupportType
+  support_type_010:
+    type: data_combo_box
+    enum: SupportType
+  support_type_011:
+    type: data_combo_box
+    enum: SupportType
+  support_type_012:
+    type: data_combo_box
+    enum: SupportType
+  support_type_013:
+    type: data_combo_box
+    enum: SupportType
+  support_type_014:
+    type: data_combo_box
+    enum: SupportType
+  support_type_015:
+    type: data_combo_box
+    enum: SupportType
+  support_type_016:
+    type: data_combo_box
+    enum: SupportType
+  support_type_017:
+    type: data_combo_box
+    enum: SupportType
+  support_type_018:
+    type: data_combo_box
+    enum: SupportType
+  support_type_019:
+    type: data_combo_box
+    enum: SupportType
+  support_type_020:
+    type: data_combo_box
+    enum: SupportType
+  support_type_021:
+    type: data_combo_box
+    enum: SupportType
+  support_type_022:
+    type: data_combo_box
+    enum: SupportType
+  support_type_023:
+    type: data_combo_box
+    enum: SupportType
+  support_type_024:
+    type: data_combo_box
+    enum: SupportType
+  support_type_025:
+    type: data_combo_box
+    enum: SupportType
+  support_type_026:
+    type: data_combo_box
+    enum: SupportType
+  support_type_027:
+    type: data_combo_box
+    enum: SupportType
+  support_type_028:
+    type: data_combo_box
+    enum: SupportType
+  support_type_029:
+    type: data_combo_box
+    enum: SupportType
+  support_type_030:
+    type: data_combo_box
+    enum: SupportType
+  support_type_031:
+    type: data_combo_box
+    enum: SupportType
+  support_type_032:
+    type: data_combo_box
+    enum: SupportType
+  support_type_033:
+    type: data_combo_box
+    enum: SupportType
+  support_type_034:
+    type: data_combo_box
+    enum: SupportType
+  support_type_035:
+    type: data_combo_box
+    enum: SupportType
+  support_type_036:
+    type: data_combo_box
+    enum: SupportType
+  support_type_037:
+    type: data_combo_box
+    enum: SupportType
+  support_type_038:
+    type: data_combo_box
+    enum: SupportType
+  support_type_039:
+    type: data_combo_box
+    enum: SupportType
+  support_type_040:
+    type: data_combo_box
+    enum: SupportType
+  support_type_041:
+    type: data_combo_box
+    enum: SupportType
+  support_type_042:
+    type: data_combo_box
+    enum: SupportType
+  support_type_043:
+    type: data_combo_box
+    enum: SupportType
+  support_type_044:
+    type: data_combo_box
+    enum: SupportType
+  support_type_045:
+    type: data_combo_box
+    enum: SupportType
+  support_type_046:
+    type: data_combo_box
+    enum: SupportType
+  support_type_047:
+    type: data_combo_box
+    enum: SupportType
+  support_type_048:
+    type: data_combo_box
+    enum: SupportType
+  support_type_049:
+    type: data_combo_box
+    enum: SupportType
+  support_type_050:
+    type: data_combo_box
+    enum: SupportType
+  support_type_051:
+    type: data_combo_box
+    enum: SupportType
+  job:
+    type: sprite_form
+  male_reclass_1:
+    type: sprite_form
+  male_reclass_2:
+    type: sprite_form
+  male_reclass_3:
+    type: sprite_form
+  female_reclass_1:
+    type: sprite_form
+  female_reclass_2:
+    type: sprite_form
+  female_reclass_3:
+    type: sprite_form
+top_level:
+  type: vbox
+  inner:
+    - type: group_box
+      height: 210
+      title: Overview
+      inner:
+        type: hbox
+        inner:
+          - type: mini_portrait_box
+            retrieve_mode: character
+            mode: FC
+            image_dim: 128
+            box_dim: 140
+          - type: form
+            no_margins: true
+            ids:
+              - pid
+              - name
+              - description
+          - type: form
+            no_margins: true
+            ids:
+              - id
+              - army
+              - parent
+              - birthday
+    - type: tabs
+      tabs:
+        - title: Core Data
+          inner:
+            type: scroll
+            inner:
+              type: grid
+              cells:
+                - inner:
+                    type: group_box
+                    title: IDs
+                    inner:
+                      type: form
+                      ids:
+                        - job
+                        - fid
+                        - bgm
+                        - enemy_data
+                - column: 1
+                  row_span: 2
+                  inner:
+                    type: group_box
+                    title: Level && Weapon Experience
+                    inner:
+                      type: form
+                      ids:
+                        - level
+                        - hard_bonus
+                        - lunatic_bonus
+                        - sword_exp
+                        - lance_exp
+                        - axe_exp
+                        - bow_exp
+                        - tome_exp
+                        - staff_exp
+                - row: 1
+                  inner:
+                    type: group_box
+                    title: Misc. && Unknown
+                    inner:
+                      type: form
+                      ids:
+                        - autolevel_type
+                        - unknown
+                        - padding
+        - title: Flags
+          inner:
+            type: scroll
+            inner:
+              type: grid
+              cells:
+                - inner:
+                    type: widget
+                    id: bitflags_1
+                - column: 1
+                  inner:
+                    type: widget
+                    id: bitflags_2
+                - column: 2
+                  inner:
+                    type: widget
+                    id: bitflags_3
+                - column: 3
+                  inner:
+                    type: widget
+                    id: bitflags_4
+        - title: Stats
+          inner:
+            type: scroll
+            inner:
+              type: vbox
+              inner:
+                - type: spin_box_matrix
+                  height: 200
+                  ids:
+                    - additions
+                    - player_growths
+                    - enemy_growths
+                    - modifiers
+                  columns:
+                    - Health
+                    - Attack
+                    - Magic
+                    - Skill
+                    - Speed
+                    - Luck
+                    - Defense
+                    - Resistance
+                - type: grid
+                  cells:
+                    - inner:
+                        type: group_box
+                        title: Male Reclasses
+                        inner:
+                          type: form
+                          ids:
+                            - male_reclass_1
+                            - male_reclass_2
+                            - male_reclass_3
+                    - column: 1
+                      inner:
+                        type: group_box
+                        title: Female Reclasses
+                        inner:
+                          type: form
+                          ids:
+                            - female_reclass_1
+                            - female_reclass_2
+                            - female_reclass_3
+                    - row: 1
+                      inner:
+                        type: form
+                        ids:
+                          - skill_1
+                          - skill_2
+                          - skill_3
+                          - skill_4
+                          - skill_5
+                    - row: 1
+                      column: 1
+                      inner:
+                        type: form
+                        ids:
+                          - normal_random_skill_set
+                          - normal_random_skill_chance
+                          - normal_random_skill_count
+                          - normal_random_skill_padding
+                    - row: 2
+                      inner:
+                        type: form
+                        ids:
+                          - hard_skill_1
+                          - hard_skill_2
+                    - row: 2
+                      column: 1
+                      inner:
+                        type: form
+                        ids:
+                          - hard_random_skill_set
+                          - hard_random_skill_chance
+                          - hard_random_skill_count
+                          - hard_random_skill_padding
+                    - row: 3
+                      inner:
+                        type: form
+                        ids:
+                          - lunatic_skill_1
+                          - lunatic_skill_2
+                          - unknown_skill_1
+                    - row: 3
+                      column: 1
+                      inner:
+                        type: form
+                        ids:
+                          - lunatic_random_skill_set
+                          - lunatic_random_skill_chance
+                          - lunatic_random_skill_count
+                          - lunatic_random_skill_padding
+        - title: Supports
+          inner:
+            type: hbox
+            inner:
+              - type: scroll
+                inner:
+                  type: vbox
+                  inner:
+                    - type: group_box
+                      title: "Support #000"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_000
+                              - support_type_000
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_000
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_000
+                    - type: group_box
+                      title: "Support #001"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_001
+                              - support_type_001
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_001
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_001
+                    - type: group_box
+                      title: "Support #002"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_002
+                              - support_type_002
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_002
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_002
+                    - type: group_box
+                      title: "Support #003"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_003
+                              - support_type_003
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_003
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_003
+                    - type: group_box
+                      title: "Support #004"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_004
+                              - support_type_004
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_004
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_004
+                    - type: group_box
+                      title: "Support #005"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_005
+                              - support_type_005
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_005
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_005
+                    - type: group_box
+                      title: "Support #006"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_006
+                              - support_type_006
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_006
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_006
+                    - type: group_box
+                      title: "Support #007"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_007
+                              - support_type_007
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_007
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_007
+                    - type: group_box
+                      title: "Support #008"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_008
+                              - support_type_008
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_008
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_008
+                    - type: group_box
+                      title: "Support #009"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_009
+                              - support_type_009
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_009
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_009
+                    - type: group_box
+                      title: "Support #010"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_010
+                              - support_type_010
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_010
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_010
+                    - type: group_box
+                      title: "Support #011"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_011
+                              - support_type_011
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_011
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_011
+                    - type: group_box
+                      title: "Support #012"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_012
+                              - support_type_012
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_012
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_012
+                    - type: group_box
+                      title: "Support #013"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_013
+                              - support_type_013
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_013
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_013
+                    - type: group_box
+                      title: "Support #014"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_014
+                              - support_type_014
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_014
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_014
+                    - type: group_box
+                      title: "Support #015"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_015
+                              - support_type_015
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_015
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_015
+                    - type: group_box
+                      title: "Support #016"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_016
+                              - support_type_016
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_016
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_016
+                    - type: group_box
+                      title: "Support #017"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_017
+                              - support_type_017
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_017
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_017
+                    - type: group_box
+                      title: "Support #018"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_018
+                              - support_type_018
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_018
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_018
+                    - type: group_box
+                      title: "Support #019"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_019
+                              - support_type_019
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_019
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_019
+                    - type: group_box
+                      title: "Support #020"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_020
+                              - support_type_020
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_020
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_020
+                    - type: group_box
+                      title: "Support #021"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_021
+                              - support_type_021
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_021
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_021
+                    - type: group_box
+                      title: "Support #022"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_022
+                              - support_type_022
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_022
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_022
+                    - type: group_box
+                      title: "Support #023"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_023
+                              - support_type_023
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_023
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_023
+                    - type: group_box
+                      title: "Support #024"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_024
+                              - support_type_024
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_024
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_024
+                    - type: group_box
+                      title: "Support #025"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_025
+                              - support_type_025
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_025
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_025
+                    - type: group_box
+                      title: "Support #026"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_026
+                              - support_type_026
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_026
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_026
+                    - type: group_box
+                      title: "Support #027"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_027
+                              - support_type_027
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_027
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_027
+                    - type: group_box
+                      title: "Support #028"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_028
+                              - support_type_028
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_028
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_028
+                    - type: group_box
+                      title: "Support #029"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_029
+                              - support_type_029
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_029
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_029
+                    - type: group_box
+                      title: "Support #030"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_030
+                              - support_type_030
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_030
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_030
+                    - type: group_box
+                      title: "Support #031"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_031
+                              - support_type_031
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_031
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_031
+                    - type: group_box
+                      title: "Support #032"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_032
+                              - support_type_032
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_032
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_032
+                    - type: group_box
+                      title: "Support #033"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_033
+                              - support_type_033
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_033
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_033
+                    - type: group_box
+                      title: "Support #034"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_034
+                              - support_type_034
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_034
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_034
+                    - type: group_box
+                      title: "Support #035"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_035
+                              - support_type_035
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_035
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_035
+                    - type: group_box
+                      title: "Support #036"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_036
+                              - support_type_036
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_036
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_036
+                    - type: group_box
+                      title: "Support #037"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_037
+                              - support_type_037
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_037
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_037
+                    - type: group_box
+                      title: "Support #038"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_038
+                              - support_type_038
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_038
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_038
+                    - type: group_box
+                      title: "Support #039"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_039
+                              - support_type_039
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_039
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_039
+                    - type: group_box
+                      title: "Support #040"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_040
+                              - support_type_040
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_040
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_040
+                    - type: group_box
+                      title: "Support #041"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_041
+                              - support_type_041
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_041
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_041
+                    - type: group_box
+                      title: "Support #042"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_042
+                              - support_type_042
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_042
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_042
+                    - type: group_box
+                      title: "Support #043"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_043
+                              - support_type_043
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_043
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_043
+                    - type: group_box
+                      title: "Support #044"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_044
+                              - support_type_044
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_044
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_044
+                    - type: group_box
+                      title: "Support #045"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_045
+                              - support_type_045
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_045
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_045
+                    - type: group_box
+                      title: "Support #046"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_046
+                              - support_type_046
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_046
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_046
+                    - type: group_box
+                      title: "Support #047"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_047
+                              - support_type_047
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_047
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_047
+                    - type: group_box
+                      title: "Support #048"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_048
+                              - support_type_048
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_048
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_048
+                    - type: group_box
+                      title: "Support #049"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_049
+                              - support_type_049
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_049
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_049
+                    - type: group_box
+                      title: "Support #050"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_050
+                              - support_type_050
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_050
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_050
+                    - type: group_box
+                      title: "Support #051"
+                      inner:
+                        type: vbox
+                        inner:
+                          - type: form
+                            ids:
+                              - support_character_051
+                              - support_type_051
+                          - type: hbox
+                            inner:
+                              - type: awakening_support_dialogue_button
+                                field_id: support_character_051
+                              - type: fe13_support_slot_tools
+                                field_id: support_character_051
+                    - type: fe13_support_ex_widget
+              - type: fe13_family_support_widget
+        - title: Dialogue
+          inner:
+            type: scroll
+            inner:
+              type: dependent_messages
+              key_prefix: PID_
+              lines:
+                - path: m/紹介文.bin.lz
+                  localized: true
+                  key: "MID_名鑑_%s"
+                  label: "Barracks Roster"
+                  param_count: 1
+                - path: m/撤退.bin.lz
+                  localized: true
+                  key: "MID_DIE_%s"
+                  label: "Retreat"
+                  param_count: 1
+                - path: m/死亡.bin.lz
+                  localized: true
+                  key: "MID_DIE_%s"
+                  label: "Death"
+                  param_count: 1
+                - path: m/お店.bin.lz
+                  localized: true
+                  key: "MID_買う_%s"
+                  label: "What to buy?"
+                  param_count: 1
+                - path: m/お店.bin.lz
+                  localized: true
+                  key: "MID_売る_%s"
+                  label: "What to sell?"
+                  param_count: 1
+                - path: m/お店.bin.lz
+                  localized: true
+                  key: "MID_錬成_%s"
+                  label: "Which weapon?"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_レベルアップ1_%s"
+                  label: "Bad Level Up"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_レベルアップ2_%s"
+                  label: "Standard Level Up"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_レベルアップ3_%s"
+                  label: "Good Level Up"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_レベルアップ4_%s"
+                  label: "Great Level Up"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_カンスト_%s"
+                  label: "Max Level Up"
+                  param_count: 1
+                - path: m/レベルアップ.bin.lz
+                  localized: true
+                  key: "MID_クラスチェンジ_%s"
+                  label: "Class Change"
+                  param_count: 1
+                - path: m/独り言.bin.lz
+                  localized: true
+                  key: "MID_様子_単独_%s"
+                  label: "Soliloquy"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_朝"
+                  label: "My Room Greeting (Morning)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_朝_通常"
+                  label: "My Room Greeting (Morning Normal)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_昼"
+                  label: "My Room Greeting (Afternoon)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_昼_通常"
+                  label: "My Room Greeting (Afternoon Normal)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_夕"
+                  label: "My Room Greeting (Evening)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_夕_通常"
+                  label: "My Room Greeting (Evening Normal)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_夜"
+                  label: "My Room Greeting (Night)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_夜_通常"
+                  label: "My Room Greeting (Night Normal)"
+                  param_count: 1
+                - path: m/マイルーム挨拶.bin.lz
+                  localized: true
+                  key: "MID_マイルーム挨拶_%s_誕"
+                  label: "My Room Greeting (Birthday)"
+                  param_count: 1
+                - path: m/様子_拾得.bin.lz
+                  localized: true
+                  key: "MID_様子_単独_%s"
+                  label: "Event Tile (Item Obtained)"
+                  param_count: 1
+                - path: m/様子_経験.bin.lz
+                  localized: true
+                  key: "MID_様子_単独_%s"
+                  label: "Event Tile (Exp. Gain)"
+                  param_count: 1
+                - path: m/様子_武器経験.bin.lz
+                  localized: true
+                  key: "MID_様子_単独_%s"
+                  label: "Event Tile (Weapon Exp. Gain)"
+                  param_count: 1
+                - path: m/様子_能力.bin.lz
+                  localized: true
+                  key: "MID_様子_単独_%s"
+                  label: "Event Tile (Stat Boost)"
+                  param_count: 1
+        - title: Sprite Data
+          inner:
+            type: widget
+            id: sprite_data
+        - title: Portraits
+          inner:
+            type: portrait_viewer
+            retrieve_mode: character
+        - title: Voices (Unlimited)
+          inner:
+            type: fe13_voice_widget

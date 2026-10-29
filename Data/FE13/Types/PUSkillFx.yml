@@ -1,0 +1,55 @@
+---
+# Paragon Unlimited: data-driven skill effects (needs the Paragon Unlimited code.ips, exp04+).
+# Stored in data/GameData.bin as an optional block labeled PU_SkillFx:
+#   u32 count, then count x 8-byte rules (u16 skill id, u8 effect, u8 condition 1,
+#   u8 condition 2, s8 value, u16 reserved).
+PUSkillFxTable:
+  node:
+    id: pu_skill_effects
+    name: Skill Effects (Unlimited)
+  size: 4
+  fields:
+    - id: label
+      type: label
+      forced_value: PU_SkillFx
+    - id: count
+      type: int
+      skip_write: true
+      format: u32
+    - id: entries
+      type: list
+      typename: PUSkillFx
+      format:
+        type: indirect
+        index: -1
+        offset: 0
+        format: u32
+
+PUSkillFx:
+  size: 8
+  display_function: fe13_skill_fx
+  fields:
+    - id: skill
+      name: Skill
+      type: reference
+      table: skills
+      format: u16
+    - id: effect
+      name: Effect
+      type: int
+      format: u8
+    - id: condition_1
+      name: When
+      type: int
+      format: u8
+    - id: condition_2
+      name: And when
+      type: int
+      format: u8
+    - id: value
+      name: Amount
+      type: int
+      format: i8
+    - id: reserved
+      type: bytes
+      length: 2

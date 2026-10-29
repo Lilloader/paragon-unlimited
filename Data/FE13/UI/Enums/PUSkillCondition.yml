@@ -1,0 +1,16 @@
+---
+"Always": 0
+"This unit starts the fight": 1
+"The enemy starts the fight": 2
+"HP is full": 3
+"HP is not full": 4
+"HP is 50% or less": 5
+"Even-numbered turn": 6
+"Odd-numbered turn": 7
+"Enemy is a flier": 8
+"Enemy is on foot (not flier/rider/beast)": 9
+"Enemy HP is full": 10
+"Enemy HP is not full": 11
+"Enemy attacks with magic": 12
+"Enemy attacks with a physical weapon": 13
+"HP is 25% or less": 14

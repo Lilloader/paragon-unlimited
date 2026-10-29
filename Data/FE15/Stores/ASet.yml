@@ -1,0 +1,7 @@
+- id: aset
+  node:
+    id: aset
+    name: Animation Sets
+  type: aset
+  filename: bs/aset.lz
+  labels: fe15

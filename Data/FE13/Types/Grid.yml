@@ -1,0 +1,16 @@
+---
+Grid:
+  node:
+    id: tmp
+    name: tmp
+  size: 1032
+  fields:
+    - id: map_width
+      type: int
+      format: i32
+    - id: map_height
+      type: int
+      format: i32
+    - id: grid
+      type: bytes
+      length: 1024

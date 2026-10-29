@@ -1,0 +1,30 @@
+---
+SideStoryFile:
+  size: 0
+  fields:
+    - id: side_story_mod_list
+      type: record
+      typename: ModList
+      format: inline
+    - id: side_story_table
+      type: record
+      typename: SideStoryTableHeader
+      format: inline
+    - id: sheet_list
+      type: record
+      typename: SheetList
+      format: inline
+
+SideStory:
+  size: 16
+  key: pid
+  fields:
+    - id: pid
+      type: string
+    - id: jid
+      type: string
+    - id: character_name
+      type: string
+    - id: unit_color
+      type: int
+      format: i32

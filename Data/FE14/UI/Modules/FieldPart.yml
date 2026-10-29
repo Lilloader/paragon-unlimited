@@ -1,0 +1,8 @@
+---
+typename: FieldPart
+overrides:
+  bch_container:
+    type: file_input
+    dirs: [field]
+    suffix: .bch.lz
+    optional: false

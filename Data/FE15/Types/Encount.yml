@@ -1,0 +1,56 @@
+---
+Encounter:
+  size: 60
+  key: name
+  display: name
+  fields:
+    - id: label
+      type: label
+      generate_from: name
+    - id: name
+      type: string
+    - id: dungeon_id
+      type: reference
+      table: dungeon_enemy_information
+      format: string
+    - id: group
+      type: int
+      format: u16
+    - id: appearance_rate
+      type: int
+      format: u8
+    - id: appearance_chapter
+      type: int
+      format: u8
+    - id: appearance_flag
+      type: string
+    - id: position_x
+      type: float
+    - id: position_y
+      type: float
+    - id: position_z
+      type: float
+    - id: rotation
+      type: float
+    - id: affiliation
+      type: int
+      format: i8
+    - id: thinking
+      type: int
+      format: i8
+    - id: unnamed
+      type: int
+      format: u16
+    - id: patrol_route
+      type: string
+    - id: dispo_faction
+      name: Dispo Faction / Group
+      type: string
+    - id: navi_1
+      type: string
+    - id: navi_2
+      type: string
+    - id: navi_3
+      type: string
+    - id: navi_4
+      type: string

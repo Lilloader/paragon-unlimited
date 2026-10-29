@@ -1,0 +1,210 @@
+---
+JobTable:
+  node:
+    id: classes
+    name: Classes
+  size: 4
+  fields:
+    - id: buffer
+      type: bytes
+      length: 4
+    - id: label
+      type: label
+      forced_value: JobData
+      index: 0
+    - id: jobs
+      type: list
+      typename: Job
+      table: jobs
+      format:
+        type: postfix_count
+        label: JobDataNum
+
+Job:
+  size: 128
+  key: jid
+  display: name
+  display_function: job
+  fields:
+    - id: label
+      type: label
+      generate_from: jid
+    - id: bitflags_1
+      type: int
+      format: u8
+    - id: bitflags_2
+      type: int
+      format: u8
+    - id: bitflags_3
+      type: int
+      format: u8
+    - id: bitflags_4
+      type: int
+      format: u8
+    - id: reserved
+      type: bytes
+      length: 4
+    - id: jid
+      type: string
+    - id: fid
+      type: string
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: base_stats
+      type: bytes
+      length: 8
+    - id: player_growths
+      type: bytes
+      length: 8
+      transform:
+        awakening_growths:
+          is_character: false
+    - id: enemy_growths
+      type: bytes
+      length: 8
+      transform:
+        awakening_growths:
+          is_character: false
+    - id: max_stats
+      type: bytes
+      length: 8
+    - id: pair_up_bonuses
+      type: bytes
+      length: 8
+    - id: skill_1
+      type: reference
+      table: skills
+      format: u16
+    - id: skill_2
+      type: reference
+      table: skills
+      format: u16
+    - id: lower_enemy_skill_1
+      type: reference
+      table: skills
+      format: u16
+    - id: lower_enemy_skill_2
+      type: reference
+      table: skills
+      format: u16
+    - id: lower_enemy_skill_3
+      type: reference
+      table: skills
+      format: u16
+    - id: lower_enemy_skill_4
+      type: reference
+      table: skills
+      format: u16
+    - id: upper_enemy_skill_1
+      type: reference
+      table: skills
+      format: u16
+    - id: upper_enemy_skill_2
+      type: reference
+      table: skills
+      format: u16
+    - id: mov_cost_index
+      type: int
+      format: u8
+    - id: mov
+      type: int
+      format: u8
+    - id: unknown_3
+      type: bytes
+      length: 2
+    - id: sword
+      type: bool
+      format: u8
+    - id: lance
+      type: bool
+      format: u8
+    - id: axe
+      type: bool
+      format: u8
+    - id: bow
+      type: bool
+      format: u8
+    - id: tome
+      type: bool
+      format: u8
+    - id: staff
+      type: bool
+      format: u8
+    - id: special_flags_1
+      type: int
+      format: u8
+    - id: special_flags_2
+      type: int
+      format: u8
+    - id: promoted_class_1
+      type: reference
+      table: jobs
+      format: pointer
+    - id: promoted_class_2
+      type: reference
+      table: jobs
+      format: pointer
+    - id: unknown_4
+      type: bytes
+      length: 5
+    - id: low_level_enemy
+      type: bool
+      format: u8
+    - id: high_level_enemy
+      type: bool
+      format: u8
+    - id: drops_gained_items
+      type: bool
+      format: u8
+    - id: bmap_icon
+      name: BMap Icon
+      type: reference
+      table: bmap_icons
+      format: pointer
+    - id: bmap_icon_2
+      name: BMap Icon 2
+      type: reference
+      table: bmap_icons
+      format: pointer
+    - id: footstep_sound
+      type: string
+    - id: unknown_5
+      type: bytes
+      length: 8
+
+JobCategoryTable:
+  size: 0
+  fields:
+    - id: categories
+      type: list
+      typename: JcidOrSidCategory
+      format:
+        type: static
+        count: 13
+
+JobFlagTable:
+  size: 0
+  fields:
+    - id: flags
+      type: list
+      typename: JcidOrSidCategory
+      format:
+        type: static
+        count: 28
+
+JcidOrSidCategory:
+  size: 8
+  key: key
+  fields:
+    - id: label
+      type: label
+      generate_from: key
+    - id: key
+      type: string
+    - id: unknown
+      type: bytes
+      length: 4

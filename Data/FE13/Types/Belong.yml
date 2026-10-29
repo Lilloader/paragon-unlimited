@@ -1,0 +1,36 @@
+---
+BelongTable:
+  node:
+    id: belong
+    name: Belong
+  size: 0
+  fields:
+    - id: label
+      type: label
+      forced_value: BelongData
+      index: 0
+    - id: belongs
+      type: list
+      typename: Belong
+      table: belong
+      format:
+        type: postfix_count
+        label: BelongDataNum
+
+Belong:
+  size: 12
+  key: bid
+  display: name
+  icon: belong
+  fields:
+    - id: label
+      type: label
+      generate_from: bid
+    - id: bid
+      type: string
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]

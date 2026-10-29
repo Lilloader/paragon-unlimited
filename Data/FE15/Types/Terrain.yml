@@ -1,0 +1,179 @@
+---
+Tile:
+  size: 32
+  key: tid
+  display: name
+  fields:
+    - id: label
+      type: label
+      generate_from: tid
+    - id: tid
+      type: string
+    - id: name
+      type: message
+      paths: [m/Name.bin.lz]
+    - id: cost
+      type: int
+      format: i8
+    - id: defense
+      type: int
+      format: i8
+    - id: avoidance
+      type: int
+      format: i8
+    - id: recovery
+      type: int
+      format: i8
+    - id: minimap
+      type: int
+      format: u8
+    - id: r
+      type: int
+      format: u8
+    - id: g
+      type: int
+      format: u8
+    - id: b
+      type: int
+      format: u8
+    - id: footstep_flag
+      type: string
+    - id: change
+      type: string
+    - id: reserved
+      type: bytes
+      length: 4
+    - id: flags
+      type: bytes
+      length: 4
+
+GroundAttributes:
+  size: 24
+  key: name
+  fields:
+    - id: label
+      type: label
+    - id: name
+      type: string
+    - id: sound_label
+      type: string
+    - id: effect_label
+      type: string
+    - id: unknown
+      type: bytes
+      length: 4
+    - id: r
+      type: int
+      format: u8
+    - id: g
+      type: int
+      format: u8
+    - id: b
+      type: int
+      format: u8
+    - id: a
+      type: int
+      format: u8
+    - id: sum
+      type: bytes
+      length: 4
+
+PartAttributes:
+  size: 80
+  key: name
+  fields:
+    - id: label
+      type: label
+    - id: name
+      type: string
+    - id: type
+      type: int
+      format: i8
+    - id: endurance
+      type: int
+      format: u8
+    - id: defense
+      type: int
+      format: u8
+    - id: shake
+      type: int
+      format: i8
+    - id: lod_distance
+      type: float
+    - id: display_distance
+      type: float
+    - id: playing_effect
+      type: string
+    - id: hit_effect
+      type: string
+    - id: destruction_effect
+      type: string
+    - id: launch_effect
+      type: string
+    - id: stop_effect
+      type: string
+    - id: playing_sound
+      type: string
+    - id: hit_sound
+      type: string
+    - id: destruction_sound
+      type: string
+    - id: startup_sound
+      type: string
+    - id: stop_sound
+      type: string
+    - id: playing_sound_range
+      type: float
+    - id: hit_sound_range
+      type: float
+    - id: destruction_sound_range
+      type: float
+    - id: startup_sound_range
+      type: float
+    - id: stop_sound_range
+      type: float
+    - id: flags
+      type: bytes
+      length: 4
+
+TerrainCost:
+  size: 16
+  key: cost
+  fields:
+    - id: label
+      type: label
+    - id: cost
+      type: string
+    - id: impossible
+      type: int
+      format: u8
+    - id: sky
+      type: int
+      format: u8
+    - id: plains
+      type: int
+      format: u8
+    - id: forest
+      type: int
+      format: u8
+    - id: desert
+      type: int
+      format: u8
+    - id: pillar
+      type: int
+      format: u8
+    - id: mountain
+      type: int
+      format: u8
+    - id: river
+      type: int
+      format: u8
+    - id: lava
+      type: int
+      format: u8
+    - id: hill
+      type: int
+      format: u8
+    - id: padding
+      type: bytes
+      length: 2

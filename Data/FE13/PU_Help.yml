@@ -1,0 +1,571 @@
+# Paragon Unlimited help topics (Fire Emblem Awakening). Bodies are simple HTML.
+# "windows" lists what opens a topic: editor node ids (open_node), window class names.
+# A body may contain {{dialogue_commands}} or {{emotions}}; they are filled in from
+# resources/misc/DialogueCommands.json and Data/FE13/Emotions.json.
+topics:
+
+  lesson_start:
+    title: Your first five minutes
+    tutorial: 1
+    windows: []
+    body: |
+      <p>Welcome! These lessons walk you through everything, one small step at a time. You can't
+      break your game: Paragon never changes the original game files, and every save keeps a copy
+      of the old files in the <i>Backups</i> folder.</p>
+      <h3>How it fits together</h3>
+      <ol>
+      <li><b>Paragon</b> is where you make changes.</li>
+      <li><b>File -&gt; Save</b> writes them into your project's output folder.</li>
+      <li><b>Unlimited -&gt; Copy to Azahar</b> puts them into the emulator so you can play them.</li>
+      </ol>
+      <h3>Try it now</h3>
+      <ol>
+      <li>Open <b>Unlimited -&gt; Set Azahar Mod Folder...</b> once. Paragon usually finds the folder by
+      itself; if not, in Azahar right-click the game and choose <i>Open Mods Location</i>, then pick that folder.</li>
+      <li>Tick <b>Unlimited -&gt; Copy to Azahar After Saving</b>. Now every save goes straight into the game.</li>
+      <li>Press <b>Ctrl+S</b> (or File -&gt; Save). Start the game in Azahar.</li>
+      </ol>
+      <h3>Where things are</h3>
+      <ul>
+      <li>The big green <b>Map Maker</b> button: new chapters and maps (lessons 2-5).</li>
+      <li><b>Core Data</b>: characters, classes, items, skills...</li>
+      <li><b>Sprite Workshop</b>: map sprites (lesson 6). <b>Portraits</b>: faces (lesson 7).</li>
+      <li>Press <b>F1</b> in any window for help about that window.</li>
+      </ul>
+
+  lesson_first_chapter:
+    title: Make your first chapter
+    tutorial: 2
+    windows: []
+    body: |
+      <p>Every Awakening mod has room for <b>9 brand-new chapters</b> (the game's save file keeps 64
+      chapters and the game uses 55). The Map Maker builds a whole chapter for you: map, enemies, boss,
+      a short story, a title and a spot on the world map. You only change what you want.</p>
+      <h3>Steps</h3>
+      <ol>
+      <li>Click the green <b>Map Maker</b> button on the main window.</li>
+      <li>Click <b>+ Make a new chapter</b> on an empty slot.</li>
+      <li>Pick a map you like. The stars show how hard its enemies are
+      (&#9733;&#9734;&#9734;&#9734;&#9734;&#9734; very easy to &#9733;&#9733;&#9733;&#9733;&#9733;&#9733; brutal).
+      Use <i>Show</i> to see only forests, snow, castles... Double-click to choose.</li>
+      <li>The chapter opens, already playable. Type a <b>Title</b> in step 1.</li>
+      <li>Press <b>Save chapter</b>. That's it - it's in your project.</li>
+      <li>Copy to Azahar and play: the chapter appears on the world map once the chapter in step 5
+      (<i>Appears after</i>) is cleared.</li>
+      </ol>
+      <p><b>Even faster:</b> on the Map Maker's first page, <b>Fill every empty slot</b> makes all your
+      free chapters at once, from easy to hard, each with its own map.</p>
+      <p><small>Your own chapters are called U001 to U009 inside the game files. Maps from the DLC
+      show up after <i>Unlimited -&gt; Import DLC Maps</i>.</small></p>
+
+  lesson_edit_map:
+    title: Move, add and remove units
+    tutorial: 3
+    windows: []
+    body: |
+      <p>The map in the middle shows every unit with its real map sprite. Blue = your units' start
+      spots, red = enemies, a gold frame = the boss.</p>
+      <h3>The tools (above the map)</h3>
+      <ul>
+      <li><b>&#9995; Move</b>: drag a unit to a new tile. Tiles that turn red can't be used by that unit
+      (walls, water, cliffs - fliers may cross water and peaks).</li>
+      <li><b>+ Enemy</b>: click an empty tile. The class comes from <i>New enemies are</i>.</li>
+      <li><b>+ Boss</b>: click an empty tile to place the boss.</li>
+      <li><b>+ Player start</b>: one more spot for your army (the first one is always Chrom's).</li>
+      <li><b>&#9733; Joins your army</b>: pick a character in <i>Who joins</i> and click a tile. They appear there
+      at the start of turn 1 and join your army, the way Donnel joins in Paralogue 1 - perfect for new
+      characters like the ones you add with New Character. (In chapters made with the Map Maker.)</li>
+      <li><b>&#10005; Remove</b>: click a unit. <b>Right-click</b> removes in every tool, <b>Delete</b> removes the selected unit.</li>
+      </ul>
+      <h3>Change one unit</h3>
+      <p>Click a unit: the box on the right shows its <b>class</b>, <b>level</b>, whether it is the
+      <b>boss</b>, and its <b>behavior</b>: <i>Charge at you</i>, <i>Wait until you come close</i> or
+      <i>Stay in place</i>. Weapons are chosen for you to match the class.</p>
+      <h3>Oops?</h3>
+      <p><b>Undo</b> (Ctrl+Z) and <b>Redo</b> (Ctrl+Y) work for everything on the map. Nothing is
+      written until you press <b>Save chapter</b>.</p>
+      <h3>The game's own chapters</h3>
+      <p>On the Map Maker's first page, <b>Edit the map of any chapter</b> opens any chapter of the game
+      the same way. Choose Normal, Hard or Lunatic to see that difficulty's units. Its story and events
+      stay as they are.</p>
+
+  lesson_story_boss:
+    title: Difficulty, boss and story
+    tutorial: 4
+    windows: []
+    body: |
+      <h3>3. Enemies</h3>
+      <ul>
+      <li><b>Army</b>: who you fight (Brigands, Plegian army, Valmese army, Risen, Grimleal, Mercenaries).</li>
+      <li><b>Difficulty</b>: drag the slider. Every enemy changes at once: 1-3 stars use basic classes,
+      4-6 stars promoted ones, with higher levels and better weapons. Enemies also get stronger on Hard
+      and Lunatic by themselves.</li>
+      <li><b>To win</b>: defeat every enemy, or only the boss.</li>
+      <li><b>Boss name</b>, <b>portrait</b> and <b>last words</b> (shown when the boss falls; needs a portrait).</li>
+      <li><b>Make new enemies for this map</b>: a fresh enemy layout for the map at this difficulty.</li>
+      </ul>
+      <h3>4. Story</h3>
+      <p>Write the talk before and after the battle, one line at a time: pick <b>who</b> talks, their
+      <b>mood</b> (Happy, Angry...) and type what they say. <b>+ Add a line</b> adds one, &#10005; removes
+      it. Long lines are split into text boxes for you. Leave it empty to skip the scene.</p>
+      <h3>5. When does it appear?</h3>
+      <p>Pick the chapter that has to be cleared first. The new chapter's spot on the world map is
+      placed next to that one.</p>
+
+  lesson_play:
+    title: Play and test your chapter
+    tutorial: 5
+    windows: []
+    body: |
+      <ol>
+      <li>Press <b>Save chapter</b> in the Map Maker (this saves the whole project).</li>
+      <li>Use <b>Unlimited -&gt; Copy to Azahar</b> (or tick Copy to Azahar After Saving once).</li>
+      <li>Start the game and load a save that has cleared the <i>Appears after</i> chapter. The new
+      chapter is on the world map like a paralogue.</li>
+      </ol>
+      <h3>If something looks wrong</h3>
+      <ul>
+      <li>Run <b>Unlimited -&gt; Check My Mod...</b>: it finds missing files and other problems.</li>
+      <li>Too hard or too easy? Move the Difficulty slider and save again.</li>
+      <li>Every save keeps the old files in <i>Backups</i>, so you can always go back.</li>
+      </ul>
+
+  lesson_sprite:
+    title: Make a map sprite
+    tutorial: 6
+    windows: []
+    body: |
+      <ol>
+      <li>Open <b>Sprite Workshop</b> (Core Data).</li>
+      <li>Either drop a sprite sheet you have onto the big empty area, or choose <b>Build from a head
+      and a class</b>: pick a character's head and any class body (for example Chrom on a Wyvern
+      Rider) and press <b>Build sprite</b>.</li>
+      <li>A head a bit off? <b>Drag it</b> in that frame. Right-click a frame to undo.</li>
+      <li>Bits of the old head still showing? Turn on the <b>Eraser</b> (1-3 px) and drag over them. It never erases the new head.</li>
+      <li>Your own drawing too bright? Tick <b>See-through like the game</b>.</li>
+      <li>Type a name, pick who uses it in which class, press <b>Save sprite</b>, then save the project.</li>
+      </ol>
+      <p>Enemy (red) and ally (green) versions are made for you.</p>
+
+  lesson_character:
+    title: Add a new character
+    tutorial: 7
+    windows: []
+    body: |
+      <ol>
+      <li><b>Unlimited -&gt; New Character (FE13)...</b>: pick a character to start from and a name.</li>
+      <li>Open <b>Portraits</b> and drop your pictures on the preview (see <a href="topic:facedata">Portraits</a>).</li>
+      <li>Open <b>Characters</b> to set stats, growths, class and supports.</li>
+      <li>Give them a map sprite with the Sprite Workshop (lesson 6).</li>
+      <li>To have them join: open a chapter in the <b>Map Maker</b>, pick them in <i>Who joins</i>, choose the
+      <b>&#9733; Joins your army</b> tool and click a tile. Save and play: they join on turn 1.</li>
+      </ol>
+
+  lesson_support:
+    title: Write a support conversation
+    tutorial: 8
+    windows: []
+    body: |
+      <ol>
+      <li>Open <b>Characters</b>, pick a character, go to <b>Supports</b>.</li>
+      <li>Choose a partner in a free slot. Paragon adds the pair to the partner as well.</li>
+      <li>Press the button next to the slot to open its conversation.</li>
+      <li>Type <b>$SetSpeaker(name)</b> and press Enter, then write what they say. Paragon adds the
+      expression and a voice line for you, and breaks long lines to fit the game's text box.</li>
+      <li>Press <b>Update Preview</b> to see it like in the game.</li>
+      </ol>
+      <p>More in the reference page <a href="topic:dialogue">Dialogue and supports</a>.</p>
+
+  lesson_share:
+    title: Share your mod
+    tutorial: 9
+    windows: []
+    body: |
+      <ol>
+      <li>Save, Copy to Azahar and play your mod through once.</li>
+      <li>Choose <b>Unlimited -&gt; Share My Mod...</b></li>
+      <li>Type a name for your mod (and, if you like, your name and a short description).</li>
+      <li>Press <b>Make the zip...</b> and pick where to save it. Paragon checks your mod first and
+      tells you about anything that could crash the game.</li>
+      <li>Share the zip. Inside is a <i>HOW_TO_INSTALL.txt</i> for your players.</li>
+      </ol>
+      <p>The zip holds only what your mod changes, in Azahar's folder layout, so it stays small. New
+      chapters, characters, sprites, voices and DLC maps all travel with it. If your mod uses Paragon
+      Unlimited's game code patch (skill effects, more supports), tick <i>Include the game code patch</i>.</p>
+  main:
+    title: Getting started
+    windows: [MainWindow, FE13MainWidget]
+    body: |
+      <p><b>New to Paragon?</b> Start with <a href="topic:lesson_start">Lesson 1: Your first five minutes</a>.
+      The lessons (top of the list on the left) take you from your first save to sharing a mod with new chapters.</p>
+      <p>Paragon edits the files of your Fire Emblem Awakening dump. It reads the original game
+      (the <b>ROM folder</b>) and writes every change into your <b>output folder</b>; the game
+      files themselves are never changed.</p>
+      <h3>The main window</h3>
+      <ul>
+      <li><b>Map Maker</b> (the big green button): new chapters and easy map editing.</li>
+      <li><b>Core Data</b>: characters, items, classes, skills, armies, chapters and more. Each button opens an editor window.</li>
+      <li><b>Assets</b>: Asset Definitions and Presets (battle models), Portraits (FaceData) and <b>UI</b> (Paragon's own colors).</li>
+      <li><b>Dialogue</b>: Edit Dialogue (any text file, supports included), the Quick Dialogue Generator, Configure Avatar, Store Manager.</li>
+      <li>The lists on the left hold every editable table and file; type in the search box to find one.</li>
+      </ul>
+      <h3>Saving and testing</h3>
+      <ul>
+      <li><b>File -&gt; Save</b> writes your changes to the output folder (the previous files go to <i>Backups</i>). Paragon asks before you close it with unsaved changes.</li>
+      <li><b>Unlimited -&gt; Copy to Azahar</b> copies the output into Azahar's mod folder so you can test right away. Tick <i>Copy to Azahar After Saving</i> to do it on every save.</li>
+      <li><b>Unlimited -&gt; Check My Mod</b> looks for mistakes that would crash the game or show nothing.</li>
+      </ul>
+      <h3>Help</h3>
+      <p>Press <b>F1</b> in any window (or use its <b>Help</b> button) for help about that window.
+      <b>Help -&gt; Help Topics</b> lists everything.</p>
+
+  characters:
+    title: Characters
+    windows: [characters, PersonFile, Person]
+    body: |
+      <p>Every character in the game: playable units, enemies, bosses and generic units.
+      Pick one in the list on the left. <b>Add</b> makes a new row at the end, <b>Copy</b> / <b>Paste</b>
+      copy all fields from one character onto another. For a brand-new character with portraits
+      and a battle model, use <b>Unlimited -&gt; New Character</b> instead.</p>
+      <h3>Overview</h3>
+      <ul>
+      <li><b>PID</b> is the character's ID (PID_...). Scripts, supports and Asset Definitions refer to it, so change it only for new characters.</li>
+      <li><b>Name</b> / <b>Description</b> are text keys (MPID_...); the text itself is edited next to them.</li>
+      <li><b>ID</b> is the character's number in the game's tables; keep it unique. <b>Army</b> is the default side, <b>Parent</b> is used for children.</li>
+      </ul>
+      <h3>Core Data</h3>
+      <p>FID (which portraits to use, FID_name -&gt; FaceData FSID_BU_name_通常 / FSID_FC_name_通常),
+      class, level, weapon ranks (weapon experience) and other values.</p>
+      <h3>Stats</h3>
+      <ul>
+      <li><b>Additions</b>: base stats added on top of the class bases.</li>
+      <li><b>Player growths</b> / <b>Enemy growths</b>: growth rates in %.</li>
+      <li><b>Modifiers</b>: stat cap modifiers (also passed to children).</li>
+      <li>Reclass options for male/female, personal skills, and the random skill sets enemies use on each difficulty.</li>
+      </ul>
+      <h3>Supports</h3>
+      <p>Up to 60 support partners. Choose the partner and the support type (how fast the levels
+      C/B/A/S are reached). A support must be listed for <b>both</b> characters; when one side is
+      missing the support check on save offers <b>Add missing partners</b>. The button next to a slot
+      opens that pair's support conversation.</p>
+      <h3>Sprite Data</h3>
+      <p>Which map sprite (BMap icon) the character uses in each class. There is one row per class,
+      in the order of the class list (the rows are labeled with the class names). To give the
+      character their own look as, for example, a Great Knight, pick a BMap icon in the Great Knight
+      row. Rows left at the default use the class's normal sprite. Added classes need extra rows
+      (Paragon Unlimited reads up to 124).</p>
+      <h3>Dialogue, Portraits, Voices</h3>
+      <p>Dialogue lists the character's generic lines (level up, battle, event tiles...). Portraits shows
+      their portraits. <b>Voices</b> plays every English voice line of the character; double-click a line
+      to hear it, <i>Copy $PlayVoice(...)</i> puts the command on the clipboard.</p>
+
+  facedata:
+    title: Portraits (FaceData)
+    windows: [facedata, FaceDataFile, FaceData]
+    body: |
+      <p>One entry per portrait set: <b>FSID_BU_name_通常</b> is the big bust-up (conversations,
+      level up), <b>FSID_FC_name_通常</b> the small face (unit screen, map). <b>Portrait File</b> is the
+      .arc in <i>face/</i> that holds the images. Drag the divider between the preview and the fields
+      to make either bigger.</p>
+      <h3>Game preview</h3>
+      <ul>
+      <li>Pick a <b>Screen</b> and a <b>Side</b> to see the portrait where the game draws it (positions measured from the game). <b>Zoom: Fit</b> scales it to the window.</li>
+      <li>The yellowish box is the <b>text box</b>: it covers that part of the portrait in game.</li>
+      <li><b>Drag the portrait</b> to move the artwork. The game has no position setting, so Paragon moves the image inside the texture when you save. <i>4 px steps</i> keeps the image pixel-perfect.</li>
+      <li>Normal and 反 (reversed) expressions move separately. Blush and sweat follow the normal ones.</li>
+      <li><b>Reset</b> puts the portrait back where the game has it, even after you saved a move: the game's own pictures are restored (on save) and blush/sweat move back with them. Pictures you imported yourself are kept; for those, Reset only undoes moves you have not saved.</li>
+      <li>Tick <b>Blush</b> / <b>Sweat</b> to show them and <b>drag</b> them into place; that edits their positions.</li>
+      <li>On the unit info screen you drag the <b>crop</b> (the part of the small face that is shown). The whole small face is shown, dimmed outside the box, so you can always find it. A face with a 0 x 0 Portrait Menu size shows nothing in game; drag it once to give it the game's usual 69 x 76.</li>
+      </ul>
+      <h3>Images and expressions</h3>
+      <ul>
+      <li><b>Drop PNG files</b> on the preview, or use <b>Import image...</b>, to replace the current expression, the blush or the sweat. Other sizes are scaled to fit.</li>
+      <li>Several files at once are matched by name: <i>笑.png</i>, <i>smile.png</i>, <i>Gisselle_angry.png</i>...</li>
+      <li><b>Add expression...</b> adds a known expression (悲しみ, 照れ, ...) or your own name; dialogue shows it with <i>$Emotions(name)</i>. <b>Remove expression</b> deletes one (not 通常).</li>
+      <li><b>New portrait file...</b> makes a new .arc with 通常, 笑, 怒, 苦, キメ, blush, sweat and hair masks for a new character.</li>
+      <li><b>Export PNG...</b> saves the current image so you can edit it in another program.</li>
+      <li>All of this is built into the .arc when you <b>save</b>.</li>
+      </ul>
+      <h3>Fields</h3>
+      <p><b>Hair Color</b> colors the hair mask (and the character's hair in the 3D preview).
+      Blush / Sweat position and size place the overlays; Portrait Menu position/size is the crop
+      used on the unit screen.</p>
+
+  assets:
+    title: Asset Definitions and Presets
+    windows: [asset_definitions, preset_asset_definitions, ComboTbl, PresetsComboTbl, ComboTblEntry]
+    body: |
+      <p>What a unit looks like in battle. <b>Asset Definitions</b> has entries named after characters
+      (PID_...) and classes; <b>Presets</b> are complete looks used by generic units. An entry may only
+      apply under a <b>Condition</b> (for example a class: JID_...). The English name above the preview
+      is Paragon's reading of the Japanese name; it is not saved anywhere.</p>
+      <h3>Preview</h3>
+      <ul>
+      <li><b>3D views</b>: the character (body + head + hair), the mount and the weapon. Drag to turn, mouse wheel to zoom, double-click to reset.</li>
+      <li><b>Hair color...</b> tries a hair color on gray hair (preview only); by default the character's FaceData hair color is used.</li>
+      <li><b>Texture slots</b>: click one for <b>Import image...</b>, <b>Export PNG...</b> or <b>Undo import</b>, or drop a PNG on it. The image is fitted to the texture and written to <i>b/&lt;texture&gt;.t.lz</i> when you save.</li>
+      </ul>
+      <h3>Fields</h3>
+      <ul>
+      <li><b>Body / Head / Hair model</b> and their <b>textures</b>: files in <i>b/</i> (uBody_..., uHead_..., uHair_...). A texture ending in _c1, _c2... is a color variant of _c0.</li>
+      <li><b>Voice</b>: the voice set (CHROM, LISSA...). It decides which voice lines the character uses.</li>
+      <li><b>Weapon model</b>, <b>Mount</b> model/texture, attack animations, model size, sounds.</li>
+      <li>Names with % or # are filled in by the game (for example the avatar's hair style).</li>
+      </ul>
+
+  dialogue:
+    title: Dialogue and supports
+    windows: [DialogueEditor]
+    body: |
+      <p>Every conversation is a text entry (a <b>key</b>) in a text file. Pick the key at the top; the
+      text is on the right, the preview on the left. Type <b>$</b> for a list of commands; inside
+      <i>$PlayVoice(</i> the list shows the voice lines of the current speaker.</p>
+      <h3>How a support is written</h3>
+      <pre>$LoadAssets(Chrom, 3)
+      $LoadAssets(Lissa, 7)
+      $SetSpeaker(Chrom)
+      $PlayVoice(SE_VOICE_CHROM_EVT_2)
+      $Emotions(Standard)
+      Lissa, have you seen my sword?
+      $Pause
+
+      $Clear
+      $SetSpeaker(Lissa)
+      $Emotions(Happy,Sweat)
+      Which one? You have three!
+      $Pause</pre>
+      <ul>
+      <li><b>$LoadAssets(name, position)</b> brings a character in: 3 = left, 7 = right (0 / 6 in small boxes).</li>
+      <li><b>$SetSpeaker(name)</b> picks who talks (name box, highlighted portrait).</li>
+      <li><b>$Emotions(expression, blush, sweat)</b> changes the speaker's expression.</li>
+      <li><b>$Pause</b> waits for the button, <b>$Clear</b> empties the text box. Two lines fit in a box.</li>
+      </ul>
+      <h3>Starting a support</h3>
+      <p>The first time a support's <b>Edit Dialogue</b> is opened, each rank (C, B, A, S) starts with
+      $SetConversationType(1), $LoadAssets for both characters (the first one in the support's name on
+      the left, position 3; the second on the right, 7), $Wait(0), $SetSpeaker for the first one and
+      $Emotions(Standard). When you type <b>$SetSpeaker(name)</b> and press Enter, $Emotions(Standard)
+      and $PlayVoice with the speaker's first event line are added below it (no $PlayVoice for a
+      character without voice lines). Type inside $PlayVoice( ) to pick another line.</p>
+      <h3>Line breaks</h3>
+      <p>With <b>Auto line breaks</b> ticked (bottom right), a line that gets too wide for the game's text
+      box moves its last word to a new line (\n) as you type. The width is measured in pixels with the
+      game's own font, because letters have different widths: supports and most scenes hold
+      <b>320 pixels</b> per line (about 40-48 letters), small map boxes 285. The bottom bar shows the
+      width of the line you are on and turns red when it is too wide. When the text is saved or
+      previewed, pasted text is broken the same way, and a box that would get a third line continues
+      in a new box ($Pause, $Clear). Line breaks you type yourself are kept; $Nu (the avatar's name)
+      counts as 100 pixels.</p>
+      <h3>Preview</h3>
+      <p><b>Update Preview</b> redraws it; use the arrows to step through the lines. <b>Play</b> steps
+      through on its own and plays the voice lines (tick <i>Voices</i>); <b>2x</b> makes it bigger.
+      Actions -&gt; View Known Emotions / View Available Assets lists the names you can use.</p>
+      <h3>Expressions</h3>
+      {{emotions}}
+      <h3>All commands</h3>
+      {{dialogue_commands}}
+
+  chapters:
+    title: Chapters
+    windows: [ChapterEditor]
+    body: |
+      <p>Pick a chapter on the left (DLC maps appear as DLC:CID_E0xx after Unlimited -&gt; Import DLC Maps).</p>
+      <ul>
+      <li><b>Overview</b>: chapter settings, text, shops and merchant (DLC maps have none).</li>
+      <li><b>Map</b>: units (dispos) and the terrain. Select a faction or unit on the left, drag units on the grid, edit them on the right. <i>Terrain Mode</i> paints tiles with the Stamp or Pen brush. Undo/Redo are in the toolbar.</li>
+      <li><b>Chapter Characters</b>: chapter-only versions of characters (bosses, NPCs).</li>
+      <li><b>Dialogue</b>: the chapter's conversations (see the Dialogue help).</li>
+      </ul>
+      <p>Events (who joins, when reinforcements come) are in the chapter's script: Core Data -&gt; Scripts.</p>
+
+  items:
+    title: Items
+    windows: [items, item_refines, ItemTable, Item]
+    body: |
+      <p>Weapons, staves and other items: name and description, icon, price, weapon type and rank,
+      uses, might, hit, crit, range, stat bonuses while equipped and special effects (flags).</p>
+  classes:
+    title: Classes
+    windows: [classes, JobTable, Job]
+    body: |
+      <p>Every class: base stats, growths and maximum stats, pair-up bonuses, class skills and the
+      skills enemies of the class get, movement, weapon ranks, promotions, and the map sprites (BMap
+      icons). Which classes a character can reclass to is set on the character. A character's own map
+      sprite per class is set in Characters -&gt; Sprite Data.</p>
+  skills:
+    title: Skills
+    windows: [skills, SkillTable, Skill, pu_skill_effects, PUSkillFxTable, PUSkillFx]
+    body: |
+      <p>Skill names, descriptions and icons, and the stat and rate that decide how often a skill activates.</p>
+      <p><b>New skills</b>: add a row to the list (the game keeps 128 skills per unit, so ids 103-127
+      are free). Give it an RSID, a name and a description.</p>
+      <p><b>Icon</b>: pick one in the Icon list, or use <b>Import icon (PNG)...</b> to put your own
+      picture (24x24 is best) into a free icon cell. It is written to systems/icon*.ctpk.lz on save.</p>
+      <p><b>Effects (Unlimited)</b>: what the skill does in battle. Each line is an effect (damage
+      dealt, damage received, hit, avoid, crit, dodge or attack speed), an amount, and up to two
+      conditions (always, when this unit starts the fight, when the enemy does, HP full / not full /
+      50% or less / 25% or less, even or odd turns, enemy flier / on foot, enemy HP full / not full,
+      enemy magic / physical). Example: Duelist's Blow = Avoid +30 when this unit starts the fight.
+      Damage received uses a negative amount for less damage (-10).</p>
+      <p>Effects need the Paragon Unlimited <b>code.ips (exp04 or later)</b> in your Azahar mod folder;
+      without it the lines are kept but do nothing. With it, Hit Rate +10, Sure Strike, Avoid +10 and
+      Gamble also run from their Effects lines (they are added automatically). The game's other built-in
+      skills (Sol, Astra, breakers...) keep working as before.</p>
+      <p>All lines are also listed together in <b>Skill Effects (Unlimited)</b>.</p>
+  armies:
+    title: Armies
+    windows: [belong, BelongTable, Faction]
+    body: |
+      <p>The armies (factions) units can belong to, with their names and descriptions.</p>
+  tiles:
+    title: Tiles
+    windows: [tiles, TileTable, Tile]
+    body: |
+      <p>Terrain types used by the maps: name, category and footstep sound. Movement costs are set per terrain category (Terrain Costs).</p>
+  bmap:
+    title: BMap / Sprite Data
+    windows: [bmap_icons, BMapIconTable]
+    body: |
+      <p>The map sprites (BMap icons) the game can use. Classes and characters (Characters -&gt; Sprite Data) point to these.</p>
+  reliance:
+    title: Support lists (RelianceList)
+    windows: [reliance_list, RelianceListFile, RelianceList, RelianceListData, RelianceListDataPointer]
+    body: |
+      <p>The game's support list for each character. Paragon Unlimited keeps both sides of a pair
+      in sync: <b>Add</b> fills in the next free support number automatically and adds the pair to
+      both characters' lists.</p>
+  scripts:
+    title: Scripts
+    windows: [ExaltScriptEditor]
+    body: |
+      <p>Chapter event scripts (who joins, reinforcements, conversations). They are compiled when you save; errors are shown in the editor.</p>
+  endings:
+    title: Endings
+    windows: [EndingEditor]
+    body: |
+      <p>The ending texts for single characters and pairs.</p>
+  store:
+    title: Store Manager
+    windows: [StoreManager]
+    body: |
+      <p>Opens and closes Paragon's data files (stores). You only need it for unusual files; normal editing opens them by itself.</p>
+  avatar:
+    title: Configure Avatar
+    windows: [FE13AvatarConfigWindow]
+    body: |
+      <p>The avatar (Robin) used for previews in Paragon: name, gender, portraits and accessory. It does not change the game.</p>
+  quick_dialogue:
+    title: Quick Dialogue Generator
+    windows: [QuickDialogueGenerator]
+    body: |
+      <p>Pick two characters, write the conversation as plain lines ("Chrom: Hello!") and Paragon turns it into commands with speakers, line breaks and pauses that you can paste into a text. In Awakening, <i>Auto line break</i> breaks lines at the real width of the text box (320 pixels, measured with the game's font), so the letter count is not used.</p>
+  sprite_workshop:
+    title: Sprite Workshop
+    windows: [SpriteWorkshop]
+    body: |
+      <p>Makes a map sprite and saves it in the three team colors the game needs: <b>player</b>,
+      <b>enemy</b> and <b>ally</b>.</p>
+      <h3>1. Start</h3>
+      <ul>
+      <li><b>Use a sheet I have</b>: drop a sprite sheet (PNG or .ctpk.lz) on the big preview, or
+      Browse. The Workshop finds the class body it is drawn on, so its heads can be moved.</li>
+      <li><b>Build from a head and a class</b>: pick a character (Head) and a class (Body), then
+      Build sprite. Heads and bodies come from the game's own sprites: the character's head is
+      taken off one of their game sprites (Head taken from) and put on the class body, lined up
+      frame by frame. Enemy and ally colors are the game's own for both.</li>
+      </ul>
+      <h3>2. Adjust</h3>
+      <ul>
+      <li><b>Drag a head</b> in the preview to move it in that frame (any color, any view). Right-click
+      a frame to put its head back; Reset all frames undoes every move.</li>
+      <li><b>Eraser</b>: clean up leftover bits of the old head or body. Turn it on, pick 1, 2 or 3 px,
+      then left-drag to erase and right-drag to put pixels back (all three colors at once). The new head
+      is never erased - it is always drawn on top - so you can keep the old head as a guide while you line
+      the new one up and erase what is left afterwards. <b>Undo erase</b> takes back the last stroke,
+      <b>Restore all erased</b> brings everything back. Turn the eraser off to drag heads again.</li>
+      <li><b>See-through like the game</b>: the game's map sprites are see-through (normal pixels
+      53 %, near-black outlines 27 %). Plain images are turned into that; the slider sets the normal
+      pixels. Sheets that are already see-through are not changed.</li>
+      </ul>
+      <h3>3. Save to your mod</h3>
+      <p>Give the sprite a name, choose which characters use it in which classes, then <b>Save
+      sprite</b>. The files are written when you save the project; then Copy to Azahar.</p>
+      <h3>Advanced</h3>
+      <p>Team color in the sheet (for sheets drawn with red capes), the color reference (the game
+      sprite whose red / green and animation are used - automatic: the body), head colors for
+      enemy / ally, the BMap icon entry, workshop project files (.pusprite) and Check.</p>
+      <p>All names are shown in English; the game's files keep their own names.</p>
+  ui_colors:
+    title: UI colors
+    windows: [PUUIColorsDialog]
+    body: |
+      <p>Colors of Paragon itself (not the game). Pick a preset or your own colors; they apply right away and are remembered.</p>
+  mod_check:
+    title: Check My Mod
+    windows: [ModCheckDialog]
+    body: |
+      <p>Scans the project for problems that only show up in the game. <b>Errors</b> usually crash the
+      game or show nothing; <b>warnings</b> may look wrong. Problems the unmodified game already has are
+      hidden. It checks: expressions a speaker's portrait does not have, missing portrait files,
+      characters without FaceData, $PlayVoice lines without an English recording, and models or
+      textures that are missing. <i>Unlimited -&gt; Check My Mod Before Saving</i> runs it on every save.</p>
+  new_character:
+    title: New Character
+    windows: [NewCharacterDialog]
+    body: |
+      <p>Creates everything a new character needs, starting from an existing one: the character
+      (with no supports), both FaceData entries, portrait files with the basic expressions and the
+      battle model entry. Then: drop your portraits on FaceData's Game preview, set stats and supports
+      in Characters, and place the character in a chapter so they join. Everything is written on save.</p>
+  azahar:
+    title: Copy to Azahar
+    windows: []
+    body: |
+      <p><b>Unlimited -&gt; Copy to Azahar</b> copies changed files from your output folder to
+      <i>Azahar/load/mods/00040000000A0500/romfs</i> and rebuilt DLC maps to
+      <i>.../0004008C000A0500/romfs</i>. Replaced files are zipped to <i>Backups</i> first; nothing is
+      deleted. Set the folder with <i>Set Azahar Mod Folder</i> (in Azahar: right-click the game -&gt;
+      Open Mods Location).</p>
+
+  map_maker:
+    title: Map Maker
+    windows: [MapMaker, TemplateGallery]
+    body: |
+      <p>Makes brand-new chapters and edits the units of any chapter. New here? Start with
+      <a href="topic:lesson_first_chapter">Lesson 2: Make your first chapter</a>.</p>
+      <h3>First page</h3>
+      <ul>
+      <li>Cards for your own chapters (<b>Edit</b>) and for the empty chapter slots (<b>+ Make a new chapter</b>).</li>
+      <li><b>Fill every empty slot</b>: one click makes every free chapter, ready to play, from easy to hard.</li>
+      <li><b>Edit the map of any chapter</b>: the game's own chapters (units only).</li>
+      </ul>
+      <h3>The editor</h3>
+      <ul>
+      <li>Left: the steps (name, map, enemies, story, when it appears).</li>
+      <li>Middle: the map. Tools: Move, + Enemy, + Boss, + Player start, &#9733; Joins your army, Remove. Right-click removes. Ctrl+Z / Ctrl+Y undo and redo, Ctrl+S saves.</li>
+      <li>Right: the selected unit (class, level, boss, behavior).</li>
+      <li>The line under the map counts your units and warns about problems (no player starts, no boss for "Defeat the boss").</li>
+      </ul>
+      <h3>Maps</h3>
+      <p>Every map of Awakening: the main story, all paralogues, and the DLC maps once they are
+      imported. Each comes with player starts and generic enemies spread over six difficulty levels.
+      Fates maps can't be used: Awakening can't draw Fates' 3D map models.</p>
+      <h3>What gets written</h3>
+      <p>For a new chapter: the chapter entry and its names, the map files (copied from the map you
+      picked), units, the chapter's text and script, a title card, and its spot and road on the world
+      map. Editing a game chapter only changes its unit files; everything the editor doesn't show
+      (reinforcements, events, hidden settings) is kept.</p>
+
+  share:
+    title: Share My Mod
+    windows: [ShareDialog]
+    body: |
+      <p>Packs your mod into one zip for other players. See <a href="topic:lesson_share">Lesson 9</a>.</p>
+      <ul>
+      <li>Only files that differ from the original game are included; Paragon's own working files
+      (script sources, backups) are left out.</li>
+      <li>Layout: <i>00040000000A0500/romfs</i> (the game), <i>00040000000A0500/exefs/code.ips</i> (the
+      code patch, if ticked) and <i>0004008C000A0500/romfs</i> (DLC maps, if you rebuilt any).</li>
+      <li><b>Check my mod for problems first</b> runs Check My Mod and warns before packing.</li>
+      <li>The mod name, author and description are remembered for next time.</li>
+      </ul>

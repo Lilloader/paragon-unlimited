@@ -1,0 +1,111 @@
+---
+ChapterTable:
+  node:
+    id: chapters
+    name: Chapters
+  size: 0
+  fields:
+    - id: label
+      type: label
+      forced_value: ChapterData
+      index: 0
+    - id: chapters
+      type: list
+      typename: Chapter
+      table: chapters
+      format:
+        type: postfix_count
+        label: ChapterDataNum
+
+Chapter:
+  size: 68
+  key: cid
+  display: name
+  display_function: fe13_chapter
+  fields:
+    - id: label
+      type: label
+      generate_from: cid
+    - id: cid
+      type: string
+    - id: ceid
+      type: string
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: parent
+      type: string  # TODO: Add transform + make this a reference
+    - id: requirement
+      type: int
+      format: u8
+    - id: unknown
+      type: bytes
+      length: 11
+    - id: shop_1
+      type: reference
+      table: items
+      format: u16
+    - id: shop_2
+      type: reference
+      table: items
+      format: u16
+    - id: shop_3
+      type: reference
+      table: items
+      format: u16
+    - id: shop_4
+      type: reference
+      table: items
+      format: u16
+    - id: shop_5
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_1
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_2
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_3
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_4
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_5
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_6
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_7
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_8
+      type: reference
+      table: items
+      format: u16
+    - id: merchant_9
+      type: reference
+      table: items
+      format: u16
+    - id: unknown_2
+      type: bytes
+      length: 4
+    - id: chapter_type
+      type: int
+      format: u16
+    - id: unknown_3
+      type: bytes
+      length: 2

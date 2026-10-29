@@ -1,0 +1,228 @@
+---
+Person:
+  key: pid
+  display: name
+  display_function: fe15_character
+  size: 168
+  fields:
+    - id: key
+      type: label
+      generate_from: pid
+    - id: pid
+      type: string
+    - id: name
+      type: message
+      paths: [m/Name.bin.lz]
+    - id: job
+      name: Class
+      type: reference
+      table: jobs
+      format: string
+    - id: fid
+      type: string
+    - id: aid
+      type: string
+    - id: description
+      type: message
+      paths: [m/Name.bin.lz]
+    - id: army
+      type: reference
+      table: belongs
+      format: string
+    - id: gender
+      type: int
+      format: i8
+    - id: level
+      type: int
+      format: u8
+    - id: gain_exp
+      type: int
+      format: u8
+    - id: route
+      type: int
+      format: u8
+    - id: tolerance
+      type: float
+    - id: age
+      type: int
+      format: u8
+    - id: flags
+      type: bytes
+      length: 2
+    - id: summon_level
+      type: int
+      format: u8
+    - id: summon_hard_mode_level_bonus
+      type: int
+      format: i8
+    - id: recovery_%_a
+      type: int
+      format: i8
+    - id: recovery_%_b
+      type: int
+      format: i8
+    - id: turn
+      type: int
+      format: i8
+    - id: experience
+      type: int
+      format: u8
+    - id: power
+      type: int
+      format: i8
+    - id: coefficient
+      type: int
+      format: u16
+    - id: recruit_renown
+      type: int
+      format: u16
+    - id: defeat_renown
+      type: int
+      format: u16
+    - id: bases
+      type: bytes
+      length: 8
+    - id: maxes
+      type: bytes
+      length: 8
+    - id: growths
+      type: bytes
+      length: 8
+    - id: boss_bgm
+      type: string
+    - id: voice
+      type: string
+    - id: skill_1
+      type: reference
+      format: string
+      table: skills
+    - id: skill_2
+      type: reference
+      format: string
+      table: skills
+    - id: skill_3
+      type: reference
+      format: string
+      table: skills
+    - id: skill_4
+      type: reference
+      format: string
+      table: skills
+    - id: skill_5
+      type: reference
+      format: string
+      table: skills
+    - id: skill_6
+      type: reference
+      format: string
+      table: skills
+    - id: skill_7
+      type: reference
+      format: string
+      table: skills
+    - id: skill_8
+      type: reference
+      format: string
+      table: skills
+    - id: black_magic
+      type: reference
+      table: spell_lists
+      format: string
+    - id: white_magic
+      type: reference
+      table: spell_lists
+      format: string
+    - id: equipped_item
+      type: reference
+      table: items
+      format: string
+    - id: dropped_item
+      type: reference
+      table: items
+      format: string
+    - id: drop_rate_%
+      type: float
+    - id: end_section
+      type: bytes
+      length: 32
+
+SpellList:
+  size: 4
+  key: msid
+  display_function: fe15_spell_list
+  fields:
+    - id: label
+      type: label
+      generate_from: msid
+    - id: msid
+      type: string
+    - id: items
+      type: list
+      typename: SpellListItem
+      format:
+        type: static
+        count: 6
+
+SpellListItem:
+  size: 8
+  key: spell
+  display: spell
+  icon: spell
+  fields:
+    - id: spell
+      type: reference
+      table: items
+      format: string
+    - id: promoted
+      type: int
+      format: i16
+    - id: level
+      type: int
+      format: i16
+
+FoodPreferences:
+  size: 16
+  key: fid
+  display_function: fe15_food_preferences
+  fields:
+    - id: label
+      type: label
+      generate_from: fid
+    - id: fid
+      type: string
+    - id: neutral
+      type: int
+      format: u8
+    - id: rich
+      type: int
+      format: u8
+    - id: sweet
+      type: int
+      format: u8
+    - id: bitter
+      type: int
+      format: u8
+    - id: meat
+      type: int
+      format: u8
+    - id: rough
+      type: int
+      format: u8
+    - id: delicacy
+      type: int
+      format: u8
+    - id: tasty
+      type: int
+      format: u8
+    - id: yucky
+      type: int
+      format: u8
+    - id: reserved_1
+      type: int
+      format: u8
+    - id: reserved_2
+      type: int
+      format: u8
+    - id: reserved_3
+      type: int
+      format: u8

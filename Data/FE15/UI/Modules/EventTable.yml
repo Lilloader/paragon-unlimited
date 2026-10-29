@@ -1,0 +1,9 @@
+---
+typename: EventTable
+top_level:
+  type: vbox
+  inner:
+    - type: widget
+      id: label
+    - type: widget
+      id: events

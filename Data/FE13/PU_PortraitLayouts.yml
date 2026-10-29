@@ -1,0 +1,83 @@
+# Paragon Unlimited - where Awakening draws portraits on screen (FaceData "Game preview").
+#
+# Coordinates are 3DS screen pixels (top screen 400x240, bottom screen 320x240) of the
+# texture's top-left corner. "mirror: true" = the game draws the texture flipped horizontally.
+#
+# Measured 2026-10-24 from Azahar screenshots at native resolution by matching the decoded
+# vanilla textures against the screen (normalised cross-correlation, scale 1:1):
+#   conversation left  - Lissa 0.976, Stahl 1.00      -> mirrored at (-28, 0)
+#   conversation right - Chrom 0.999, Maribelle 0.999 -> normal   at (172, 0)
+#   level up           - Lon'qu 0.953 (screen is tinted) -> mirrored at (0, 0)
+#   unit info (bottom) - Lon'qu, Ricken, Sumia, Virion 0.96-0.97, Chrom 0.85:
+#                        the FC texture is mirrored and placed so that the corner of its
+#                        "Portrait Menu" crop lands at (1, -3); the frame shows x 5-63, y 5-72.
+# "measured: false" marks values that are assumed, not measured.
+---
+screens:
+  - id: conversation
+    name: "Conversation (top screen)"
+    mode: BU
+    size: [400, 240]
+    measured: true
+    background_color: "#3a3f4b"
+    slots:
+      - name: Right
+        pos: [172, 0]
+        mirror: false
+        box: [176, 176, 210, 58]   # speech box of the right speaker (approx., from screenshot)
+      - name: Left
+        pos: [-28, 0]
+        mirror: true
+        box: [14, 176, 206, 58]    # speech box of the left speaker (approx., from screenshot)
+
+  - id: support
+    name: "Support conversation (assumed same as conversation)"
+    mode: BU
+    size: [400, 240]
+    measured: false
+    background_image: resources/awakening/SupportBG.png
+    slots:
+      - name: Right
+        pos: [172, 0]
+        mirror: false
+        box: [176, 176, 210, 58]   # speech box of the right speaker (approx., from screenshot)
+      - name: Left
+        pos: [-28, 0]
+        mirror: true
+        box: [14, 176, 206, 58]    # speech box of the left speaker (approx., from screenshot)
+
+  - id: levelup
+    name: "Level up (top screen)"
+    mode: BU
+    size: [400, 240]
+    measured: true
+    background_color: "#2b3550"
+    slots:
+      - name: Portrait
+        pos: [0, 0]
+        mirror: true
+
+  - id: unit_info
+    name: "Unit info (bottom screen) - drag sets Portrait Menu Position"
+    mode: FC
+    size: [320, 240]
+    measured: true
+    background_color: "#e8d2a0"
+    crop_anchor: [1, -3]
+    window: [5, 5, 59, 68]
+    slots:
+      - name: Face box
+        pos: [0, 0]
+        mirror: true
+
+  - id: fc_texture
+    name: "FC texture + menu crop box"
+    mode: FC
+    size: [128, 128]
+    measured: true
+    background_color: "#3a3f4b"
+    show_menu_crop: true
+    slots:
+      - name: Texture
+        pos: [0, 0]
+        mirror: false

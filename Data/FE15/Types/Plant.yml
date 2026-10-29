@@ -1,0 +1,24 @@
+---
+Plant:
+  size: 12
+  key: filename
+  fields:
+    - id: label
+      type: label
+      generate_from: filename
+    - id: filename
+      type: string
+    - id: disconnect_effect
+      type: string
+    - id: r
+      type: int
+      format: u8
+    - id: g
+      type: int
+      format: u8
+    - id: b
+      type: int
+      format: u8
+    - id: a
+      type: int
+      format: u8

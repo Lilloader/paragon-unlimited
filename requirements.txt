@@ -1,0 +1,8 @@
+PySide6
+pydantic
+pyyaml
+pillow
+maturin
+virtualenv
+Jinja2
+lark

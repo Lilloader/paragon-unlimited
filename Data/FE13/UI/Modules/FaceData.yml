@@ -1,0 +1,23 @@
+---
+typename: FaceData
+overrides:
+  hair_color:
+    type: color_picker
+top_level:
+  type: splitter
+  orientation: vertical
+  sizes: [560, 240]
+  remember: FaceData
+  inner:
+    - type: tabs
+      tabs:
+        - title: Game preview (Unlimited)
+          inner:
+            type: fe13_portrait_stage
+        - title: Images
+          inner:
+            type: portrait_viewer
+            retrieve_mode: face_data
+    - type: scroll
+      inner:
+        type: form

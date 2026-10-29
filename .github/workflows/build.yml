@@ -1,0 +1,104 @@
+name: Build Paragon Unlimited
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    env:
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: abatilo/actions-poetry@v3
+        with:
+          poetry-version: "1.8.3"
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Install dependencies
+        run: |
+          poetry install
+          poetry run python scripts/render_templates.py
+      - name: Unit tests (pure python)
+        run: poetry run python tests/test_fe13_write_preprocessors.py
+      - name: Build
+        shell: cmd
+        run: call package.bat
+      - name: Portrait preview Qt test (offscreen)
+        timeout-minutes: 10
+        continue-on-error: true
+        env:
+          QT_QPA_PLATFORM: offscreen
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force qt_out | Out-Null
+          foreach ($t in @("tests/test_portrait_stage_qt.py", "tests/test_pu_ui_qt.py", "tests/test_pu_v1_qt.py", "tests/test_pu_v13_qt.py", "tests/test_pu_v14_qt.py", "tests/test_pu_v15_qt.py", "tests/test_pu_v16_skills.py", "tests/test_pu_v17_line_breaks.py", "tests/test_pu_v18_supports.py", "tests/test_pu_v19_support_repairs.py", "tests/test_pu_v20_file_case.py", "tests/test_pu_v23_sprite_parts.py", "tests/test_pu_v24_map_maker.py", "tests/test_pu_v25_share.py")) {
+            poetry run python $t *>> qt_out/test_log.txt
+            "$t exit=$LASTEXITCODE" | Out-File -Append qt_out/test_status.txt
+          }
+          exit 0
+      - name: Zip Qt test renders
+        if: always()
+        shell: pwsh
+        run: |
+          if (Test-Path qt_out) { Compress-Archive -Path qt_out\* -DestinationPath qt-test-renders.zip }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qt-test-renders
+          path: qt-test-renders.zip
+      - name: Package zip
+        shell: pwsh
+        run: |
+          Copy-Item docs\PARAGON_UNLIMITED.md dist\
+          Compress-Archive -Path dist\* -DestinationPath ParagonUnlimited-windows.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ParagonUnlimited-windows
+          path: ParagonUnlimited-windows.zip
+
+  linux-wheel:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Build Rust extension wheel (used for headless testing)
+        run: |
+          pip install maturin
+          maturin build --release -i python3.11 -o wheels
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paragon-linux-wheel
+          path: wheels
+
+  release:
+    needs: [windows, linux-wheel]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: out
+      - name: Publish build as a GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="build-${{ github.run_number }}"
+          gh release create "$TAG" --repo "${{ github.repository }}" --prerelease \
+            --title "Paragon Unlimited build ${{ github.run_number }}" \
+            --notes "Automated build of ${{ github.sha }}" \
+            out/ParagonUnlimited-windows/ParagonUnlimited-windows.zip out/paragon-linux-wheel/*.whl \
+            out/qt-test-renders/qt-test-renders.zip

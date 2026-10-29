@@ -1,0 +1,24 @@
+---
+typename: PUSkillFx
+overrides:
+  effect:
+    type: data_combo_box
+    enum: PUSkillEffect
+  condition_1:
+    type: data_combo_box
+    enum: PUSkillCondition
+  condition_2:
+    type: data_combo_box
+    enum: PUSkillCondition
+top_level:
+  type: vbox
+  inner:
+    - type: form
+      ids:
+        - skill
+        - effect
+        - value
+        - condition_1
+        - condition_2
+    - type: label
+      text: "Every line applies in battle when the unit has the skill equipped and both conditions hold (needs the Paragon Unlimited code.ips, exp04 or later). Damage received: a negative amount means less damage. You can also edit these on each skill's page."

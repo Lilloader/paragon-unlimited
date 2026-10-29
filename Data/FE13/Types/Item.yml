@@ -1,0 +1,204 @@
+---
+ItemTable:
+  node:
+    id: items
+    name: Items
+  size: 4
+  fields:
+    - id: buffer
+      type: bytes
+      length: 4
+    - id: label
+      type: label
+      forced_value: ItemData
+      index: 0
+    - id: items
+      type: list
+      typename: Item
+      table: items
+      format:
+        type: postfix_count
+        label: ItemDataNum
+
+ItemRefineTable:
+  node:
+    id: item_refines
+    name: Item Refines
+  size: 0
+  fields:
+    - id: label
+      type: label
+      forced_value: ItemRefineData
+      index: 0
+    - id: items
+      type: list
+      typename: Item
+      table: item_refines
+      format:
+        type: postfix_count
+        label: ItemRefineDataNum
+
+Item:
+  size: 56
+  key: iid
+  display: name
+  icon: item
+  index: id
+  fields:
+    - id: label
+      type: label
+      generate_from: iid
+    - id: bitflags_1
+      type: int
+      format: u8
+    - id: bitflags_2
+      type: int
+      format: u8
+    - id: bitflags_3
+      type: int
+      format: u8
+    - id: bitflags_4
+      type: int
+      format: u8
+    - id: bitflags_5
+      type: int
+      format: u8
+    - id: bitflags_6
+      type: int
+      format: u8
+    - id: bitflags_7
+      type: int
+      format: u8
+    - id: bitflags_8
+      type: int
+      format: u8
+    - id: iid
+      type: string
+    - id: name
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: description
+      type: message
+      paths: [m/GameData.bin.lz]
+    - id: icon
+      type: int
+      format: u16
+    - id: base_price
+      type: int
+      format: u16
+    - id: weapon_type
+      type: int
+      format: u8
+    - id: group
+      type: int
+      format: u8
+    - id: tier
+      type: int
+      format: u8
+    - id: non_weapon_type
+      type: int
+      format: u8
+    - id: weapon_rank
+      type: int
+      format: u8
+    - id: allow_weapon_exp_gain
+      type: bool
+      format: u8
+    - id: staff_exp_gain
+      type: int
+      format: u8
+    - id: uses
+      type: int
+      format: i8
+    - id: might
+      type: int
+      format: i8
+    - id: hit
+      type: int
+      format: i8
+    - id: crit
+      type: int
+      format: i8
+    - id: min_range
+      type: int
+      format: i8
+    - id: max_range
+      type: int
+      format: i8
+    - id: mov_gain
+      type: int
+      format: u8
+    - id: unknown
+      type: bytes
+      length: 2
+    - id: health
+      type: int
+      format: i8
+    - id: strength
+      type: int
+      format: i8
+    - id: magic
+      type: int
+      format: i8
+    - id: skill
+      type: int
+      format: i8
+    - id: speed
+      type: int
+      format: i8
+    - id: luck
+      type: int
+      format: i8
+    - id: defense
+      type: int
+      format: i8
+    - id: resistance
+      type: int
+      format: i8
+    - id: special_flags_1
+      type: int
+      format: u8
+    - id: special_flags_2
+      type: int
+      format: u8
+    - id: sort_order
+      type: int
+      format: u8
+    - id: padding
+      type: bytes
+      length: 1
+    - id: effect
+      type: string
+
+ItemFlagTable:
+  size: 0
+  fields:
+    - id: flags
+      type: list
+      typename: ItemCategory
+      format:
+        type: static
+        count: 55
+
+ItemCategoryTable:
+  size: 0
+  fields:
+    - id: categories
+      type: list
+      typename: ItemCategory
+      format:
+        type: static
+        count: 18
+
+ItemCategory:
+  size: 8
+  key: key
+  fields:
+    - id: label
+      type: label
+      generate_from: key
+    - id: key
+      type: string
+    - id: unknown
+      type: bytes
+      length: 4

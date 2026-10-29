@@ -1,0 +1,127 @@
+---
+BMapIconTable:
+  node:
+    id: bmap_icons
+    name: BMap Icons
+  size: 0
+  fields:
+    - id: label
+      type: label
+      index: 0
+    - id: icons
+      type: list
+      typename: BMapIcon
+      table: bmap_icons
+      format:
+        type: postfix_count
+        label: BMapIconNum
+
+BMapIcon:
+  size: 12
+  key: name
+  fields:
+    - id: bmi
+      type: label
+    - id: name
+      type: string
+    - id: frame_width
+      type: int
+      format: u8
+    - id: frame_height
+      type: int
+      format: u8
+    - id: unknown_1
+      type: int
+      format: u8
+    - id: unknown_2
+      type: int
+      format: u8
+    - id: pointer
+      type: record
+      typename: BMapIconData
+      format: pointer
+
+BMapIconData:
+  size: 52
+  fields:
+    - id: animation_data_1
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_2
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_3
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_4
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_5
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_6
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_7
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_8
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_9
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_10
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_11
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_12
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+    - id: animation_data_13
+      type: record
+      typename: BMapIconAnimationData
+      format: pointer
+
+BMapIconAnimationData:
+  size: 4
+  fields:
+    - id: total_animation_frames_1
+      type: bytes
+      length: 2
+    - id: total_animation_frames_2
+      type: bytes
+      length: 2
+    - id: frame_data
+      type: list
+      typename: BMapIconAnimationFrameData
+      format:
+        type: label_or_dest_terminated
+        step_size: 4
+
+BMapIconAnimationFrameData:
+  size: 4
+  fields:
+    - id: frame_index_x
+      type: int
+      format: u8
+    - id: frame_index_y
+      type: int
+      format: u8
+    - id: frame_delay
+      type: int
+      format: u16

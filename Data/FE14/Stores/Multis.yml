@@ -1,0 +1,105 @@
+---
+- id: person
+  name: Person
+  type: multi
+  typename: PersonTable
+  directory: GameData/Person/
+  glob: "**/*.bin.lz"
+- id: terrain
+  name: Terrain
+  type: multi
+  typename: Terrain
+  directory: GameData/Terrain/
+  glob: "**/*.bin.lz"
+  merge_tables: true
+  wrap_ids: [change_id_1, change_id_2, change_id_3]
+  hidden: true
+- id: dispos
+  name: Dispos
+  type: multi
+  typename: DispoFile
+  directory: GameData/Dispos/
+  glob: "**/*.bin.lz"
+  hidden: true
+- id: map_configs
+  name: Map Configs
+  type: multi
+  typename: MapConfigFile
+  directory: map/config/
+  glob: "**/*.bin"
+- id: sprite_data
+  name: Sprite Data
+  type: multi
+  typename: Sprite
+  directory: unit
+  glob: "**/*.bin"
+- id: field_config
+  name: Field (Config)
+  type: multi
+  typename: FieldConfigFile
+  directory: GameData/Field
+  glob: "**/*.bin"
+- id: assets_multi
+  name: Assets (Do not select ROM0-ROM6)
+  type: multi
+  typename: AssetTable
+  directory: asset
+  glob: "**/*"
+  multi_store_type: asset
+- id: field_references
+  name: Field (Refer List)
+  type: multi
+  typename: FieldReferData
+  directory: field
+  glob: "**/*.bin.lz"
+  multi_store_type:
+    table_inject:
+      location_strategy:
+        type: label
+        label: ReferList
+        offset: 8
+      count_strategy:
+        type: standard
+        location:
+          type: label
+          label: ReferList
+          offset: 0
+        format: u32
+- id: field_files
+  name: Field (File List)
+  type: multi
+  typename: FieldFileListEntry
+  directory: field
+  glob: "**/*.bin.lz"
+  multi_store_type:
+    table_inject:
+      location_strategy:
+        type: label
+        label: FileList
+        offset: 8
+      count_strategy:
+        type: standard
+        location:
+          type: label
+          label: FileList
+          offset: 0
+        format: u32
+- id: field_parts
+  name: Field (Part List)
+  type: multi
+  typename: FieldPart
+  directory: field
+  glob: "**/*.bin.lz"
+  multi_store_type:
+    table_inject:
+      location_strategy:
+        type: label
+        label: PartsList
+        offset: 8
+      count_strategy:
+        type: standard
+        location:
+          type: label
+          label: PartsList
+          offset: 0
+        format: u32

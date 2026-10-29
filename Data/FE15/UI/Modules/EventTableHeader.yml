@@ -1,0 +1,12 @@
+---
+typename: EventTableHeader
+overrides:
+  table:
+    type: deref_widget
+top_level:
+  type: vbox
+  inner:
+    - type: widget
+      id: name
+    - type: widget
+      id: table

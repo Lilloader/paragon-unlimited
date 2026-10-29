@@ -1,0 +1,81 @@
+---
+- id: uvs
+  name: UVs
+  type: multi
+  typename: UVFile
+  directory: ui/mat/
+  glob: "**/*.bin.lz"
+- id: grids
+  name: Chapter Terrain / Grids
+  type: multi
+  typename: Grid
+  directory: Data/Terrain/
+  glob: "**/*.bin.lz"
+- id: ui_layouts
+  name: UI Layouts
+  type: multi
+  typename: UILayoutFile
+  directory: ui/layout
+  glob: "**/*.bin.lz"
+- id: sprite_data
+  name: Sprite Data
+  type: multi
+  typename: Sprite
+  directory: unit
+  glob: "**/*.bin"
+- id: encounters
+  name: Encounters
+  type: multi
+  typename: EncounterFile
+  directory: Data/Encount/
+  glob: "**/*.bin.lz"
+- id: dispos
+  name: Spawns / Dispos
+  type: multi
+  typename: DispoFile
+  directory: Data/Dispos/
+  glob: "**/*.bin.lz"
+- id: events
+  name: Events
+  type: multi
+  typename: EventFile
+  directory: Data/Event/
+  glob: "**/*.bin.lz"
+- id: field_references
+  name: Field (Refer List)
+  type: multi
+  typename: FieldReferData
+  directory: field
+  glob: "**/*.bin.lz"
+  multi_store_type:
+    table_inject:
+      location_strategy:
+        type: label
+        label: ReferList
+        offset: 8
+      count_strategy:
+        type: standard
+        location:
+          type: label
+          label: ReferList
+          offset: 0
+        format: u32
+- id: field_files
+  name: Field (File List)
+  type: multi
+  typename: FieldFileListEntry
+  directory: field
+  glob: "**/*.bin.lz"
+  multi_store_type:
+    table_inject:
+      location_strategy:
+        type: label
+        label: FileList
+        offset: 8
+      count_strategy:
+        type: standard
+        location:
+          type: label
+          label: FileList
+          offset: 0
+        format: u32
