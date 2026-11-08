@@ -1,0 +1,16 @@
+Title: Share your mod
+Lesson: 9
+Opens for: 
+---
+1. Save, Copy to Emulator and play your mod through once.
+2. Choose **Unlimited -> Share My Mod...**
+3. Type a name for your mod (and, if you like, your name and a short description).
+4. Press **Make the zip...** and pick where to save it. Paragon checks your mod first and tells you
+  about anything that could crash the game.
+5. Share the zip. Inside is a *HOW_TO_INSTALL.txt* for your players.
+
+![Share My Mod](pictures/share_my_mod.png)
+
+The zip holds only what your mod changes, in Azahar's folder layout, so it stays small. New
+chapters, characters, sprites, voices and DLC maps all travel with it. Leave *Include the game code
+patch* ticked when your mod uses skill effects, supports #052-#059 or support numbers 1920+.

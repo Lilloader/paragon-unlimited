@@ -1,0 +1,6 @@
+Title: Store Manager
+Order: 160
+Opens for: StoreManager
+---
+Opens and closes Paragon's data files (stores). You only need it for unusual files; normal editing
+opens them by itself.

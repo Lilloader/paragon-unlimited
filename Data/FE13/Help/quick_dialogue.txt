@@ -1,0 +1,13 @@
+Title: Quick Dialogue Generator
+Order: 180
+Opens for: QuickDialogueGenerator
+---
+Pick two characters, write the conversation as plain lines ("Chrom: Hello!") and Paragon turns it
+into commands with speakers, line breaks and pauses that you can paste into a text. In Awakening,
+*Auto line break* breaks lines at the real width of the text box (320 pixels, measured with the
+game's font), so the letter count is not used.
+
+## Files it changes
+
+Nothing by itself: it makes text that you paste into a conversation (see Dialogue and supports
+for the files those are in).

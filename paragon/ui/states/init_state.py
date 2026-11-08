@@ -16,9 +16,9 @@ class InitState(State):
 
         self.set_theme(ms.app, ms.config.theme)
         if ms.config.theme == "Fusion Dark" and getattr(ms.config, "pu_ui_colors", None):
-            from paragon.ui import pu_theme
+            from paragon.unlimited.app import ui_theme
 
-            pu_theme.apply(ms.config.pu_ui_colors, ms.app)
+            ui_theme.apply(ms.config.pu_ui_colors, ms.app)
         self.set_font(ms.app, ms.config.font)
         QFontDatabase.addApplicationFont("resources/misc/FOT-ChiaroStd-B.otf")
 

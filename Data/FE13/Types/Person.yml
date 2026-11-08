@@ -20,13 +20,21 @@ PersonFile:
         index: -1
         offset: 4
         format: u32
-    # Paragon Unlimited: support slots #052-#059 (needs the Paragon Unlimited code.ips, exp03+).
+    # Paragon Unlimited: support slots #052-#059 (needs the Paragon Unlimited game code patch).
     - id: support_ex
       type: record
       typename: PUSupportExFile
       format:
         label_append:
           label: PU_SupportEx2
+          optional: true
+    # Paragon Unlimited: reclass slots 4-5 (needs the Paragon Unlimited game code patch).
+    - id: class_ex
+      type: record
+      typename: PUClassExFile
+      format:
+        label_append:
+          label: PU_ClassEx
           optional: true
 
 PUSupportExFile:
@@ -706,11 +714,12 @@ SpriteDataList:
       type: list
       typename: SpriteData
       format:
-        # Paragon Unlimited: 84 entries in vanilla, 124 in mods with added classes. Each
-        # character's list ends where the next one starts, so read up to that point.
+        # Paragon Unlimited: 84 entries in vanilla, 124 or more in mods with added classes (the
+        # game reads entry <class row>, so a list needs as many entries as there are classes).
+        # Each character's list ends where the next one starts, so read up to that point.
         type: pointer_dest_terminated
         step_size: 2
-        max: 124
+        max: 512
 
 SpriteData:
   size: 2

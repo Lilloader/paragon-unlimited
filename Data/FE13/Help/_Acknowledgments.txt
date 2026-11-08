@@ -1,0 +1,36 @@
+Title: Paragon Unlimited
+---
+A toolkit for making Fire Emblem Awakening mods: Map Maker, Sprite Workshop, 60 support slots,
+portrait and model previews, voices, DLC maps, Check My Mod, Copy to Emulator, Share My Mod and more.
+It also opens Fates and Echoes projects.
+
+## Thanks
+
+- Albinopelican
+- lilloader
+
+## Credits carried over from Paragon
+
+- Moonling
+- Lazy
+- muhmuhten
+- DeathChaos
+- TildeHat
+- AmbiguousPresence
+- SciresM
+- jespoketheepic
+
+## Also used
+
+- mila and exalt-rs: file formats and the script compiler
+- 3dbrew.org: notes on the CGFX, CTPK and sound formats
+- Qt / PySide6, Pillow, PyYAML, pydantic
+
+## License
+
+Paragon Unlimited is free software under the GNU General Public License, version 3 (LICENSE.txt).
+It is based on Paragon, copyright thane98, also GPL-3.0. Source code:
+[github.com/Lilloader/paragon-unlimited](https://github.com/Lilloader/paragon-unlimited).
+
+Fire Emblem is a trademark of Nintendo / Intelligent Systems. Paragon Unlimited is a fan tool and
+does not include any game files.

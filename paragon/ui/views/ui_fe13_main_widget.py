@@ -25,20 +25,6 @@ class Ui_FE13MainWidget(QWidget):
         self.endings_button = QPushButton("Endings")
         self.scripts_button = QPushButton("Scripts")
         self.renown_button = QPushButton("Renown")
-        self.sprite_workshop_button = QPushButton("Sprite Workshop")
-        self.sprite_workshop_button.setToolTip(
-            "Paragon Unlimited: build map sprites (body + head) and their player / enemy / ally colors"
-        )
-
-        self.map_maker_button = QPushButton("Map Maker - make new chapters and edit maps")
-        self.map_maker_button.setToolTip(
-            "Paragon Unlimited: new chapters from ready-made maps, drag units around, story, difficulty"
-        )
-        self.map_maker_button.setMinimumHeight(44)
-        self.map_maker_button.setStyleSheet(
-            "QPushButton { background: #2e8b57; color: white; font-weight: bold; font-size: 14px; border-radius: 6px; }"
-            "QPushButton:hover { background: #37a066; }"
-        )
 
         core_box = QGroupBox("Core Data")
         core_layout = QVBoxLayout()
@@ -54,7 +40,6 @@ class Ui_FE13MainWidget(QWidget):
         core_layout_2.addWidget(self.armies_button)
         core_layout_2.addWidget(self.tiles_button)
         core_layout_2.addWidget(self.sprite_data_button)
-        core_layout_2.addWidget(self.sprite_workshop_button)
         core_layout_2.addWidget(self.gmap_button)
         core_layout_2.addWidget(self.endings_button)
         core_layout_2.addWidget(self.renown_button)
@@ -66,8 +51,6 @@ class Ui_FE13MainWidget(QWidget):
         self.asset_definitions_button = QPushButton("Asset Definitions")
         self.presets_button = QPushButton("Presets")
         self.portraits_button = QPushButton("Portraits")
-        self.ui_colors_button = QPushButton("UI")
-        self.ui_colors_button.setToolTip("Paragon Unlimited: interface colors (does not change the game)")
 
         assets_box = QGroupBox("Assets")
         assets_layout = QVBoxLayout()
@@ -75,7 +58,6 @@ class Ui_FE13MainWidget(QWidget):
         assets_layout.addWidget(self.asset_definitions_button)
         assets_layout.addWidget(self.presets_button)
         assets_layout.addWidget(self.portraits_button)
-        assets_layout.addWidget(self.ui_colors_button)
         assets_box.setLayout(assets_layout)
 
         self.edit_dialogue_button = QPushButton("Edit Dialogue")
@@ -93,9 +75,8 @@ class Ui_FE13MainWidget(QWidget):
         misc_box.setLayout(misc_layout)
 
         layout = QGridLayout()
-        layout.addWidget(self.map_maker_button, 0, 0, 1, 2)
-        layout.addWidget(core_box, 1, 0, 1, 2)
-        layout.addWidget(assets_box, 2, 0)
-        layout.addWidget(misc_box, 2, 1)
+        layout.addWidget(core_box, 0, 0, 1, 2)
+        layout.addWidget(assets_box, 1, 0)
+        layout.addWidget(misc_box, 1, 1)
 
         self.setLayout(layout)

@@ -1,0 +1,58 @@
+Title: Map Maker
+Order: 240
+Opens for: MapMaker, TemplateGallery
+---
+Makes brand-new chapters and edits the units of any chapter. New here? Start with [Lesson 2: Make
+your first chapter](topic:lesson_first_chapter).
+
+## First page
+
+- Cards for your own chapters (**Edit**) and for the empty chapter slots (**+ Make a new chapter**).
+- **Clear (start over)** wipes one of your chapters and starts it again on a map you pick.
+  **Delete** takes a chapter out of the game (also chapters a mod you started from already had).
+  Chapters listed after it move up one place, so start a new save file after deleting one.
+- **Fill every empty slot**: one click makes every free chapter, ready to play, from easy to hard.
+- **Edit the map of any chapter**: the game's own chapters (units only).
+
+## The editor
+
+- Left: the steps (name, map, enemies, story, when it appears).
+- Middle: the map. Tools: Move, + Enemy, + Boss, + Player start, ★ Joins your army, Remove.
+  Right-click removes. Ctrl+Z / Ctrl+Y undo and redo, Ctrl+S saves.
+- Right: the selected unit (class, level, boss, behavior).
+- The line under the map counts your units and warns about problems (no player starts, no boss for
+  "Defeat the boss", no tile for "Seize a tile").
+- Win conditions: defeat every enemy, defeat the boss, seize a tile, or survive some turns (see
+  [Lesson 4](topic:lesson_story_boss)).
+
+## Maps
+
+Every map of Awakening: the main story, all paralogues, and the DLC maps once they are imported.
+Each comes with player starts and generic enemies spread over six difficulty levels. Fates maps
+can't be used: Awakening can't draw Fates' 3D map models.
+
+## What gets written
+
+For a new chapter: the chapter entry and its names, the map files (copied from the map you picked),
+units, the chapter's text and script, a title card, and its spot and road on the world map. Editing
+a game chapter only changes its unit files; everything the editor doesn't show (reinforcements,
+events, hidden settings) is kept.
+
+## Files it changes
+
+For a new chapter (X0xx):
+
+- *data/GameData.bin.lz* and *m/E/GameData.bin.lz* - the chapter entry and its names.
+- *data/dispos/X0xx.bin.lz*, *data/person/X0xx.bin.lz* - the units and chapter characters.
+- *data/terrain/X0xx.bin.lz*, *data/landscape/X0xx.bin.lz*, *map/data/X0xx.bin*,
+  *map/terrain/X0xx.bcres.lz*, *map/height/X0xx.bin*, *map/mini/X0xx.ctpk.lz* - the map (copied
+  from the map you picked).
+- *scripts/X0xx.cmb* - the chapter's script; *m/E/X0xx.bin.lz* - its story text.
+- *gmap/spot.bcres.lz*, *gmap/model.bcres.lz* and *data/OtherData.bin.lz* - its spot and road on
+  the world map.
+- The title card picture.
+- *telop/Tlp_PUM_X0xx.r.lz* and *telop/Tlp_PUM_X0xx_E.r.lz* - the banner of a Seize or Survive
+  chapter.
+
+Editing a game chapter only changes *data/dispos/<chapter>.bin.lz* (and
+*data/person/<chapter>.bin.lz* for its characters).

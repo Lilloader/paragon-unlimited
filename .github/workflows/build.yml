@@ -29,7 +29,7 @@ jobs:
           poetry install
           poetry run python scripts/render_templates.py
       - name: Unit tests (pure python)
-        run: poetry run python tests/test_fe13_write_preprocessors.py
+        run: poetry run python tests/test_save_checks.py
       - name: Build
         shell: cmd
         run: call package.bat
@@ -38,10 +38,12 @@ jobs:
         continue-on-error: true
         env:
           QT_QPA_PLATFORM: offscreen
+          # the offscreen platform only finds fonts in this folder (no text in the renders without it)
+          QT_QPA_FONTDIR: C:\Windows\Fonts
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force qt_out | Out-Null
-          foreach ($t in @("tests/test_portrait_stage_qt.py", "tests/test_pu_ui_qt.py", "tests/test_pu_v1_qt.py", "tests/test_pu_v13_qt.py", "tests/test_pu_v14_qt.py", "tests/test_pu_v15_qt.py", "tests/test_pu_v16_skills.py", "tests/test_pu_v17_line_breaks.py", "tests/test_pu_v18_supports.py", "tests/test_pu_v19_support_repairs.py", "tests/test_pu_v20_file_case.py", "tests/test_pu_v23_sprite_parts.py", "tests/test_pu_v24_map_maker.py", "tests/test_pu_v25_share.py")) {
+          foreach ($t in @("tests/test_portrait_preview.py", "tests/test_ui_colors_and_icons.py", "tests/test_portraits_models_voices.py", "tests/test_mod_check_azahar_new_character.py", "tests/test_help_window.py", "tests/test_facedata_reset.py", "tests/test_skills.py", "tests/test_line_breaks.py", "tests/test_supports.py", "tests/test_support_list.py", "tests/test_support_repairs.py", "tests/test_file_name_case.py", "tests/test_sprite_workshop.py", "tests/test_head_sheets.py", "tests/test_map_maker.py", "tests/test_share_mod.py", "tests/test_code_patch.py", "tests/test_class_slots.py", "tests/test_sprite_lists.py", "tests/test_job_rows.py", "tests/test_help_text.py", "tests/test_home_view.py")) {
             poetry run python $t *>> qt_out/test_log.txt
             "$t exit=$LASTEXITCODE" | Out-File -Append qt_out/test_status.txt
           }
@@ -52,8 +54,10 @@ jobs:
         run: |
           if (Test-Path qt_out) { Compress-Archive -Path qt_out\* -DestinationPath qt-test-renders.zip }
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && github.repository_owner == 'Lilloader'  # private repo: ci-latest instead
+        continue-on-error: true
         with:
+          retention-days: 3
           name: qt-test-renders
           path: qt-test-renders.zip
       - name: Package zip
@@ -62,9 +66,22 @@ jobs:
           Copy-Item docs\PARAGON_UNLIMITED.md dist\
           Compress-Archive -Path dist\* -DestinationPath ParagonUnlimited-windows.zip
       - uses: actions/upload-artifact@v4
+        if: github.repository_owner == 'Lilloader'  # private repo: ci-latest instead
+        continue-on-error: true
         with:
+          retention-days: 3
           name: ParagonUnlimited-windows
           path: ParagonUnlimited-windows.zip
+      - name: Publish to the private ci-latest release (for download)
+        if: github.repository_owner != 'Lilloader'
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete ci-latest --yes --cleanup-tag 2>$null
+          $files = @("ParagonUnlimited-windows.zip")
+          if (Test-Path qt-test-renders.zip) { $files += "qt-test-renders.zip" }
+          gh release create ci-latest @files --prerelease --title "CI latest" --notes "$env:GITHUB_SHA"
 
   linux-wheel:
     runs-on: ubuntu-22.04
@@ -81,11 +98,16 @@ jobs:
           pip install maturin
           maturin build --release -i python3.11 -o wheels
       - uses: actions/upload-artifact@v4
+        continue-on-error: true  # a full artifact quota must not fail the build
         with:
+          retention-days: 3
           name: paragon-linux-wheel
           path: wheels
 
   release:
+    # Numbered build releases are for the public repository only; the private one publishes
+    # ci-latest from the windows job (its artifact storage is full, so this job could only fail).
+    if: github.repository_owner == 'Lilloader'
     needs: [windows, linux-wheel]
     runs-on: ubuntu-latest
     steps:

@@ -339,22 +339,34 @@ top_level:
                         type: group_box
                         title: Male Reclasses
                         inner:
-                          type: form
-                          ids:
-                            - male_reclass_1
-                            - male_reclass_2
-                            - male_reclass_3
+                          type: vbox
+                          inner:
+                            - type: form
+                              ids:
+                                - male_reclass_1
+                                - male_reclass_2
+                                - male_reclass_3
+                            - type: fe13_class_slots_widget
+                              gender: male
                     - column: 1
                       inner:
                         type: group_box
                         title: Female Reclasses
                         inner:
-                          type: form
-                          ids:
-                            - female_reclass_1
-                            - female_reclass_2
-                            - female_reclass_3
+                          type: vbox
+                          inner:
+                            - type: form
+                              ids:
+                                - female_reclass_1
+                                - female_reclass_2
+                                - female_reclass_3
+                            - type: fe13_class_slots_widget
+                              gender: female
                     - row: 1
+                      column_span: 2
+                      inner:
+                        type: fe13_avatar_classes_widget
+                    - row: 2
                       inner:
                         type: form
                         ids:
@@ -363,7 +375,7 @@ top_level:
                           - skill_3
                           - skill_4
                           - skill_5
-                    - row: 1
+                    - row: 2
                       column: 1
                       inner:
                         type: form
@@ -372,13 +384,13 @@ top_level:
                           - normal_random_skill_chance
                           - normal_random_skill_count
                           - normal_random_skill_padding
-                    - row: 2
+                    - row: 3
                       inner:
                         type: form
                         ids:
                           - hard_skill_1
                           - hard_skill_2
-                    - row: 2
+                    - row: 3
                       column: 1
                       inner:
                         type: form
@@ -387,14 +399,14 @@ top_level:
                           - hard_random_skill_chance
                           - hard_random_skill_count
                           - hard_random_skill_padding
-                    - row: 3
+                    - row: 4
                       inner:
                         type: form
                         ids:
                           - lunatic_skill_1
                           - lunatic_skill_2
                           - unknown_skill_1
-                    - row: 3
+                    - row: 4
                       column: 1
                       inner:
                         type: form
@@ -404,6 +416,12 @@ top_level:
                           - lunatic_random_skill_count
                           - lunatic_random_skill_padding
         - title: Supports
+          inner:
+            type: hbox
+            inner:
+              - type: fe13_support_list
+              - type: fe13_family_support_widget
+        - title: Support Slots (advanced)
           inner:
             type: hbox
             inner:
@@ -1192,7 +1210,6 @@ top_level:
                               - type: fe13_support_slot_tools
                                 field_id: support_character_051
                     - type: fe13_support_ex_widget
-              - type: fe13_family_support_widget
         - title: Dialogue
           inner:
             type: scroll

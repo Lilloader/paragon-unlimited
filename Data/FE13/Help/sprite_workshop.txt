@@ -1,0 +1,65 @@
+Title: Sprite Workshop
+Order: 190
+Opens for: SpriteWorkshop
+---
+Makes a map sprite and saves it in the three team colors the game needs: **player**, **enemy** and
+**ally**.
+
+## 1. Start
+
+- **Use a sheet I have**: drop a sprite sheet (PNG or .ctpk.lz) on the big preview, or Browse. The
+  Workshop finds the class body it is drawn on, so its heads can be moved.
+- **Build from a head and a class**: pick a character (Head) and a class (Body), then Build sprite.
+  Heads and bodies come from the game's own sprites: the character's head is taken off one of their
+  game sprites (Head taken from) and put on the class body, lined up frame by frame. Enemy and ally
+  colors are the game's own for both.
+
+## 2. Adjust
+
+- **Drag a head** in the preview to move it in that frame (any color, any view). Right-click a frame
+  to put its head back; Reset all frames undoes every move.
+- **Eraser**: clean up leftover bits of the old head or body. Turn it on, pick 1, 2 or 3 px, then
+  left-drag to erase and right-drag to put pixels back (all three colors at once). The new head is
+  never erased - it is always drawn on top - so you can keep the old head as a guide while you line
+  the new one up and erase what is left afterwards. I left parts of the original head from the base
+  sprite so that you have an easier time seeing where the head is supposed to go. **Undo erase**
+  takes back the last stroke, **Restore all erased** brings everything back. Turn the eraser off to drag heads again.
+- **See-through like the game**: the game's map sprites are see-through (normal pixels 53 %,
+  near-black outlines 27 %). Plain images are turned into that; the slider sets the normal pixels.
+  Sheets that are already see-through are not changed.
+
+## 3. Save to your mod
+
+Give the sprite a name, choose which characters use it in which classes, then **Save all sprites**.
+The files are written when you save the project; then Copy to Emulator.
+
+## Making several sprites
+
+The **Sprites** list at the top holds every sprite you make while Paragon is open. Each one has its
+own sheet, name and characters / classes; click one to go back to it.
+
+- **New sprite** starts another one. Loading another sheet (or building another head + class) also
+  starts a new one once the current sprite has characters or was saved; before that, the new sheet
+  simply replaces the current one, so trying out the wrong file doesn't leave extra sprites behind.
+- Every sprite needs its own name. A sprite with the same name as another one is not saved (the
+  report says so).
+- **Save all sprites** saves every sprite in the list. Removing a character / class from a sprite's
+  list and saving again takes that sprite off them.
+- **Remove from list** only takes it off the list; a sprite you already saved stays in your mod.
+- The list is cleared when Paragon closes. To keep working on a sprite another day, save it as a
+  workshop project (Advanced -> Workshop project -> Save).
+
+## Advanced
+
+Team color in the sheet (for sheets drawn with red capes), the color reference (the game sprite
+whose red / green and animation are used - automatic: the body), head colors for enemy / ally, the
+BMap icon entry, workshop project files (.pusprite) and Check.
+
+All names are shown in English; the game's files keep their own names.
+
+## Files it changes
+
+- *map/unit/<name>青.ctpk.lz*, *<name>赤.ctpk.lz*, *<name>緑.ctpk.lz* - the sprite in the player,
+  enemy and ally colors.
+- *data/GameData.bin.lz* - its BMap icon entry.
+- *data/person/static.bin.lz* - the characters' Sprite Data rows you assigned it to.

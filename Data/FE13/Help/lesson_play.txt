@@ -1,0 +1,14 @@
+Title: Play and test your chapter
+Lesson: 5
+Opens for: 
+---
+1. Press **Save chapter** in the Map Maker (this saves the whole project).
+2. Use **Unlimited -> Copy to Emulator** (or tick Copy to Emulator After Saving once).
+3. Start the game and load a save that has cleared the *Appears after* chapter. The new chapter is
+  on the world map like a paralogue.
+
+## If something looks wrong
+
+- Run **Unlimited -> Check My Mod...**: it finds missing files and other problems.
+- Too hard or too easy? Move the Difficulty slider and save again.
+- Every save keeps the old files in *Backups*, so you can always go back.

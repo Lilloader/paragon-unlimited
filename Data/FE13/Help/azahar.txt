@@ -1,0 +1,9 @@
+Title: Copy to Emulator
+Order: 230
+Opens for: 
+---
+**Unlimited -> Copy to Emulator** copies changed files from your output folder to
+*Azahar/load/mods/00040000000A0500/romfs* and rebuilt DLC maps to *.../0004008C000A0500/romfs*.
+Replaced files are zipped to *Backups* first; nothing is deleted. Set the folder with *Set Your
+Mod Folder* (in Azahar: right-click the game -> Open Mods Location). You don't need to use
+Azahar specifically, but it's the one I recommend; Citra works too.

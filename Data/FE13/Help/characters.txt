@@ -1,0 +1,73 @@
+Title: Characters
+Order: 20
+Opens for: characters, PersonFile, Person
+---
+Every character in the game: playable units, enemies, bosses and generic units. Pick one in the list
+on the left. **Add** makes a new row at the end, **Copy** / **Paste** copy all fields from one
+character onto another. For a brand-new character with portraits and a battle model, use **Unlimited
+-> New Character** instead.
+
+## Overview
+
+- **PID** is the character's ID (PID_...). Scripts, supports and Asset Definitions refer to it, so
+  change it only for new characters.
+- **Name** / **Description** are text keys (MPID_...); the text itself is edited next to them.
+- **ID** is the character's number in the game's tables; keep it unique. **Army** is the default
+  side, **Parent** is used for children.
+
+## Core Data
+
+FID (which portraits to use, FID_name -> FaceData FSID_BU_name_通常 / FSID_FC_name_通常), class, level,
+weapon ranks (weapon experience) and other values.
+
+## Stats
+
+- **Additions**: base stats added on top of the class bases.
+- **Player growths** / **Enemy growths**: growth rates in %.
+- **Modifiers**: stat cap modifiers (also passed to children).
+- Reclass options for male/female, personal skills, and the random skill sets enemies use on each
+  difficulty.
+
+## Reclass classes and avatars
+
+The game gives every character 3 reclass classes per gender. **Reclass 4** and **Reclass 5**
+(under the first three) add two more. A character with **Tactician** as a reclass class is treated
+like Robin: a Second Seal offers a whole list of classes. That list is shown on the Stats tab of such
+a character as a checklist (**Avatar classes**). It is shared by every avatar of that gender and
+their children; tick the base classes, the game adds their promotions from level 10. **Game's own
+list** goes back to the game's 13 classes. A Second Seal list holds at most 64 classes (with
+promotions); the Stats tab shows how many a character can reach.
+
+Reclass 4-5 and the avatar list need the game code patch (**Unlimited -> Install Game Code Patch**).
+Without it the game uses only the first 3 reclass classes and its own avatar list.
+
+## Supports
+
+Up to 60 support partners. Choose the partner and the support type (how fast the levels C/B/A/S are
+reached). A support must be listed for **both** characters; when one side is missing the support
+check on save offers **Add missing partners**. The button next to a slot opens that pair's support
+conversation.
+
+## Sprite Data
+
+Which map sprite (BMap icon) the character uses in each class. There is one row per class, in the
+order of the class list (the rows are labeled with the class names). To give the character their own
+look as, for example, a Great Knight, pick a BMap icon in the Great Knight row. Rows left at the
+default use the class's normal sprite. When you add classes, every character gets a row for them
+when you save; moving a class in the class list moves its row for every character too.
+
+## Dialogue, Portraits, Voices
+
+Dialogue lists the character's generic lines (level up, battle, event tiles...). Portraits shows
+their portraits. **Voices** plays every English voice line of the character; double-click a line to
+hear it, *Copy $PlayVoice(...)* puts the command on the clipboard.
+
+## Files it changes
+
+- *data/person/static.bin.lz* - the characters: stats, growths, classes, reclass 1-5, skills,
+  supports and Sprite Data (the map sprite for each class).
+- *m/E/GameData.bin.lz* - names and descriptions.
+- *data/GameData.bin.lz* - the avatar class checklist (Unlimited).
+- *bs/ComboTbl.bin.lz* - the battle look and voice, when you change them from here (Asset Definitions).
+- *m/E/* support files (one per pair, named after the two characters) - support conversations
+  opened from the Supports tab.

@@ -309,6 +309,7 @@ class Configuration(BaseModel):
     pu_azahar_mods: Optional[str] = None  # Paragon Unlimited: Azahar load/mods folder
     pu_copy_after_save: bool = False
     pu_check_before_save: bool = False
+    pu_tab_colors: Optional[Dict[str, str]] = None  # Paragon Unlimited: colored tabs of the main window
     exalt_script_editor_config: ExaltScriptEditorConfig = pydantic.Field(
         default_factory=ExaltScriptEditorConfig
     )

@@ -1,0 +1,14 @@
+Title: Check My Mod
+Order: 210
+Opens for: ModCheckDialog
+---
+Scans the project for problems that only show up in the game. **Errors** usually crash the game or
+show nothing; **warnings** may look wrong. Problems the unmodified game already has are hidden. It
+checks: expressions a speaker's portrait does not have, missing portrait files, characters without
+FaceData, $PlayVoice lines without an English recording, models or textures that are missing,
+map sprite files with the wrong letter case or a missing color, sprite lists shorter than the class
+list, BMap Icons with the same name twice or without files, and voice sets (the Voice in Asset
+Definitions) that have no sounds, so the unit is silent in battle.
+*Unlimited -> Check My Mod Before Saving* runs it on every save.
+
+![Check My Mod with a few problems found](pictures/check_my_mod.png)

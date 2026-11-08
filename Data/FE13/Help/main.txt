@@ -1,0 +1,34 @@
+Title: Getting started
+Order: 10
+Opens for: MainWindow, FE13MainWidget
+---
+**New to Paragon?** Start with [Lesson 1: Your first five minutes](topic:lesson_start). The lessons
+(top of the list on the left) take you from your first save to sharing a mod with new chapters.
+
+Paragon edits the files of your Fire Emblem Awakening dump. It reads the original game (the **ROM
+folder**) and writes every change into your **output folder**; the game files themselves are never
+changed.
+
+## The main window
+
+- **Paralogue Maker** (under *Unlimited*): new chapters and easy map editing.
+- **Core Data**: characters, items, classes, skills, armies, chapters and more. Each button opens an
+  editor window.
+- **Assets**: Asset Definitions and Presets (battle models), Portraits (FaceData) and **UI**
+  (Paragon's own colors).
+- **Dialogue**: Edit Dialogue (any text file, supports included), the Quick Dialogue Generator,
+  Configure Avatar, Store Manager.
+- The lists on the left hold every editable table and file; type in the search box to find one.
+
+## Saving and testing
+
+- **File -> Save** writes your changes to the output folder (the previous files go to *Backups*).
+  Paragon asks before you close it with unsaved changes.
+- **Unlimited -> Copy to Emulator** copies the output into Azahar's mod folder so you can test right
+  away. Tick *Copy to Emulator After Saving* to do it on every save.
+- **Unlimited -> Check My Mod** looks for mistakes that would crash the game or show nothing.
+
+## Help
+
+Press **F1** in any window (or use its **Help** button) for help about that window. **Help -> Help
+Topics** lists everything.

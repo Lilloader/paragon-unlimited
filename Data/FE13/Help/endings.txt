@@ -1,0 +1,9 @@
+Title: Endings
+Order: 150
+Opens for: EndingEditor
+---
+The ending texts for single characters and pairs.
+
+## Files it changes
+
+- *m/E/エンディング.bin.lz* - the ending texts.

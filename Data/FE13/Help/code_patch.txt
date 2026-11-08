@@ -1,0 +1,34 @@
+Title: Game code patch
+Order: 260
+Opens for: 
+---
+A few Paragon Unlimited features change the game's code, not just its data. They need the game code
+patch (a *code.ips* file) in your Azahar mod folder:
+
+- **60 support partners** per character: the Unlimited slots #052-#059.
+- **Skill effects**: the Effects lines of your skills.
+- **Reclass 4 and 5** and the **avatar class checklist** (Characters -> Stats).
+- **Room for 4096 support conversations** (the game has 1920). Paragon allows support numbers up to
+  4095 once the patch is installed.
+- **Seize and Survive banners**: the Map Maker's Seize / Survive chapters show their own goal when
+  the battle starts (without the patch the game shows "Rout the enemy").
+
+Without the patch these features are ignored and nothing crashes.
+
+## Install
+
+1. Choose **Unlimited -> Install Game Code Patch (FE13)...**
+2. Paragon shows what is installed now. Press **Install** (or **Update**).
+3. Restart the game in Azahar.
+
+It goes to *Azahar/load/mods/00040000000A0500/code.ips*. If a *code.ips* from another mod is already
+there, Paragon adds its changes to it and keeps the other mod's changes. The old file is kept next
+to it (*code.ips.before_PU_...*). **Remove** takes Paragon's changes out again.
+
+The patch is made for the **North American version 1.0** of Fire Emblem Awakening. Saves work with
+and without it. **Share My Mod** puts it into your zip, so your players get it too.
+
+## Files it changes
+
+- *code.ips* in the emulator's mod folder (*load/mods/00040000000A0500/code.ips*). Nothing in your
+  project's output folder changes.

@@ -11,11 +11,12 @@ from paragon.ui.controllers.ending_editor import EndingEditor
 from paragon.ui.controllers.exalt_script_editor import ExaltScriptEditor
 from paragon.ui.controllers.fe13_avatar_config_window import FE13AvatarConfigWindow
 from paragon.ui.controllers.store_manager import StoreManager
-from paragon.ui.views.ui_fe13_main_widget import Ui_FE13MainWidget
 from paragon.ui.controllers.quick_dialogue_generator import QuickDialogueGenerator
+from paragon.unlimited.app.fe13_main_widget_features import FE13MainWidgetFeatures
+from paragon.unlimited.app.home_view import UnlimitedFE13MainView
 
 
-class FE13MainWidget(Ui_FE13MainWidget):
+class FE13MainWidget(FE13MainWidgetFeatures, UnlimitedFE13MainView):
     def __init__(self, ms, gs, main_window):
         super().__init__()
         self.gs = gs
@@ -53,36 +54,7 @@ class FE13MainWidget(Ui_FE13MainWidget):
         self.store_manager_button.clicked.connect(self._on_store_manager)
         self.ui_colors_button.clicked.connect(self._on_ui_colors)
         self.ui_colors_dialog = None
-        self._apply_pu_icons()
-        try:
-            from paragon.ui import pu_theme
-
-            pu_theme.register_main_window(self)
-            if getattr(self.ms.config, "pu_ui_colors", None):
-                pu_theme.apply(self.ms.config.pu_ui_colors)
-        except Exception:
-            logging.exception("Could not apply UI colors to the main window.")
-
-    def _apply_pu_icons(self):
-        try:
-            from PySide6.QtCore import QSize
-            from paragon.ui.pu_icons import fe13_button_icons
-
-            for name, icon in fe13_button_icons(self.gs, self.ms.config).items():
-                button = getattr(self, name, None)
-                if button is not None and icon is not None:
-                    button.setIcon(icon)
-                    button.setIconSize(QSize(24, 24))
-                    button.setMinimumHeight(32)
-        except Exception:
-            logging.exception("Could not set button icons.")
-
-    def _on_ui_colors(self):
-        from paragon.ui.controllers.pu_ui_colors_dialog import PUUIColorsDialog
-
-        if not self.ui_colors_dialog:
-            self.ui_colors_dialog = PUUIColorsDialog(self.ms)
-        self.ui_colors_dialog.show()
+        self._setup_home()
 
     def on_close(self):
         for editor in self.dialogue_editors.values():
@@ -118,9 +90,9 @@ class FE13MainWidget(Ui_FE13MainWidget):
                 self.chapter_editor = ChapterEditor(
                     self.ms, self.gs, self.script_editor.model.sourceModel()
                 )
-                from paragon.ui import pu_help
+                from paragon.unlimited.app import help_window
 
-                pu_help.add_help_action(self.chapter_editor)
+                help_window.add_help_action(self.chapter_editor)
                 self.chapter_editor.show()
         except:
             logging.exception("Failed to create FE13 chapter editor.")
@@ -170,31 +142,6 @@ class FE13MainWidget(Ui_FE13MainWidget):
 
     def _on_portraits(self):
         self.main_window.open_node_by_id("facedata")
-
-    def _on_sprite_workshop(self):
-        try:
-            from paragon.ui.controllers.pu_sprite_workshop import SpriteWorkshop
-
-            if getattr(self, "sprite_workshop", None) is None:
-                self.sprite_workshop = SpriteWorkshop(self.gs)
-            self.sprite_workshop.show()
-            self.sprite_workshop.raise_()
-        except Exception:
-            logging.exception("Could not open the Sprite Workshop.")
-            utils.error(self)
-
-    def _on_map_maker(self):
-        try:
-            from paragon.ui.controllers.pu_map_maker import MapMaker
-
-            if getattr(self, "map_maker", None) is None:
-                self.map_maker = MapMaker(self.gs, self.main_window)
-            self.map_maker.show()
-            self.map_maker.raise_()
-            self.map_maker.activateWindow()
-        except Exception:
-            logging.exception("Could not open the Map Maker.")
-            utils.error(self)
 
     def _on_bmap_icons(self):
         self.main_window.open_node_by_id("bmap_icons")

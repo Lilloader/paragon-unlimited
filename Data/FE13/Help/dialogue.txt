@@ -1,0 +1,69 @@
+Title: Dialogue and supports
+Order: 50
+Opens for: DialogueEditor
+---
+Every conversation is a text entry (a **key**) in a text file. Pick the key at the top; the text is
+on the right, the preview on the left. Type **$** for a list of commands; inside *$PlayVoice(* the
+list shows the voice lines of the current speaker.
+
+## How a support is written
+
+```
+$LoadAssets(Chrom, 3)
+$LoadAssets(Lissa, 7)
+$SetSpeaker(Chrom)
+$PlayVoice(SE_VOICE_CHROM_EVT_2)
+$Emotions(Standard)
+Lissa, have you seen my sword?
+$Pause
+
+$Clear
+$SetSpeaker(Lissa)
+$Emotions(Happy,Sweat)
+Which one? You have three!
+$Pause
+```
+
+- **$LoadAssets(name, position)** brings a character in: 3 = left, 7 = right (0 / 6 in small boxes).
+- **$SetSpeaker(name)** picks who talks (name box, highlighted portrait).
+- **$Emotions(expression, blush, sweat)** changes the speaker's expression.
+- **$Pause** waits for the button, **$Clear** empties the text box. Two lines fit in a box.
+
+## Starting a support
+
+The first time a support's **Edit Dialogue** is opened, each rank (C, B, A, S) starts with
+$SetConversationType(1), $LoadAssets for both characters (the first one in the support's name on the
+left, position 3; the second on the right, 7), $Wait(0), $SetSpeaker for the first one and
+$Emotions(Standard). When you type **$SetSpeaker(name)** and press Enter, $Emotions(Standard) and
+$PlayVoice with the speaker's first event line are added below it (no $PlayVoice for a character
+without voice lines). Type inside $PlayVoice( ) to pick another line.
+
+## Line breaks
+
+With **Auto line breaks** ticked (bottom right), a line that gets too wide for the game's text box
+moves its last word to a new line (\n) as you type. The width is measured in pixels with the game's
+own font, because letters have different widths: supports and most scenes hold **320 pixels** per
+line (about 40-48 letters), small map boxes 285. The bottom bar shows the width of the line you are
+on and turns red when it is too wide. When the text is saved or previewed, pasted text is broken the
+same way, and a box that would get a third line continues in a new box ($Pause, $Clear). Line breaks
+you type yourself are kept; $Nu (the avatar's name) counts as 100 pixels.
+
+## Preview
+
+**Update Preview** redraws it; use the arrows to step through the lines. **Play** steps through on
+its own and plays the voice lines (tick *Voices*); **2x** makes it bigger. Actions -> View Known
+Emotions / View Available Assets lists the names you can use.
+
+## Expressions
+
+{{emotions}}
+
+## All commands
+
+{{dialogue_commands}}
+
+## Files it changes
+
+- *m/E/<file>.bin.lz* - the text file the key belongs to: *m/E/GameData.bin.lz* for names and
+  menus, *m/E/<chapter>.bin.lz* for a chapter's talk, and one file per pair for supports (named
+  after the two characters).

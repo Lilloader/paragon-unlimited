@@ -1,0 +1,32 @@
+Title: Skills
+Order: 90
+Opens for: skills, SkillTable, Skill, pu_skill_effects, PUSkillFxTable, PUSkillFx
+---
+Skill names, descriptions and icons, and the stat and rate that decide how often a skill activates.
+
+**New skills**: add a row to the list (the game keeps 128 skills per unit, so ids 103-127 are free).
+Give it an RSID, a name and a description.
+
+**Icon**: pick one in the Icon list, or use **Import icon (PNG)...** to put your own picture (24x24
+is best) into a free icon cell. It is written to systems/icon*.ctpk.lz on save.
+
+**Effects (Unlimited)**: what the skill does in battle. Each line is an effect (damage dealt, damage
+received, hit, avoid, crit, dodge or attack speed), an amount, and up to two conditions (always,
+when this unit starts the fight, when the enemy does, HP full / not full / 50% or less / 25% or
+less, even or odd turns, enemy flier / on foot, enemy HP full / not full, enemy magic / physical).
+Example: Duelist's Blow = Avoid +30 when this unit starts the fight. Damage received uses a negative
+amount for less damage (-10).
+
+Effects need the [game code patch](topic:code_patch) (Unlimited -> Install Game Code Patch); without
+it the lines are kept but do nothing. With it, Hit Rate +10, Sure Strike, Avoid +10 and Gamble also
+run from their Effects lines (they are added automatically). The game's other built-in skills (Sol,
+Astra, breakers...) keep working as before.
+
+All lines are also listed together in **Skill Effects (Unlimited)**.
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the skills, and their Effects lines (Unlimited).
+- *m/E/GameData.bin.lz* - skill names and descriptions.
+- *systems/icon<number>.ctpk.lz* - the icon sheet, when you import a skill icon.
+- *code.ips* in the mod folder - the game code patch that runs the Effects (installed separately).

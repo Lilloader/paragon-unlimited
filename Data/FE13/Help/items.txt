@@ -1,0 +1,11 @@
+Title: Items
+Order: 70
+Opens for: items, item_refines, ItemTable, Item
+---
+Weapons, staves and other items: name and description, icon, price, weapon type and rank, uses,
+might, hit, crit, range, stat bonuses while equipped and special effects (flags).
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the items and forge (refine) data.
+- *m/E/GameData.bin.lz* - item names and descriptions.

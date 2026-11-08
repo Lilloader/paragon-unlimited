@@ -1,0 +1,75 @@
+HOW TO WRITE THE HELP PAGES
+===========================
+
+Every page of Help is one .txt file in this folder. Edit them with Notepad and save; Paragon
+reads them the next time Help opens (restart Paragon if it was already open).
+
+The name of the file is the page's id (map_maker.txt = the Map Maker page). Windows and
+other pages find a page by this id, so don't rename files. Files starting with _ are not
+pages (this guide, _Acknowledgments.txt = the Acknowledgments tab).
+
+
+THE TOP OF EACH FILE
+
+    Title: Map Maker
+    Lesson: 2
+    Order: 30
+    Opens for: MapMaker, TemplateGallery
+    ---
+
+Title      - the name in the list on the left.
+Lesson     - only for tutorial lessons: its number. Lessons are listed first, by number,
+             and get "Next lesson" links.
+Order      - for the other pages: where they go in the list (smaller numbers first).
+Opens for  - the windows whose F1 key opens this page. Leave it as it is.
+---        - three dashes. Everything below is the text of the page.
+
+
+THE TEXT
+
+An empty line starts a new paragraph. Lines next to each other are joined, so you can
+break long lines anywhere.
+
+    ## Heading               a heading
+    - an item                a list with dots (one item per line)
+    1. a step                a numbered list
+    **bold**                 bold
+    *italic*                 italic
+    [Lesson 2](topic:lesson_first_chapter)    a link to another Help page (its file name)
+    [GitHub](https://github.com/...)          a link to a web page
+    ![The Map Maker's first page](pictures/map_maker_home.png)
+                             a picture, on a line of its own (the text in [ ] is shown
+                             under it; leave it empty for none). Put the picture (.png or
+                             .jpg) in the pictures folder next to these pages. It is
+                             shown 560 pixels wide.
+
+Example text that must stay exactly as typed (for example dialogue commands) goes between
+two lines with three backticks:
+
+    ```
+    $SetSpeaker(Chrom)
+    Lissa, have you seen my sword?
+    ```
+
+{{emotions}} and {{dialogue_commands}} on a line of their own are filled in by Paragon with
+the list of expressions and dialogue commands.
+
+Anything else (symbols like ★, -> arrows, plain text) is shown as written.
+
+
+WHAT FILES A PAGE CHANGES
+
+End a page with a heading "## Files it changes" and a list under it. That part is not shown
+right away: the page gets a link "See what files this changes" that opens it.
+
+    ## Files it changes
+
+    - *data/GameData.bin.lz* - the classes.
+    - *m/E/GameData.bin.lz* - class names and descriptions.
+
+
+ADDING A PAGE
+
+Copy an existing file, give it a new name (letters, numbers and _), change the Title and the
+text. A new page has no window that opens it with F1; link to it from another page with
+[text](topic:your_file_name).

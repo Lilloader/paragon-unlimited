@@ -1,0 +1,100 @@
+---
+# Paragon Unlimited: reclass slots 4-5 and the avatar class list (need the Paragon Unlimited
+# game code patch; without it the game ignores both tables).
+#
+# data/person/static.bin, optional block labeled PU_ClassEx:
+#   u32 count, then count x 20 bytes: u16 owner (static position of the character), u16 0,
+#   JID pointers for male slot 4, male slot 5, female slot 4, female slot 5 (0 = empty).
+# data/GameData.bin, optional block labeled PU_AvatarCls:
+#   u32 count, then count x 8 bytes: JID pointer, u8 gender (0 male, 1 female), 3 bytes 0.
+#   No entries = the game's own 13 classes per gender.
+PUClassExFile:
+  size: 4
+  fields:
+    - id: label
+      type: label
+      forced_value: PU_ClassEx
+    - id: count
+      type: int
+      skip_write: true
+      format: u32
+    - id: entries
+      type: list
+      typename: PUClassEx
+      format:
+        type: indirect
+        index: -1
+        offset: 0
+        format: u32
+
+PUClassEx:
+  size: 20
+  display_function: fe13_class_ex
+  fields:
+    - id: owner
+      name: Character
+      type: reference
+      table: characters
+      format: u16
+    - id: reserved
+      type: int
+      format: u16
+    - id: male_reclass_4
+      name: Male Reclass 4
+      type: reference
+      table: jobs
+      format: string
+    - id: male_reclass_5
+      name: Male Reclass 5
+      type: reference
+      table: jobs
+      format: string
+    - id: female_reclass_4
+      name: Female Reclass 4
+      type: reference
+      table: jobs
+      format: string
+    - id: female_reclass_5
+      name: Female Reclass 5
+      type: reference
+      table: jobs
+      format: string
+
+PUAvatarClsTable:
+  node:
+    id: pu_avatar_classes
+    name: Avatar Classes (Unlimited)
+  size: 4
+  fields:
+    - id: label
+      type: label
+      forced_value: PU_AvatarCls
+    - id: count
+      type: int
+      skip_write: true
+      format: u32
+    - id: entries
+      type: list
+      typename: PUAvatarCls
+      format:
+        type: indirect
+        index: -1
+        offset: 0
+        format: u32
+
+PUAvatarCls:
+  size: 8
+  display_function: fe13_avatar_cls
+  fields:
+    - id: job
+      name: Class
+      type: reference
+      table: jobs
+      format: string
+    - id: gender
+      name: Gender (0 male, 1 female)
+      type: int
+      format: u8
+    - id: reserved
+      type: bytes
+      length: 3

@@ -2,7 +2,7 @@ import logging
 
 from PySide6.QtWidgets import QPushButton, QMessageBox
 
-from paragon.core.services import fe13_support_tools
+from paragon.unlimited.supports import support_tools
 
 from paragon.model.game import Game
 from paragon.ui.controllers.auto.abstract_auto_widget import AbstractAutoWidget
@@ -77,7 +77,7 @@ class AwakeningSupportDialogueButton(AbstractAutoWidget, QPushButton):
         s_key = f"MID_支援_{part_1}_{part_2}_Ｓ"
         # Paragon Unlimited: a new support starts with both characters loaded (the first one in
         # the support's name on the left, position 3) instead of a placeholder line.
-        start = fe13_support_tools.starting_text(part_1, part_2)
+        start = support_tools.starting_text(part_1, part_2)
         self.data.set_message(v1, True, c_key, start)
         self.data.set_message(v1, True, b_key, start)
         self.data.set_message(v1, True, a_key, start)
@@ -87,7 +87,7 @@ class AwakeningSupportDialogueButton(AbstractAutoWidget, QPushButton):
     def _fill_new(self, path):
         """Messages still holding Paragon's old placeholder get the starting text."""
         try:
-            fe13_support_tools.fill_new_conversations(self.data, path, True)
+            support_tools.fill_new_conversations(self.data, path, True)
         except Exception:
             logging.exception("Could not fill the new support conversation.")
 

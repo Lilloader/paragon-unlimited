@@ -1,0 +1,15 @@
+Title: New Character
+Order: 220
+Opens for: NewCharacterDialog
+---
+Creates everything a new character needs, starting from an existing one: the character (with no
+supports), both FaceData entries, portrait files with the basic expressions and the battle model
+entry. Then: drop your portraits on FaceData's Game preview, set stats and supports in Characters,
+and place the character in a chapter so they join. Everything is written on save.
+
+## Files it changes
+
+- *data/person/static.bin.lz* - the new character.
+- *m/E/GameData.bin.lz* - the name and description.
+- *face/FaceData.bin.lz* and a new *face/<name>.arc* - the portraits.
+- *bs/ComboTbl.bin.lz* - the battle look (Asset Definitions entry).

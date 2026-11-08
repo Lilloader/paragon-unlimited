@@ -26,7 +26,7 @@ RomFS extracted, and the **Azahar** emulator to play your mod.
 2. Create a project: *ROM path* = your extracted RomFS, *Output path* = an empty folder for your mod.
 3. Open **Help → Tutorials (Start Here)**. Nine short lessons take you from your first save to
    sharing a finished mod.
-4. Use **Unlimited → Copy to Azahar** to test your changes in the game right away, and
+4. Use **Unlimited → Copy to Emulator** to test your changes in the game right away, and
    **Unlimited → Install Game Code Patch** once for the extra supports and skill effects.
 
 Press **F1** in any window for help about that window.
@@ -36,7 +36,7 @@ Press **F1** in any window for help about that window.
 ## Features
 
 ### Map Maker: new chapters in a few clicks
-The big green button on the main window.
+**Paralogue Maker** on the main window.
 
 - **9 brand-new chapters for every mod.** The save file has room for 64 chapters and the game uses
   55, so every project gets 9 free chapter slots (U001 to U009). One button fills them all with
@@ -49,12 +49,18 @@ The big green button on the main window.
   Bosses get a name, a portrait and last words.
 - **Drag and drop units.** Tools to move, add and remove enemies, bosses and player starts. Tiles
   a unit can't stand on turn red (fliers may cross water and peaks). Undo and redo for everything.
+- **Four ways to win**: defeat every enemy, defeat the boss, seize a tile, or survive a number of
+  turns. Seize and Survive chapters show their own goal when the battle starts (*needs the game code
+  patch*).
+- **Events**: talk events (with recruiting), turn and tile events, battle quotes, chests and
+  villages, and scenes with full-screen pictures, the game's or your own.
 - **★ Joins your army.** Pick any character and click a tile: they join on turn 1, the way Donnel
   joins in Paralogue 1. Perfect for new characters.
 - **Story without code.** Write the talk before and after the battle one line at a time: who
   speaks, their mood, what they say. Text boxes and portraits are handled for you.
 - **Everything is built for you**: the chapter's title card, its spot and road on the world map,
   when it unlocks, its script and its map files.
+- **Clear or delete** any chapter of your own and start again.
 - **Edit the game's own chapters** too: move, add, change and remove units. Events,
   reinforcements and everything the editor doesn't show stay as they are.
 
@@ -68,6 +74,9 @@ The big green button on the main window.
 - **Clean-up eraser** (1 to 3 px) for leftovers of the old head. It never erases the new head.
 - **See-through like the game**: plain images are turned into the game's transparency levels.
 - **All three team colors** (player, enemy, ally) are made for you. Everything is shown in English.
+- **Make several at once**: a list of sprites, saved together with one button and kept between
+  runs. More than 124 classes are no problem: every character's sprite list grows with the class
+  list.
 
 ### Characters, portraits and battle models
 - **New Character**: one dialog creates a character, both portrait entries, portrait files and a
@@ -78,6 +87,9 @@ The big green button on the main window.
 - **3D model preview**: body, head, hair, mount and weapon, with hair color. Import your own
   textures from PNG.
 - **Voices**: hear every voice line of a character and pick lines for `$PlayVoice` from a list.
+- **5 reclass classes per gender** (the game has 3), and an **avatar class checklist** for Robin and
+  anyone with Tactician as a reclass class (the game has a fixed list of 13). *Needs the game code
+  patch.*
 
 ### Supports and dialogue
 - **60 support partners per character** (the game has 52). *Needs the game code patch.*
@@ -96,7 +108,7 @@ The big green button on the main window.
 ### Testing and sharing
 - **Check My Mod** finds problems that would crash the game or show nothing (missing portraits,
   expressions, models, voice lines, file names with the wrong letter case) and can fix some of them.
-- **Copy to Azahar** puts your mod into the emulator in one click, with a backup of anything it replaces.
+- **Copy to Emulator** puts your mod into the emulator in one click, with a backup of anything it replaces.
 - **Share My Mod** packs your mod into one zip: only the files you changed, in Azahar's folder
   layout, with install instructions for your players.
 - **DLC maps** can be imported, edited and rebuilt.
@@ -109,7 +121,9 @@ Paragon Unlimited (`Data/FE13/PU_CodePatch.ips`) and adds:
 
 - 60 support partners per character (slots #052-#059),
 - skill effects (each skill's Effects lines),
-- room for 4096 support conversations (the game has 1920).
+- room for 4096 support conversations (the game has 1920),
+- 5 reclass classes per gender instead of 3, and a checklist of the classes avatars (Robin and
+  anyone with Tactician as a reclass class) can use, instead of the game's fixed 13.
 
 **Unlimited → Install Game Code Patch** puts it into your Azahar mod folder in one click. If a
 `code.ips` from another mod is already there, Paragon adds its changes and keeps the other mod's;
@@ -131,6 +145,16 @@ Paragon Unlimited needs Rust and Python 3.11. To build a standalone executable y
 
 The GitHub Actions workflow (`.github/workflows/build.yml`) builds the Windows release and runs the
 tests on every push to `main`. Full release notes are in [docs/PARAGON_UNLIMITED.md](docs/PARAGON_UNLIMITED.md).
+
+### Finding your way around the code
+- Paragon's own code is where it always was. Everything Paragon Unlimited adds is in
+  [`paragon/unlimited/`](paragon/unlimited), one folder per feature (`map_maker/`, `sprites/`,
+  `supports/`, ...). [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) explains each folder, how the
+  features plug into Paragon, and every Paragon file that was changed and why.
+- The help pages and tutorials are plain text files in [`Data/FE13/Help/`](Data/FE13/Help).
+- The game code patch is built from the source in [`code_patch/`](code_patch), whose README lists
+  every place in the game's code it changes.
+- `tests/` has one test file per feature.
 
 ---
 

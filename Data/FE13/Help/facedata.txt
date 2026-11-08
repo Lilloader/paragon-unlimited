@@ -1,0 +1,46 @@
+Title: Portraits (FaceData)
+Order: 30
+Opens for: facedata, FaceDataFile, FaceData
+---
+One entry per portrait set: **FSID_BU_name_通常** is the big bust-up (conversations, level up),
+**FSID_FC_name_通常** the small face (unit screen, map). **Portrait File** is the .arc in *face/* that
+holds the images. Drag the divider between the preview and the fields to make either bigger.
+
+## Game preview
+
+- Pick a **Screen** and a **Side** to see the portrait where the game draws it (positions measured
+  from the game). **Zoom: Fit** scales it to the window.
+- The yellowish box is the **text box**: it covers that part of the portrait in game.
+- **Drag the portrait** to move the artwork. The game has no position setting, so Paragon moves the
+  image inside the texture when you save. *4 px steps* keeps the image pixel-perfect.
+- Normal and 反 (reversed) expressions move separately. Blush and sweat follow the normal ones.
+- **Reset** puts the portrait back where the game has it, even after you saved a move: the game's
+  own pictures are restored (on save) and blush/sweat move back with them. Pictures you imported
+  yourself are kept; for those, Reset only undoes moves you have not saved.
+- Tick **Blush** / **Sweat** to show them and **drag** them into place; that edits their positions.
+- On the unit info screen you drag the **crop** (the part of the small face that is shown). The
+  whole small face is shown, dimmed outside the box, so you can always find it. A face with a 0 x 0
+  Portrait Menu size shows nothing in game; drag it once to give it the game's usual 69 x 76.
+
+## Images and expressions
+
+- **Drop PNG files** on the preview, or use **Import image...**, to replace the current expression,
+  the blush or the sweat. Other sizes are scaled to fit.
+- Several files at once are matched by name: *笑.png*, *smile.png*, *Tessa_angry.png*...
+- **Add expression...** adds a known expression (悲しみ, 照れ, ...) or your own name; dialogue shows it
+  with *$Emotions(name)*. **Remove expression** deletes one (not 通常).
+- **New portrait file...** makes a new .arc with 通常, 笑, 怒, 苦, キメ, blush, sweat and hair masks for a
+  new character.
+- **Export PNG...** saves the current image so you can edit it in another program.
+- All of this is built into the .arc when you **save**.
+
+## Fields
+
+**Hair Color** colors the hair mask (and the character's hair in the 3D preview). Blush / Sweat
+position and size place the overlays; Portrait Menu position/size is the crop used on the unit
+screen.
+
+## Files it changes
+
+- *face/FaceData.bin.lz* - the portrait entries (positions, hair color, crop).
+- *face/<file>.arc* - the portrait pictures (expressions, blush, sweat, hair masks).

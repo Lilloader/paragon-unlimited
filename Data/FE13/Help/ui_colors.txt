@@ -1,0 +1,6 @@
+Title: UI colors
+Order: 200
+Opens for: PUUIColorsDialog
+---
+Colors of Paragon itself (not the game). Pick a preset or your own colors; they apply right away and
+are remembered.

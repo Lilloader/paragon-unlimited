@@ -1,0 +1,25 @@
+Title: Make a map sprite
+Lesson: 6
+Opens for: 
+---
+![The Sprite Workshop: your sprites and the steps on the left, the sheet on the right](pictures/sprite_workshop.png)
+
+1. Open **Sprite Workshop** (under *Unlimited* on the main window).
+2. Either drop a sprite sheet you have onto the big empty area, or choose **Build from a head and a
+  class**: pick a character's head and any class body (for example Chrom on a Wyvern Rider) and
+  press **Build sprite**.
+3. A head a bit off? **Drag it** in that frame. Right-click a frame to undo.
+   Moving a head will move it for the enemy and ally sheet as well.
+4. Bits of the old head still showing? Turn on the **Eraser** (1-3 px) and drag over them. It never
+  erases the new head.
+5. Your own drawing too bright? Tick **See-through like the game**.
+6. Type a name, pick who uses it in which class, press **Save all sprites**, then save the project.
+  Every sprite in the *Sprites* list is saved, and the list is kept for next time.
+
+Enemy (red) and ally (green) versions are made for you.
+For flying units you may need to change the frame height manually but it's good at fixing the
+frame size itself.
+
+## Files it changes
+
+See [Sprite Workshop](topic:sprite_workshop).

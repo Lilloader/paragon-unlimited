@@ -1,13 +1,14 @@
 from paragon.ui.controllers.auto.deref_widget import DerefWidget
-from paragon.ui.controllers.auto.fe13_portrait_stage import FE13PortraitStage
-from paragon.ui.controllers.auto.fe13_voice_widget import FE13VoiceWidget
-from paragon.ui.controllers.auto.fe13_asset_preview import FE13AssetPreview
-from paragon.ui.controllers.auto.fe13_skill_fx_widget import FE13SkillFxWidget
-from paragon.ui.controllers.auto.fe13_skill_icon_import import FE13SkillIconImport
-from paragon.ui.controllers.auto.fe13_support_ex_widget import (
+from paragon.unlimited.portraits.portrait_stage import FE13PortraitStage
+from paragon.unlimited.dialogue.voice_widget import FE13VoiceWidget
+from paragon.unlimited.models.model_preview import FE13AssetPreview
+from paragon.unlimited.skills.skill_effects_widget import FE13SkillFxWidget
+from paragon.unlimited.skills.skill_icon_import import FE13SkillIconImport
+from paragon.unlimited.supports.extra_slots_widget import (
     FE13SupportExWidget,
     FE13SupportExDialogueButton,
 )
+from paragon.unlimited.supports.support_list_widget import FE13SupportListWidget
 from paragon.ui.controllers.auto.fe13_family_support_widget import (
     FE13FamilySupportWidget,
 )
@@ -81,7 +82,7 @@ from paragon.ui.controllers.auto.spin_boxes import SpinBoxes
 from paragon.ui.controllers.auto.string_line_edit import StringLineEdit
 from paragon.ui.controllers.auto.tabs import Tabs
 from paragon.ui.controllers.auto.vbox import VBox
-from paragon.ui.controllers.auto.splitter import Splitter
+from paragon.unlimited.app.splitter import Splitter
 from paragon.ui.controllers.auto.widget import Widget
 
 
@@ -196,6 +197,16 @@ class AutoWidgetGenerator:
             return FE13PortraitStage(state)
         elif spec.type == "fe13_support_ex_widget":
             return FE13SupportExWidget(state)
+        elif spec.type == "fe13_support_list":
+            return FE13SupportListWidget(state)
+        elif spec.type == "fe13_class_slots_widget":
+            from paragon.unlimited.characters.class_slots_widget import FE13ClassSlotsWidget
+
+            return FE13ClassSlotsWidget(state, spec)
+        elif spec.type == "fe13_avatar_classes_widget":
+            from paragon.unlimited.characters.class_slots_widget import FE13AvatarClassesWidget
+
+            return FE13AvatarClassesWidget(state)
         elif spec.type == "fe13_skill_fx_widget":
             return FE13SkillFxWidget(state)
         elif spec.type == "fe13_skill_icon_import":
@@ -203,7 +214,7 @@ class AutoWidgetGenerator:
         elif spec.type == "fe13_support_ex_dialogue_button":
             return FE13SupportExDialogueButton(state, spec)
         elif spec.type == "fe13_support_slot_tools":
-            from paragon.ui.controllers.auto.fe13_support_slot_tools import FE13SupportSlotTools
+            from paragon.unlimited.supports.slot_tools_widget import FE13SupportSlotTools
 
             return FE13SupportSlotTools(state, spec)
         elif spec.type == "fe14_support_widget":

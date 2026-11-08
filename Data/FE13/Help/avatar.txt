@@ -1,0 +1,10 @@
+Title: Configure Avatar
+Order: 170
+Opens for: FE13AvatarConfigWindow
+---
+The avatar (Robin) used for previews in Paragon: name, gender, portraits and accessory. It does not
+change the game and is only used to preview what Robin would look like in game.
+
+## Files it changes
+
+Nothing: these settings only change Paragon's previews.

@@ -62,8 +62,9 @@ class ListWidget(AbstractAutoWidget, Ui_ListWidget):
         self.rid = rid
         if rid:
             model = self.models.get(rid, self.field_id)
-            if self.fixed_size and model.rowCount() < self.fixed_size:
-                for _ in range(model.rowCount(), self.fixed_size):
+            size = self._padded_size()
+            if size and model.rowCount() < size:
+                for _ in range(model.rowCount(), size):
                     model.add_item()
             self.proxy_model = self._wrap_in_proxy_model(model)
             self.list.setModel(self.proxy_model)
@@ -74,6 +75,17 @@ class ListWidget(AbstractAutoWidget, Ui_ListWidget):
         self.inner.set_target(None)
         self.item_selected.emit(None)
         self._update_buttons()
+
+    def _padded_size(self):
+        """Fixed-size lists are shown full length. A character's sprite list (one entry per class)
+        is as long as the class list, not its read limit."""
+        if self.fixed_size and self.stored_type == "SpriteData":
+            try:
+                table = self.data.table("jobs")
+                return len(self.data.items(table[0], table[1]))
+            except Exception:
+                return None
+        return self.fixed_size
 
     @staticmethod
     def _wrap_in_proxy_model(model):
@@ -147,11 +159,11 @@ class ListWidget(AbstractAutoWidget, Ui_ListWidget):
                 # Paragon Unlimited: create the support entry right away (no "New" click needed),
                 # with Character1 = this list's character and the next free support number.
                 try:
-                    from paragon.core.services import fe13_reliance
+                    from paragon.unlimited.supports import reliance_repair
 
                     row = model.rowCount() - 1
                     pointer = self.data.list_get(self.rid, self.field_id, row)
-                    fe13_reliance.init_new_entry(self.data, self.rid, pointer)
+                    reliance_repair.init_new_entry(self.data, self.rid, pointer)
                     if self.proxy_model:
                         idx = self.proxy_model.mapFromSource(model.index(row, 0))
                         self.list.setCurrentIndex(idx)

@@ -89,7 +89,7 @@ class QuickDialogueGenerator(Ui_QuickDialogueGenerator):
                 self.line_break_width_spin_box.value(),
             )
             if pixel_wrap:
-                from paragon.core.services import fe13_text_wrap as tw
+                from paragon.unlimited.dialogue import line_breaks as tw
 
                 text, _count = tw.wrap_pretty_text(text, tw.metrics_for(self.gd))
             self.result_display.setPlainText(text)

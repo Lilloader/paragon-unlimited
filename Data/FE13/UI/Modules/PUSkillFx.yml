@@ -21,4 +21,4 @@ top_level:
         - condition_1
         - condition_2
     - type: label
-      text: "Every line applies in battle when the unit has the skill equipped and both conditions hold (needs the Paragon Unlimited code.ips, exp04 or later). Damage received: a negative amount means less damage. You can also edit these on each skill's page."
+      text: "Every line applies in battle when the unit has the skill equipped and both conditions hold (needs the game code patch: Unlimited -> Install Game Code Patch). Damage received: a negative amount means less damage. You can also edit these on each skill's page."

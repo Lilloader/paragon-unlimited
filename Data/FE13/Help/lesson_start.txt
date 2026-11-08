@@ -1,0 +1,30 @@
+Title: Start here if you're new
+Lesson: 1
+Opens for: 
+---
+Welcome! These lessons walk you through everything. You can't break your game: Paragon
+never changes the original game files, and every save keeps a copy of the old files in
+the *Backups* folder.
+
+## How it fits together
+
+1. **Paragon** is where you make changes.
+2. **File -> Save** writes them into your project's output folder.
+3. **Unlimited -> Copy to Emulator** puts them into the emulator so you can play them.
+   **You can use any 3DS emulator (Citra works too); Azahar is just the one I use.**
+
+## Try it now
+
+1. Open **Unlimited -> Set Your Mod Folder...** once. Paragon usually finds the folder by itself;
+  if not, in Azahar right-click the game and choose *Open Mods Location*, then pick that folder.
+2. Tick **Unlimited -> Copy to Emulator After Saving**. Now every save goes straight into the game.
+3. Press **Ctrl+S** (or File -> Save). Start the game in Azahar.
+
+## Where things are
+
+![The main window: Core Data, and the Unlimited tools below it](pictures/main_window.png)
+
+- **Paralogue Maker** (under *Unlimited* on the main window): new chapters and maps (lessons 2-5).
+- **Core Data**: characters, classes, items, skills...
+- **Sprite Workshop**: map sprites (lesson 6). **Portraits**: faces (lesson 7).
+- Press **F1** in any window for help about that window.

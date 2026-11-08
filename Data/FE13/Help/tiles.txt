@@ -1,0 +1,11 @@
+Title: Tiles
+Order: 110
+Opens for: tiles, TileTable, Tile
+---
+Terrain types used by the maps: name, category and footstep sound. Movement costs are set per
+terrain category (Terrain Costs).
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the terrain types and costs.
+- *m/E/GameData.bin.lz* - terrain names.

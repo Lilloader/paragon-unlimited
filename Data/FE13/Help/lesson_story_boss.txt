@@ -1,0 +1,40 @@
+Title: Difficulty, boss and story
+Lesson: 4
+Opens for: 
+---
+## 3. Enemies
+
+![Step 3 with "Seize a tile": the tile, who must seize it and the banner](pictures/enemies_and_win.png)
+
+- **Army**: who you fight (Brigands, Plegian army, Valmese army, Risen, Grimleal, Mercenaries).
+- **Difficulty**: drag the slider. Every enemy changes at once: 1-3 stars use basic classes, 4-6
+  stars promoted ones, with higher levels and better weapons. Enemies also get stronger on Hard and
+  Lunatic by themselves. **You can always add or take away stats if you don't like the star system.**
+- **To win**: **Defeat every enemy**; **Defeat the boss** (the chapter ends when the boss with
+  the gold frame falls); **Seize a tile** (click **Pick the tile on the map**, then click the tile:
+  it gets a purple flag; the chapter is won when one of your units, or only Chrom if you choose
+  that, waits on it); or **Survive some turns** (when the turns are over, the enemies withdraw at
+  the start of your next turn and the chapter is won as soon as one of your units finishes its
+  move). With Seize and Survive, defeating every enemy does not win the chapter. **Banner** is the text
+  shown when the battle starts ("Seize the goal", "Survive 8 turns" if you leave it empty); it needs
+  the [game code patch](topic:code_patch), without it the game shows "Rout the enemy".
+- **Boss name**, **portrait** and **last words** (shown when the boss falls; needs a portrait).
+- **Make new enemies for this map**: a fresh enemy layout for the map at this difficulty.
+
+## 4. Story
+
+Write the talk before and after the battle, one line at a time: pick **who** talks, their **mood**
+(Happy, Angry...) and type what they say. **+ Add a line** adds one, ✕ removes it. Long lines are
+split into text boxes for you. Leave it empty to skip the scene.
+
+## 5. When does it appear?
+
+Pick the chapter that has to be cleared first. The new chapter's spot on the world map is placed
+next to that one, unless you choose it yourself: **Choose on the map...** shows the world map's
+chapters and roads (the one it appears after is gold). Click or drag to put the chapter where you
+want it; the globe on the top screen follows, and the road starts at the gold chapter.
+**Automatic** goes back to a free spot next to it. The spot stays when you save again.
+
+## Files it changes
+
+See [Map Maker](topic:map_maker).

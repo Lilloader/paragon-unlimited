@@ -120,11 +120,19 @@ GameData:
       format:
         label_append:
           label: CipherData
-    # Paragon Unlimited: skill effect rules (read by the Paragon Unlimited code.ips, exp04+).
+    # Paragon Unlimited: skill effect rules (read by the Paragon Unlimited game code patch).
     - id: pu_skill_effects
       type: record
       typename: PUSkillFxTable
       format:
         label_append:
           label: PU_SkillFx
+          optional: true
+    # Paragon Unlimited: the avatar class list (read by the Paragon Unlimited game code patch).
+    - id: pu_avatar_classes
+      type: record
+      typename: PUAvatarClsTable
+      format:
+        label_append:
+          label: PU_AvatarCls
           optional: true

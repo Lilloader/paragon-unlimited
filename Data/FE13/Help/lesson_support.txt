@@ -1,0 +1,17 @@
+Title: Write a support conversation
+Lesson: 8
+Opens for: 
+---
+1. Open **Characters**, pick a character, go to **Supports**.
+2. Choose a partner in a free slot. Paragon adds the pair to the partner as well.
+3. Press the button next to the slot to open its conversation.
+4. Type **$SetSpeaker(name)** and press Enter, then write what they say. Paragon adds the expression
+  and a voice line for you, and breaks long lines to fit the game's text box.
+5. Press **Update Preview** to see it like in the game.
+
+More in the reference page [Dialogue and supports](topic:dialogue).
+
+## Files it changes
+
+- *data/person/static.bin.lz* - both characters' support lists.
+- *m/E/<character>_<character>_<type>.bin.lz* - the conversation.

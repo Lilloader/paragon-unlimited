@@ -1,0 +1,14 @@
+Title: BMap / Sprite Data
+Order: 120
+Opens for: bmap_icons, BMapIconTable
+---
+The map sprites (BMap icons) the game can use. Classes and characters (Characters -> Sprite Data)
+point to these.
+If you are using the sprite workshop, it'll write the pointer for you and it'll also populate
+the BMI for you. If you are adding a flying class that you made in sprite workshop you may
+need to manually change the frame height.
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the BMap icon entries (which sprite file, frame size, animation).
+- The pictures themselves are *map/unit/<name>青.ctpk.lz* (player), *赤* (enemy) and *緑* (ally).

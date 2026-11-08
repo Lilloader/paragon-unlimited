@@ -1,0 +1,10 @@
+Title: Scripts
+Order: 140
+Opens for: ExaltScriptEditor
+---
+Chapter event scripts (who joins, reinforcements, conversations). They are compiled when you save;
+errors are shown in the editor.
+
+## Files it changes
+
+- *scripts/<chapter>.cmb* - the compiled script of the chapter.

@@ -1,0 +1,51 @@
+Title: What's new
+Order: 15
+Opens for: 
+---
+## Version 2.4
+
+**Map Maker**
+
+- New win conditions: **Seize a tile** (pick the tile on the map; any of your units or only Chrom)
+  and **Survive some turns**. See [Lesson 4](topic:lesson_story_boss).
+- With the game code patch, Seize and Survive chapters show their own banner when the battle starts
+  ("Seize the goal", "Survive 8 turns" or your own text) instead of "Rout the enemy".
+- **Delete** and **Clear (start over)** work on every chapter of your own, also chapters a mod you
+  started from already had.
+- Fixed: "Defeat every enemy" and "Defeat the boss" were the wrong way round in the game. Chapters
+  made with earlier versions are corrected the next time you save the project.
+- A unit page with every spawn field: stats, items, drops, skills and battle quotes.
+- Deploy slots, terrain painting, chests and villages.
+- Talk, turn and tile events, with scenes that show full-screen pictures (the game's or your own).
+  Event tiles flash red every few turns until they happen.
+- Choose where a chapter sits on the world map.
+- Green allies stay green; characters can join your army in the game's own chapters too.
+
+**Sprite Workshop**
+
+- Heads from the head sheets; erase or copy a head; size, mirror and layer per frame; copy a row.
+- A list of sprites: make several, then **Save all sprites** saves every one of them.
+- The list is kept when you close Paragon and comes back the next time.
+- Every base-game class (and the two DLC classes) to draw on.
+
+**Characters and classes**
+
+- Reclass slots 4-5 and an avatar class checklist (needs the game code patch).
+- More than 124 classes: sprite lists grow with the class list, and saving makes every list as
+  long as the class list.
+- Moving, adding or removing a class in the class list does the same to every sprite list.
+  Paragon asks once before the first move.
+- Supports tab: add, remove, fix and retype whole supports.
+- Voices: voice sets that only exist through the game's sound table (like Lucina's) are listed.
+
+**Check My Mod** also looks for: sprite lists shorter than the class list, BMap Icons with the same
+name twice or without files, and voice sets with no sounds (silent in battle).
+
+**Help**: every page that changes game files has **See what files this changes**, and the lessons
+have pictures.
+
+## Version 2.3
+
+- The game code patch is built in: **Unlimited -> Install Game Code Patch**, with merge, backup and
+  remove.
+- **Share My Mod** includes the code patch by default.

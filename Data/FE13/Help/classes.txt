@@ -1,0 +1,13 @@
+Title: Classes
+Order: 80
+Opens for: classes, JobTable, Job
+---
+Every class: base stats, growths and maximum stats, pair-up bonuses, class skills and the skills
+enemies of the class get, movement, weapon ranks, promotions, and the map sprites (BMap icons).
+Which classes a character can reclass to is set on the character. A character's own map sprite per
+class is set in Characters -> Sprite Data.
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the classes (stats, growths, skills, promotions, map sprite).
+- *m/E/GameData.bin.lz* - class names and descriptions.

@@ -48,7 +48,7 @@ class Ui_ProjectSelect(QWidget):
         layout.addWidget(table_widget)
         self.setLayout(layout)
         self.resize(650, 400)
-        from paragon.pu_version import VERSION
+        from paragon.unlimited.version import VERSION
 
         self.setWindowTitle(f"Paragon Unlimited v{VERSION}")
         self.setWindowIcon(QIcon("paragon.ico"))

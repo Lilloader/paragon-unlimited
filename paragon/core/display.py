@@ -79,7 +79,7 @@ def display_combo_tbl(gd, rid, _row):
     # Paragon Unlimited: add an English reading for Japanese preset names.
     if aid and name_part == _display_aid_default(aid) and any(ord(ch) > 0x2E80 for ch in aid):
         try:
-            from paragon.core.services.fe13_asset_names import english_name
+            from paragon.unlimited.models.asset_names import english_name
 
             guess = english_name(gd, aid)
             if guess and guess != aid:
@@ -147,11 +147,29 @@ def display_fe13_support_ex(gd, rid, row):
     return f"Extra supports #{row} (no character)"
 
 
+def display_fe13_class_ex(gd, rid, row):
+    owner = gd.rid(rid, "owner") if rid else None
+    if owner:
+        return f"Reclass slots 4-5: {display_fe13_character(gd, owner, 0)}"
+    return f"Reclass slots 4-5 #{row} (no character)"
+
+
+def display_fe13_avatar_cls(gd, rid, row):
+    job = gd.rid(rid, "job") if rid else None
+    who = "Female" if rid and gd.int(rid, "gender") else "Male"
+    if job:
+        try:
+            return f"{who} avatar: {gd.display(job)}"
+        except Exception:
+            return f"{who} avatar: {gd.key(job)}"
+    return f"{who} avatar class #{row} (none)"
+
+
 def display_fe13_skill_fx(gd, rid, row):
     try:
-        from paragon.core.services import fe13_skill_fx
+        from paragon.unlimited.skills import skill_effects
 
-        return fe13_skill_fx.describe(gd, rid)
+        return skill_effects.describe(gd, rid)
     except Exception:
         return f"Skill effect #{row}"
 
@@ -432,6 +450,8 @@ _DISPLAY_FUNCTIONS = {
     "fe13_reliance_list_data": display_fe13_reliance_list_data,
     "fe13_support_ex": display_fe13_support_ex,
     "fe13_skill_fx": display_fe13_skill_fx,
+    "fe13_class_ex": display_fe13_class_ex,
+    "fe13_avatar_cls": display_fe13_avatar_cls,
     "fe14_character": display_fe14_character,
     "fe14_support_table": display_fe14_support_table,
     "fe14_support": display_fe14_support,

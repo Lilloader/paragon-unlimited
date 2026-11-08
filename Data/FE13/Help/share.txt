@@ -1,0 +1,14 @@
+Title: Share My Mod
+Order: 250
+Opens for: ShareDialog
+---
+Packs your mod into one zip for other players. See [Lesson 9](topic:lesson_share).
+
+- Only files that differ from the original game are included; Paragon's own working files (script
+  sources, backups) are left out.
+- Layout: *00040000000A0500/romfs* (the game), *00040000000A0500/code.ips* (the [game code
+  patch](topic:code_patch), if ticked) and *0004008C000A0500/romfs* (DLC maps, if you rebuilt any).
+- The code patch in the zip is the one in your Azahar mod folder. If that one is missing or older,
+  Paragon's own patch is used (added to your other code changes, if you have any).
+- **Check my mod for problems first** runs Check My Mod and warns before packing.
+- The mod name, author and description are remembered for next time.

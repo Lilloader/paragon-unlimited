@@ -1,0 +1,15 @@
+Title: Add a new character
+Lesson: 7
+Opens for: 
+---
+1. **Unlimited -> New Character (FE13)...**: pick a character to start from and a name.
+2. Open **Portraits** and drop your pictures on the preview (see [Portraits](topic:facedata)).
+3. Open **Characters** to set stats, growths, class and supports.
+4. Give them a map sprite with the Sprite Workshop (lesson 6).
+5. To have them join: open a chapter in the **Map Maker**, pick them in *Who joins*, choose the **★
+  Joins your army** tool and click a tile. Save and play: they join on turn 1.
+
+## Files it changes
+
+See [New Character](topic:new_character), [Portraits](topic:facedata),
+[Characters](topic:characters) and [Sprite Workshop](topic:sprite_workshop); each lists its files.

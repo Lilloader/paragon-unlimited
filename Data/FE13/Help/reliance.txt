@@ -1,0 +1,11 @@
+Title: Support lists (RelianceList)
+Order: 130
+Opens for: reliance_list, RelianceListFile, RelianceList, RelianceListData, RelianceListDataPointer
+---
+The game's support list for each character. Paragon Unlimited keeps both sides of a pair in sync:
+**Add** fills in the next free support number automatically and adds the pair to both characters'
+lists.
+
+## Files it changes
+
+- *data/RelianceList.bin.lz* - the support lists.

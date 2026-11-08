@@ -1,0 +1,32 @@
+Title: Asset Definitions and Presets
+Order: 40
+Opens for: asset_definitions, preset_asset_definitions, ComboTbl, PresetsComboTbl, ComboTblEntry
+---
+What a unit looks like in battle. **Asset Definitions** has entries named after characters (PID_...)
+and classes; **Presets** are complete looks used by generic units. An entry may only apply under a
+**Condition** (for example a class: JID_...). The English name above the preview is Paragon's
+reading of the Japanese name; it is not saved anywhere.
+
+## Preview
+
+- **3D views**: the character (body + head + hair), the mount and the weapon. Drag to turn, mouse
+  wheel to zoom, double-click to reset.
+- **Hair color...** tries a hair color on gray hair (preview only); by default the character's
+  FaceData hair color is used.
+- **Texture slots**: click one for **Import image...**, **Export PNG...** or **Undo import**, or
+  drop a PNG on it. The image is fitted to the texture and written to *b/<texture>.t.lz* when you
+  save.
+
+## Fields
+
+- **Body / Head / Hair model** and their **textures**: files in *b/* (uBody_..., uHead_...,
+  uHair_...). A texture ending in _c1, _c2... is a color variant of _c0.
+- **Voice**: the voice set (CHROM, LISSA...). It decides which voice lines the character uses.
+- **Weapon model**, **Mount** model/texture, attack animations, model size, sounds.
+- Names with % or # are filled in by the game (for example the avatar's hair style).
+
+## Files it changes
+
+- *bs/ComboTbl.bin.lz* - Asset Definitions.
+- *bs/Presets.bin.lz* - Presets.
+- *b/<texture>.t.lz* - a texture you imported.

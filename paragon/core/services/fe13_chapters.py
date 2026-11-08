@@ -13,12 +13,12 @@ class FE13Chapters(Chapters):
         self.output_path = output_path
 
     def dlc_episodes(self):
-        """Paragon Unlimited: DLC maps available in this project (see fe13_dlc)."""
+        """Paragon Unlimited: DLC maps available in this project (see paragon/unlimited/map_maker/dlc_maps.py)."""
         if not self.output_path:
             return []
-        from paragon.core.services import fe13_dlc
+        from paragon.unlimited.map_maker import dlc_maps
 
-        return fe13_dlc.episodes(self.output_path) if fe13_dlc.unpacked_layer(self.output_path) else []
+        return dlc_maps.episodes(self.output_path) if dlc_maps.unpacked_layer(self.output_path) else []
 
     def set_dirty(self, chapter_data: ChapterData, dirty: bool):
         if dirty and chapter_data.decl:
@@ -155,9 +155,9 @@ class FE13Chapters(Chapters):
     def _load(self, cid: str) -> ChapterData:
         # Validate that the CID corresponds to a chapter.
         cid_part = cid[4:] if cid.startswith("CID_") else cid
-        from paragon.core.services import fe13_dlc
+        from paragon.unlimited.map_maker import dlc_maps
 
-        if fe13_dlc.is_dlc_cid(cid) and any("CID_" + e["id"] == cid for e in self.dlc_episodes()):
+        if dlc_maps.is_dlc_cid(cid) and any("CID_" + e["id"] == cid for e in self.dlc_episodes()):
             # DLC map: no chapter declaration of its own (shops/armory stay empty).
             decl = None
         else:

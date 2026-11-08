@@ -85,7 +85,7 @@ class FE13Portraits(Portraits):
         """Paragon Unlimited: the shared queue of portrait edits (written on save)."""
         edits = getattr(self, "pu_edits", None)
         if edits is None:
-            from paragon.core.services.fe13_portrait_shift import PortraitEdits
+            from paragon.unlimited.portraits.portrait_files import PortraitEdits
 
             edits = PortraitEdits(self.data)
             self.pu_edits = edits

@@ -1,0 +1,24 @@
+Title: Chapters
+Order: 60
+Opens for: ChapterEditor
+---
+Pick a chapter on the left (DLC maps appear as DLC:CID_E0xx after Unlimited -> Import DLC Maps).
+
+- **Overview**: chapter settings, text, shops and merchant (DLC maps have none).
+- **Map**: units (dispos) and the terrain. Select a faction or unit on the left, drag units on the
+  grid, edit them on the right. *Terrain Mode* paints tiles with the Stamp or Pen brush. Undo/Redo
+  are in the toolbar.
+- **Chapter Characters**: chapter-only versions of characters (bosses, NPCs).
+- **Dialogue**: the chapter's conversations (see the Dialogue help).
+
+Events (who joins, when reinforcements come) are in the chapter's script: Core Data -> Scripts.
+
+## Files it changes
+
+- *data/GameData.bin.lz* - chapter settings and shops.
+- *m/E/GameData.bin.lz* - chapter names.
+- *data/dispos/<chapter>.bin.lz* - the units on the map.
+- *data/terrain/<chapter>.bin.lz* - the terrain.
+- *data/person/<chapter>.bin.lz* - chapter characters.
+- *m/E/<chapter>.bin.lz* - the chapter's conversations.
+- DLC maps are written the same way and packed into *Exxx_MAP.arc* in the DLC mod folder.

@@ -1,0 +1,42 @@
+Title: Move, add and remove units
+Lesson: 3
+Opens for: 
+---
+The map in the middle shows every unit with its map sprite. Blue = your units' start spots, red
+= enemies, a gold frame = the boss.
+
+## The tools (above the map)
+
+![The tools above the map. B = boss, P = player start, ★ = joins your army](pictures/map_tools.png)
+
+- **✋ Move**: drag a unit to a new tile. Tiles that turn red can't be used by that unit (walls,
+  water, cliffs - fliers may cross water and peaks).
+- **+ Enemy**: click an empty tile. The class comes from *New enemies are*.
+- **+ Boss**: click an empty tile to place the boss.
+- **+ Player start**: one more spot for your army (the first one is always Chrom's).
+- **★ Joins your army**: pick a character in *Who joins* and click a tile. They appear there at the
+  start of turn 1 and join your army, the way Donnel joins in Paralogue 1, perfect for new
+  characters like the ones you add with New Character. (In chapters made with the Map Maker.)
+- **✕ Remove**: click a unit. **Right-click** removes in every tool, **Delete** removes the selected
+  unit.
+
+## Change one unit
+
+Click a unit: the box on the right shows its **class**, **level**, whether it is the **boss**, and
+its **behavior**: *Charge at you*, *Wait until you come close* or *Stay in place*. Weapons are
+chosen for you to match the class but you can still add or change weapons.
+
+## Oops?
+
+**Undo** (Ctrl+Z) and **Redo** (Ctrl+Y) work for everything on the map. Nothing is written until you
+press **Save chapter**.
+
+## The game's own chapters
+
+On the Map Maker's first page, **Edit the map of any chapter** opens any chapter of the game the
+same way. Choose Normal, Hard or Lunatic to see that difficulty's units. Its story and events stay
+as they are.
+
+## Files it changes
+
+See [Map Maker](topic:map_maker).

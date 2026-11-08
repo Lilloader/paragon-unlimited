@@ -163,6 +163,19 @@ class FE13SupportExWidgetSpec(AutoWidgetSpec):
     type: Literal["fe13_support_ex_widget"]
 
 
+class FE13SupportListWidgetSpec(AutoWidgetSpec):
+    type: Literal["fe13_support_list"]
+
+
+class FE13ClassSlotsWidgetSpec(AutoWidgetSpec):
+    type: Literal["fe13_class_slots_widget"]
+    gender: Literal["male", "female"]
+
+
+class FE13AvatarClassesWidgetSpec(AutoWidgetSpec):
+    type: Literal["fe13_avatar_classes_widget"]
+
+
 class FE13SkillFxWidgetSpec(AutoWidgetSpec):
     type: Literal["fe13_skill_fx_widget"]
 
@@ -394,6 +407,9 @@ AnyTopLevelSpec = Union[
     AwakeningSupportDialogueButtonSpec,
     FE13FamilySupportWidgetSpec,
     FE13SupportExWidgetSpec,
+    FE13ClassSlotsWidgetSpec,
+    FE13AvatarClassesWidgetSpec,
+    FE13SupportListWidgetSpec,
     FE13SupportExDialogueButtonSpec,
     FE13SupportSlotToolsSpec,
     FE13SkillFxWidgetSpec,

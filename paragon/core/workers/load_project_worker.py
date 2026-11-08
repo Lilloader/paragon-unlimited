@@ -10,7 +10,7 @@ from paragon.core.services.fe10_maps import FE10Maps
 from paragon.core.services.fe10_portraits import FE10Portraits
 from paragon.core.services.fe13_endings import FE13Endings
 from paragon.core.services.fe13_supports import FE13Supports
-from paragon.core.services.fe13_write_preprocessors import FE13WritePreprocessors
+from paragon.unlimited.saving.save_checks import FE13WritePreprocessors
 from paragon.core.services.fe15_chapters import FE15Chapters
 from paragon.core.services.fe15_dungeons import FE15Dungeons
 from paragon.core.services.fe15_events import FE15Events
@@ -72,9 +72,9 @@ class LoadProjectWorker(QObject):
             logging.info(f"Loading {output_path}, {rom_path}, {config_root}")
             extra_layers = []
             if self.project.game == Game.FE13:
-                from paragon.core.services import fe13_dlc
+                from paragon.unlimited.map_maker import dlc_maps
 
-                dlc_layer = fe13_dlc.unpacked_layer(output_path)
+                dlc_layer = dlc_maps.unpacked_layer(output_path)
                 if dlc_layer:
                     extra_layers.append(os.path.normpath(dlc_layer))
                     logging.info(f"DLC maps layer: {dlc_layer}")
@@ -87,7 +87,7 @@ class LoadProjectWorker(QObject):
                 extra_layers,
             )
             gd.read()
-            from paragon.core.pu_change_tracker import TrackedGameData
+            from paragon.unlimited.saving.change_tracker import TrackedGameData
 
             gd = TrackedGameData(gd)  # Paragon Unlimited: notice unsaved changes
 

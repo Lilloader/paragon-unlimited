@@ -68,4 +68,4 @@ top_level:
         title: Notes
         inner:
           type: label
-          text: "The game's own skills keep their built-in effects (with the exp04 code.ips, Hit Rate +10, Sure Strike, Avoid +10 and Gamble run from their Effects lines instead). New skills (ids 103-127; the game keeps 128 skills per unit) get what they do from the Effects list above, which needs the Paragon Unlimited code.ips (exp04 or later). Trigger chances (Stats) and icons work for every skill."
+          text: "The game's own skills keep their built-in effects (with the game code patch, Hit Rate +10, Sure Strike, Avoid +10 and Gamble run from their Effects lines instead). New skills (ids 103-127; the game keeps 128 skills per unit) get what they do from the Effects list above, which needs the game code patch (Unlimited -> Install Game Code Patch). Trigger chances (Stats) and icons work for every skill."

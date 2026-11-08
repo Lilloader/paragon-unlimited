@@ -77,13 +77,15 @@ class Ui_MainWindow(QMainWindow):
         self.unlimited_menu.addAction(self.mod_check_action)
         self.unlimited_menu.addAction(self.check_before_save_action)
         self.unlimited_menu.addSeparator()
-        self.copy_azahar_action = QAction("Copy to Azahar")
-        self.copy_after_save_action = QAction("Copy to Azahar After Saving")
+        self.copy_azahar_action = QAction("Copy to Emulator")
+        self.copy_after_save_action = QAction("Copy to Emulator After Saving")
         self.copy_after_save_action.setCheckable(True)
-        self.azahar_folder_action = QAction("Set Azahar Mod Folder...")
+        self.azahar_folder_action = QAction("Set Your Mod Folder...")
         self.unlimited_menu.addAction(self.copy_azahar_action)
         self.unlimited_menu.addAction(self.copy_after_save_action)
         self.unlimited_menu.addAction(self.azahar_folder_action)
+        self.code_patch_action = QAction("Install Game Code Patch (FE13)...")
+        self.unlimited_menu.addAction(self.code_patch_action)
         self.share_action = QAction("Share My Mod...")
         self.unlimited_menu.addAction(self.share_action)
         self.unlimited_menu.addSeparator()
@@ -146,7 +148,7 @@ class Ui_MainWindow(QMainWindow):
         self.splitter.setOrientation(QtGui.Qt.Horizontal)
         self.splitter.addWidget(widget)
 
-        from paragon.pu_version import VERSION
+        from paragon.unlimited.version import VERSION
 
         self.setWindowTitle(f"Paragon Unlimited v{VERSION}")
         self.setWindowIcon(QIcon("paragon.ico"))

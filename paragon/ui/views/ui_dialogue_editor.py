@@ -117,9 +117,9 @@ class Ui_DialogueEditor(QWidget):
         self.setWindowIcon(QIcon("paragon.ico"))
 
     def _pu_help(self):
-        from paragon.ui import pu_help
+        from paragon.unlimited.app import help_window
 
-        pu_help.show_help(self)
+        help_window.show_help(self)
 
 
 class DialogueCompleter(QCompleter):
@@ -312,7 +312,7 @@ class DialogueTextEdit(QPlainTextEdit):
         svc = getattr(self.service, "pu_voices", None) if self.service else None
         if svc is None and self.service is not None:
             try:
-                from paragon.core.services.fe13_voices import FE13Voices
+                from paragon.unlimited.dialogue.voices import FE13Voices
 
                 svc = FE13Voices(self.service.data)
                 self.service.pu_voices = svc

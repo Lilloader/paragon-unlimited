@@ -1,0 +1,10 @@
+Title: Armies
+Order: 100
+Opens for: belong, BelongTable, Faction
+---
+The armies (factions) units can belong to, with their names and descriptions.
+
+## Files it changes
+
+- *data/GameData.bin.lz* - the armies.
+- *m/E/GameData.bin.lz* - their names and descriptions.
